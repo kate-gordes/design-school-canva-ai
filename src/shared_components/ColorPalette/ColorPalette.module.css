@@ -1,0 +1,28 @@
+/* Color palette container */
+.colorPalette {
+  cursor: pointer;
+}
+
+/* Color row container */
+.colorRow {
+  display: flex;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 40px;
+}
+
+/* Individual color swatch */
+.colorSwatch {
+  flex: 1;
+  min-width: 40px;
+  height: 40px;
+  border: none;
+  transition: transform 0.15s ease;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.05);
+  /* No z-index needed - hover transform is sufficient */
+  position: relative;
+}

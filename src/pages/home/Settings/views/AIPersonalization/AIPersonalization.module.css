@@ -1,0 +1,5 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.memoryCard {
+  background: white;
+}

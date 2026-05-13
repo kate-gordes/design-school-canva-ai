@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skeleton renders Assistant button and Notifications 1`] = `
+<div
+  class="rootContainer rootContainer"
+>
+  <div
+    class="skipLink global"
+  >
+    <easel-text
+      margins="legacy"
+    >
+      <a
+        class="link regular hoverSupported"
+        draggable="false"
+        href="#:r3:"
+      >
+        <span
+          class="skipLinkInner"
+        >
+          Skip to main content
+        </span>
+      </a>
+    </easel-text>
+  </div>
+  <div
+    class="header applyInsets"
+  >
+    <div>
+      header
+    </div>
+  </div>
+  <main
+    class="main contained reset hasPadding hideOutline"
+    id=":r3:"
+    style="--paddingX: space2; --mediumUpPaddingX: space4; --paddingBottom: space0; --smallUpPaddingBottom: space2;"
+  >
+    <div>
+      content
+    </div>
+  </main>
+  <div
+    class="reset hasPadding hideOutline"
+    style="--paddingTop: space6; --smallUpPaddingTop: space8;"
+  >
+    <div>
+      footer
+    </div>
+  </div>
+  <div
+    class="assistant"
+  >
+    <div>
+      Assistant button
+    </div>
+  </div>
+  <div>
+    Notification layer
+  </div>
+</div>
+`;
+
+exports[`skeleton renders Auth popup 1`] = `
+<div
+  class="rootContainer rootContainer"
+>
+  <div
+    class="skipLink global"
+  >
+    <easel-text
+      margins="legacy"
+    >
+      <a
+        class="link regular hoverSupported"
+        draggable="false"
+        href="#:r2:"
+      >
+        <span
+          class="skipLinkInner"
+        >
+          Skip to main content
+        </span>
+      </a>
+    </easel-text>
+  </div>
+  <div
+    class="header applyInsets"
+  >
+    <div>
+      header
+    </div>
+  </div>
+  <main
+    class="main contained reset hasPadding hideOutline"
+    id=":r2:"
+    style="--paddingX: space2; --mediumUpPaddingX: space4; --paddingBottom: space0; --smallUpPaddingBottom: space2;"
+  >
+    <div>
+      content
+    </div>
+  </main>
+  <div
+    class="reset hasPadding hideOutline"
+    style="--paddingTop: space6; --smallUpPaddingTop: space8;"
+  >
+    <div>
+      footer
+    </div>
+  </div>
+  <div
+    style="z-index: 1;"
+  >
+    <div>
+      Auth popup
+    </div>
+  </div>
+</div>
+`;
+
+exports[`skeleton renders high-level page structure 1`] = `
+<div
+  class="rootContainer rootContainer"
+>
+  <div>
+    error provider 
+    <div>
+      analytics provider 
+      <div>
+        auth provider 
+        <div>
+          services provider 
+          <div>
+            session provider 
+            <div>
+              visibility observer provider 
+              <div>
+                media provider 
+                <div
+                  class="skipLink global"
+                >
+                  <easel-text
+                    margins="legacy"
+                  >
+                    <a
+                      class="link regular hoverSupported"
+                      draggable="false"
+                      href="#:r0:"
+                    >
+                      <span
+                        class="skipLinkInner"
+                      >
+                        Skip to main content
+                      </span>
+                    </a>
+                  </easel-text>
+                </div>
+                <div
+                  class="header applyInsets"
+                >
+                  <div>
+                    header
+                  </div>
+                </div>
+                <main
+                  class="main contained reset hasPadding hideOutline"
+                  id=":r0:"
+                  style="--paddingX: space2; --mediumUpPaddingX: space4; --paddingBottom: space0; --smallUpPaddingBottom: space2;"
+                >
+                  <div>
+                    content
+                  </div>
+                </main>
+                <div
+                  class="reset hasPadding hideOutline"
+                  style="--paddingTop: space6; --smallUpPaddingTop: space8;"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
+                <div
+                  class="stickyContentContainer applyInsets"
+                >
+                  <div>
+                    sticky CTA
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`skeleton renders high-level page structure for non-contained page 1`] = `
+<div
+  class="rootContainer rootContainer"
+>
+  <div>
+    error provider 
+    <div>
+      analytics provider 
+      <div>
+        auth provider 
+        <div>
+          services provider 
+          <div>
+            session provider 
+            <div>
+              visibility observer provider 
+              <div>
+                media provider 
+                <div
+                  class="skipLink global"
+                >
+                  <easel-text
+                    margins="legacy"
+                  >
+                    <a
+                      class="link regular hoverSupported"
+                      draggable="false"
+                      href="#:r1:"
+                    >
+                      <span
+                        class="skipLinkInner"
+                      >
+                        Skip to main content
+                      </span>
+                    </a>
+                  </easel-text>
+                </div>
+                <div
+                  class="header applyInsets"
+                >
+                  <div>
+                    header
+                  </div>
+                </div>
+                <main
+                  class="main reset hasPadding hideOutline"
+                  id=":r1:"
+                  style="--paddingX: space0; --paddingBottom: space0; --smallUpPaddingBottom: space2;"
+                >
+                  <div>
+                    content
+                  </div>
+                </main>
+                <div
+                  class="reset hasPadding hideOutline"
+                  style="--paddingTop: space6; --smallUpPaddingTop: space8;"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
+                <div
+                  class="stickyContentContainer applyInsets"
+                >
+                  <div>
+                    sticky CTA
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

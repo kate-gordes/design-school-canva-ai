@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 100px;
+}
+
+.addButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.rainbowGradient {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #ff0000 0deg,
+    #ff9900 60deg,
+    #ffff00 120deg,
+    #00ff00 180deg,
+    #00ffff 240deg,
+    #0000ff 300deg,
+    #ff00ff 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.addButton:hover .rainbowGradient {
+  transform: scale(1.05);
+}
+
+.plusIcon {
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.labelContainer {
+  width: 100%;
+  text-align: center;
+}

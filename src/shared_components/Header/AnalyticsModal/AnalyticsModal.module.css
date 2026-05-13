@@ -1,0 +1,75 @@
+.analyticsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 40px;
+  width: 40px;
+}
+
+.analyticsButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.analyticsButton svg {
+  color: white;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* Above main content since modals are portaled, not header children */
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background-color: #f0f0f0;
+}
+
+.modalBody {
+  padding: 24px;
+}

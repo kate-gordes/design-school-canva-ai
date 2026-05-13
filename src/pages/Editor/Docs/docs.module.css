@@ -1,0 +1,529 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorSurface, colorActionPrimaryFg, colorBorderStandard from '@canva/easel/legacy_tokens:ThemeColors';
+
+.docsArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  background: var(--colorSurfaceCanvas, #f5f5f5);
+}
+
+.docsToolbarContainer {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.docsToolbarContainer > * {
+  background: colorSurface;
+  border: 1px solid colorBorderStandard;
+  border-radius: 12px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 4px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  width: max-content;
+}
+
+.docsScroll {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.docsContainer {
+  width: 100%;
+  max-width: 720px;
+  background: colorSurface;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 48px 64px;
+  flex: 1;
+  margin-top: 48px;
+}
+
+.blocksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Block styling */
+.block {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 3px 0;
+  padding-left: 36px;
+  min-height: 28px;
+}
+
+.blockAddButton {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blockAddButton:hover {
+  opacity: 0.7;
+}
+
+.blockActive .blockAddButton {
+  opacity: 1;
+}
+
+/*
+  Spacing above headings creates clear visual sections.
+  Larger headings get more top space to establish hierarchy.
+  The space above a heading should always be greater than the space
+  below it, so the heading "belongs" to the content that follows.
+*/
+
+/* H1: Major sections — generous breathing room above */
+.block:has(.blockHeading1) {
+  padding-top: 32px;
+  margin-bottom: 4px;
+}
+
+/* H2: Sub-sections — clear break, less than H1 */
+.block:has(.blockHeading2) {
+  padding-top: 28px;
+  margin-bottom: 2px;
+}
+
+/* H3: Minor sub-sections */
+.block:has(.blockHeading3) {
+  padding-top: 20px;
+  margin-bottom: 1px;
+}
+
+/* No extra spacing for the very first block in the document */
+.block:first-child:has(.blockHeading1),
+.block:first-child:has(.blockHeading2),
+.block:first-child:has(.blockHeading3) {
+  padding-top: 3px;
+  margin-bottom: 4px;
+}
+
+/* Reduce spacing when headings stack directly (H2 right after H1, etc.) */
+.block:has(.blockHeading1) + .block:has(.blockHeading2) {
+  padding-top: 8px;
+}
+
+.block:has(.blockHeading2) + .block:has(.blockHeading3) {
+  padding-top: 6px;
+}
+
+/*
+  Align the + button to the vertical center of the first text line.
+  top = block-padding-top + (lineHeight - iconSize) / 2
+  iconSize = 26px.
+*/
+.block:has(.blockHeading1) .blockAddButton {
+  top: 38px;
+}
+
+.block:has(.blockHeading2) .blockAddButton {
+  top: 31px;
+}
+
+.block:has(.blockHeading3) .blockAddButton {
+  top: 21px;
+}
+
+/* Reset add-button position for first block (no extra padding) */
+.block:first-child:has(.blockHeading1) .blockAddButton {
+  top: 9px;
+}
+
+.block:first-child:has(.blockHeading2) .blockAddButton {
+  top: 6px;
+}
+
+.block:first-child:has(.blockHeading3) .blockAddButton {
+  top: 4px;
+}
+
+.blockContent {
+  flex: 1;
+  min-width: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: calc(baseUnit * 2);
+  line-height: 1.7;
+  color: var(--colorTypographyPrimary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  letter-spacing: -0.01em;
+}
+
+.blockContent:empty::before {
+  content: attr(data-placeholder);
+  color: var(--colorTypographySecondary, #aaa);
+  pointer-events: none;
+}
+
+/* Block type styles */
+.blockHeading1 {
+  font-size: calc(baseUnit * 4);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.blockHeading2 {
+  font-size: calc(baseUnit * 3);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.blockHeading3 {
+  font-size: calc(baseUnit * 2.5);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.blockBullet {
+  position: relative;
+  padding-left: 22px;
+}
+
+.blockBullet::before {
+  content: '•';
+  position: absolute;
+  left: 2px;
+  color: var(--colorTypographySecondary, #999);
+  font-size: 1.1em;
+}
+
+.blockNumbered {
+  position: relative;
+  padding-left: 24px;
+}
+
+.blockNumbered::before {
+  content: attr(data-list-number) '.';
+  position: absolute;
+  left: 0;
+  color: var(--colorTypographySecondary, #999);
+  font-variant-numeric: tabular-nums;
+}
+
+.blockQuote {
+  padding-left: 20px;
+  border-left: 3px solid var(--colorBorderPrimary, #d0d0d0);
+  color: var(--colorTypographySecondary, #555);
+  font-style: italic;
+}
+
+/*
+  Tighten list blocks that follow each other — they're part of the same list,
+  so they should feel grouped together, not spread apart.
+*/
+.block:has(.blockBullet) + .block:has(.blockBullet),
+.block:has(.blockNumbered) + .block:has(.blockNumbered) {
+  padding-top: 1px;
+}
+
+/*
+  Add breathing room when a list starts after a paragraph or heading.
+*/
+.block:has(.blockContent:not(.blockBullet):not(.blockNumbered)) + .block:has(.blockBullet),
+.block:has(.blockContent:not(.blockBullet):not(.blockNumbered)) + .block:has(.blockNumbered) {
+  padding-top: 4px;
+}
+
+/* ─── Mobile responsive ─── */
+@media (max-width: 599px) {
+  .docsArea {
+    /* Offset the fixed mobile header (48px) that is portaled out of flow */
+    padding-top: 48px;
+    background: var(--colorSurface, #ffffff);
+    overflow-x: hidden;
+  }
+
+  .docsToolbarContainer {
+    display: none;
+  }
+
+  .docsScroll {
+    padding: 0 16px;
+    padding-bottom: 0;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+  }
+
+  .docsContainer {
+    flex: none;
+    padding: 16px 32px;
+    padding-bottom: calc(
+      16px + 56px + 44px + env(safe-area-inset-bottom, 0px) + var(--keyboard-height, 0px)
+    );
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+    min-height: calc(100svh - 48px - 56px - env(safe-area-inset-bottom, 0px));
+  }
+
+  .block:has(.blockHeading1) {
+    padding-top: 20px;
+  }
+
+  .block:has(.blockHeading2) {
+    padding-top: 16px;
+  }
+
+  .block:has(.blockHeading3) {
+    padding-top: 12px;
+  }
+
+  .blockAddButton {
+    display: none;
+  }
+
+  .block {
+    padding-left: 4px;
+  }
+
+  .blockContent {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+}
+
+/* Markdown-rendered content styles (legacy) */
+.blockContent h1 {
+  font-size: calc(baseUnit * 4);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.blockContent h2 {
+  font-size: calc(baseUnit * 3);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.blockContent h3 {
+  font-size: calc(baseUnit * 2.5);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.blockContent ul,
+.blockContent ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.blockContent li {
+  margin: 2px 0;
+}
+
+.blockContent blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--colorBorderPrimary, #d0d0d0);
+  color: var(--colorTypographySecondary, #555);
+  font-style: italic;
+}
+
+.blockContent code {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.88em;
+  background: var(--colorSurfaceSecondary, #f4f4f4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.blockContent pre {
+  margin: 0;
+  padding: 16px;
+  background: var(--colorSurfaceSecondary, #f4f4f4);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.blockContent pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.blockContent hr {
+  border: none;
+  border-top: 1px solid var(--colorBorderPrimary, #e0e0e0);
+  margin: 20px 0;
+}
+
+.floatingBar {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: flex;
+  gap: 8px;
+}
+
+.floatingConfigButton {
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  background: #8b5cf6;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family:
+    'Canva Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  transition: background 0.15s ease;
+}
+
+.floatingConfigButton:hover {
+  background: #7c3aed;
+}
+
+@media (max-width: 599px) {
+  .floatingBar {
+    display: none;
+  }
+}
+
+/* AI Streaming Animation */
+
+/* Pre-replace selection — pulses to signal the block is about to change */
+.streamingSelecting {
+  background: rgba(139, 92, 246, 0.18);
+  border-radius: 2px;
+  padding: 1px 0;
+  animation: streamingSelectPulse 0.6s ease-in-out;
+}
+
+@keyframes streamingSelectPulse {
+  0% {
+    background: rgba(139, 92, 246, 0);
+  }
+  40% {
+    background: rgba(139, 92, 246, 0.25);
+  }
+  100% {
+    background: rgba(139, 92, 246, 0.18);
+  }
+}
+
+.streamingHighlight {
+  background: rgba(139, 92, 246, 0.22);
+  border-radius: 2px;
+  padding: 1px 0;
+  transition: background-color var(--streaming-fade-ms, 700ms) ease-out;
+}
+
+.streamingHighlightFade {
+  background: rgba(139, 92, 246, 0);
+  border-radius: 2px;
+  padding: 1px 0;
+  transition: background-color var(--streaming-fade-ms, 700ms) ease-out;
+}
+
+.streamingCursorInline {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: rgba(139, 92, 246, 0.8);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: docsStreamingBlink 530ms step-end infinite;
+}
+
+/* On desktop, BlockCaret replaces inline cursors visually.
+   Keep elements in DOM for position tracking but make them invisible. */
+@media (min-width: 600px) {
+  .streamingCursorInline {
+    background-color: transparent;
+    animation: none;
+  }
+
+  .collabCursorInline {
+    background-color: transparent !important;
+    animation: none !important;
+  }
+}
+
+@keyframes docsStreamingBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blockStreamingActive .blockContent:empty::before {
+  content: none;
+}
+
+.blockStreamingActive .blockContent {
+  user-select: none;
+  cursor: default;
+}
+
+/* ─── Remote Collaborator Simulation ─── */
+
+/* Cursor blink animation referenced by inline styles (global name) */
+@keyframes :global(collabBlink) {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blockCollabActive .blockContent {
+  user-select: none;
+  cursor: default;
+}
+
+.blockCollabActive .blockContent:empty::before {
+  content: none;
+}

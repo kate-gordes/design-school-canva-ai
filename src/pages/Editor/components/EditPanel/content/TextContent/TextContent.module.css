@@ -1,0 +1,60 @@
+.sectionDivider {
+  height: 1px;
+  background: rgba(57, 76, 96, 0.15);
+  margin: 8px 0;
+}
+
+.sectionDividerBleed {
+  /* Content has 8px (1u) left/right padding. Extend to hit full edges */
+  margin-left: -8px;
+  margin-right: -8px;
+  width: calc(100% + 16px);
+}
+
+.scrollDivider {
+  position: sticky;
+  top: 0;
+  height: 1px;
+  background: rgba(57, 76, 96, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scrollDivider.visible {
+  opacity: 1;
+}
+
+.scrollArea {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0; /* allow flex child to shrink and scroll */
+  scrollbar-width: none; /* Firefox: hide by default */
+}
+
+/* Hide scrollbar by default (WebKit) */
+.scrollArea::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Show scrollbar when hovering over scrollable area */
+.scrollArea:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollArea:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* TreeMenu font preview row. font-family is injected inline per-item. */
+.fontPreview {
+  font-size: 18px;
+  line-height: 24px;
+}

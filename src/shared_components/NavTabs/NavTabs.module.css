@@ -1,0 +1,72 @@
+@value colorPurple07, colorPurple08, colorPurple09 from '@canva/easel/legacy_tokens:PrimitiveColors';
+
+.wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+  border-top: 1px solid #eeeff2;
+  z-index: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.tabBtn {
+  background: transparent !important;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 !important;
+  min-width: 0;
+  flex: 1;
+}
+
+.tabBtn:hover {
+  background: transparent !important;
+}
+
+.tabBtn:active {
+  background: transparent !important;
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabIcon {
+  color: rgba(74, 46, 127, 0.8);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activeBtn .tabIcon {
+  color: colorPurple07;
+}
+
+.activeBtn .tabIcon svg {
+  fill: colorPurple07;
+  stroke: colorPurple07;
+}
+
+.label {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  color: rgba(74, 46, 127, 0.8);
+  text-align: center;
+}
+
+.activeBtn .label {
+  color: colorPurple08;
+}

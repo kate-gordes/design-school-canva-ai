@@ -1,0 +1,40 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 180px);
+  grid-auto-rows: auto;
+  gap: 24px;
+  justify-content: center;
+  align-content: start;
+}
+
+.tile {
+  --thumbWidth: 180px;
+  --thumbHeight: 96px;
+}
+
+/* Mobile grid — auto-fill columns at fixed thumbnail size */
+.mobileGrid {
+  grid-template-columns: repeat(auto-fill, 133px);
+  grid-auto-rows: auto;
+  gap: 32px 20px;
+  padding: 12px 16px 0;
+  justify-content: center;
+}
+
+.mobileTile {
+  --thumbWidth: 133px;
+  --thumbHeight: 76px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Add buttons tile on mobile grid */
+.mobileTile [class*='gridContainer'] {
+  width: 133px !important;
+  height: 76px !important;
+}
+
+.mobileTile [class*='gridAddButton'],
+.mobileTile [class*='gridDropdownButton'] {
+  height: 100% !important;
+}

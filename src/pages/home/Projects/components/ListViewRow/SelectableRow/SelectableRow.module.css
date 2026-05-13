@@ -1,0 +1,86 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorSurfaceSecondary from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorActionPrimaryBg from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorSurfaceTertiary from "@canva/easel/legacy_tokens:ThemeColors";
+
+.selectableRow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  width: 100%;
+  position: relative;
+}
+
+.selectableRow:hover {
+  background-color: colorSurfaceSecondary;
+}
+
+.selectableRow:focus-visible {
+  outline: 2px solid colorActionPrimaryBg;
+  outline-offset: -2px;
+}
+
+.selected {
+  background-color: colorSurfaceSecondary;
+}
+
+.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: colorActionPrimaryBg;
+}
+
+.dragging {
+  opacity: 0.6;
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dragHover {
+  background-color: colorSurfaceTertiary;
+  border: 2px dashed colorActionPrimaryBg;
+  border-radius: calc(baseUnit * 0.5);
+}
+
+.didDrop {
+  background-color: colorActionPrimaryBg;
+  animation: dropComplete 0.3s ease-out;
+}
+
+.detailsOpen {
+  background-color: colorSurfaceSecondary;
+}
+
+.renaming {
+  background-color: colorSurfaceTertiary;
+}
+
+.small {
+  min-height: calc(baseUnit * 6);
+  padding: calc(baseUnit * 1);
+}
+
+.large {
+  min-height: calc(baseUnit * 8);
+  padding: calc(baseUnit * 1.5);
+}
+
+@keyframes dropComplete {
+  0% {
+    background-color: colorActionPrimaryBg;
+    transform: scale(1.02);
+  }
+
+  100% {
+    background-color: colorSurfaceSecondary;
+    transform: scale(1);
+  }
+}

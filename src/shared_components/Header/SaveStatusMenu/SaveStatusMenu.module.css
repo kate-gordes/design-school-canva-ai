@@ -1,0 +1,17 @@
+.menuContent {
+  padding: 8px 16px;
+  width: 320px;
+  z-index: 1001; /* Above main content since dropdowns are portaled, not header children */
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.versionHistoryButton {
+  width: 100%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6b46c1 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+}

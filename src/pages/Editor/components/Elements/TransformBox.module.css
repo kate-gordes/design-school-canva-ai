@@ -1,0 +1,154 @@
+/* TransformBox - Counter-scaled selection UI */
+
+.transformBox {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.selectionBorder {
+  position: absolute;
+  inset: 0;
+  border: calc(1.5px * var(--inverseScale, 1)) solid #8b3dff;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.handles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Base handle styles — matches monorepo
+   src/pages/editor/editing/selection_frame/selection_controls/core_handles/handle_overlay.css:
+   background colorWhiteA10, shadow colorBlackA02 + colorBlackA04. */
+.handle {
+  position: absolute;
+  background: #ffffff;
+  box-shadow:
+    0 0 calc(4px * var(--inverseScale, 1)) calc(1px * var(--inverseScale, 1)) rgba(0, 0, 0, 0.04),
+    0 0 0 calc(1px * var(--inverseScale, 1)) rgba(0, 0, 0, 0.08);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Corner handles - 14×14 circles, offset by half to center on corner */
+.cornerHandle {
+  width: calc(14px * var(--inverseScale, 1));
+  height: calc(14px * var(--inverseScale, 1));
+  border-radius: 50%;
+}
+
+.topLeft {
+  top: calc(-7px * var(--inverseScale, 1));
+  left: calc(-7px * var(--inverseScale, 1));
+  cursor: nwse-resize;
+}
+
+.topRight {
+  top: calc(-7px * var(--inverseScale, 1));
+  right: calc(-7px * var(--inverseScale, 1));
+  cursor: nesw-resize;
+}
+
+.bottomLeft {
+  bottom: calc(-7px * var(--inverseScale, 1));
+  left: calc(-7px * var(--inverseScale, 1));
+  cursor: nesw-resize;
+}
+
+.bottomRight {
+  bottom: calc(-7px * var(--inverseScale, 1));
+  right: calc(-7px * var(--inverseScale, 1));
+  cursor: nwse-resize;
+}
+
+/* Side handles - 14×5 pills centered on each edge */
+.sideHandle {
+  border-radius: calc(2.5px * var(--inverseScale, 1));
+}
+
+.top {
+  width: calc(14px * var(--inverseScale, 1));
+  height: calc(5px * var(--inverseScale, 1));
+  top: calc(-2.5px * var(--inverseScale, 1));
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.bottom {
+  width: calc(14px * var(--inverseScale, 1));
+  height: calc(5px * var(--inverseScale, 1));
+  bottom: calc(-2.5px * var(--inverseScale, 1));
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.left {
+  width: calc(5px * var(--inverseScale, 1));
+  height: calc(14px * var(--inverseScale, 1));
+  left: calc(-2.5px * var(--inverseScale, 1));
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.right {
+  width: calc(5px * var(--inverseScale, 1));
+  height: calc(14px * var(--inverseScale, 1));
+  right: calc(-2.5px * var(--inverseScale, 1));
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+/* Rotation handle - below the element, standalone circle */
+.rotationHandleContainer {
+  position: absolute;
+  left: 50%;
+  bottom: calc(-36px * var(--inverseScale, 1));
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.rotationHandle {
+  width: calc(24px * var(--inverseScale, 1));
+  height: calc(24px * var(--inverseScale, 1));
+  background: white;
+  border: calc(1px * var(--inverseScale, 1)) solid #cccccc;
+  border-radius: 50%;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.rotationHandle:hover {
+  background: #8b3dff;
+  border-color: #8b3dff;
+  transform: scale(1.05);
+}
+
+.rotationHandle:hover .rotationIcon {
+  color: white;
+}
+
+.rotationHandle:active {
+  cursor: grabbing;
+}
+
+.rotationIcon {
+  width: calc(14px * var(--inverseScale, 1));
+  height: calc(14px * var(--inverseScale, 1));
+  color: #666666;
+  transition: color 0.15s ease;
+}

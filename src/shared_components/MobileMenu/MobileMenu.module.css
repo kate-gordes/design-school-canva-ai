@@ -1,0 +1,59 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 312px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px 16px 16px;
+  z-index: 1005;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 220ms ease-in-out;
+}
+
+:global(body.overlayActive) .wrapper {
+  z-index: 1001;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+:global(body.overlayActive) .backdrop {
+  z-index: 1002;
+}
+
+.visible {
+  transform: translateX(0);
+}
+.backdropVisible {
+  opacity: 1;
+}

@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 9999px;
+  background: var(--ua_kpA);
+  border: 1px solid var(--Zya5eQ);
+  cursor: pointer;
+  color: var(--VcZbvQ);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  transition: border-color 0.15s ease;
+}
+
+.pill:hover {
+  border-color: var(--9_Lxmw);
+}
+
+.pill:focus-visible {
+  outline: 2px solid var(--xAYPzA);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon svg,
+.icon img {
+  width: 20px !important;
+  height: 20px !important;
+}

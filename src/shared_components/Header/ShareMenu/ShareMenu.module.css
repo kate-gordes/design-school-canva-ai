@@ -1,0 +1,181 @@
+@value colorTypographyPrimary, colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* ShareMenu component styles */
+
+.shareMenuContent {
+  width: 416px;
+  max-width: 416px;
+  box-sizing: border-box;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Above main content since dropdowns are portaled, not header children */
+}
+
+.scrollableContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.shareButton {
+  background: #f1eafd !important;
+  color: colorTypographyPrimary !important;
+  transition: color 0.2s ease;
+  min-width: 0 !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.shareButton:hover {
+  background: colorSurface !important;
+}
+
+.shareButton svg {
+  color: colorTypographyPrimary !important;
+  transition: color 0.2s ease;
+}
+
+.headerSection {
+  padding: 16px 16px 16px 16px;
+}
+
+.menuSection {
+  padding: 0 16px 16px 16px;
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+}
+
+.avatarContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+}
+
+.addPersonButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  position: absolute;
+  left: 24px;
+}
+
+.addPersonButton:hover {
+  border-color: #999;
+  background-color: #f5f5f5;
+}
+
+.customDropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.dropdownTrigger:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdownIcon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+}
+
+.dropdownOption {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdownOption:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdownOption:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdownOption:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.selectedOption {
+  background-color: #f0f8ff;
+}
+
+.optionIcon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.optionContent {
+  flex: 1;
+}
+
+.copyLinkButton {
+  background: linear-gradient(90deg, #7d2ae8, #9b59b6);
+  border: none;
+  color: white;
+  height: 44px;
+  font-weight: 600;
+}
+
+.copyLinkButton:hover {
+  background: linear-gradient(90deg, #6c1fc7, #8e44ad);
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0 16px;
+}
+
+.actionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}

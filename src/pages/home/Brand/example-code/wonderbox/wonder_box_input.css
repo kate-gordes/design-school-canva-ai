@@ -1,0 +1,351 @@
+@value colorCanvaBrand, colorPurple02, colorPurple06 from "ui/base/colors/colors.css";
+@value baseUnit, belowSmall from "ui/base/metrics/metrics.css";
+@value colorBorderActive, colorPage, colorSecondarySelectedActive, themeDark, themeLight from "ui/base/theme/theme.css";
+
+@value borderRadius: calc(baseUnit * 2.5);
+@value solidShadowColor: var(--solidShadowColor);
+@value solidShadow: 0px 6px 20px -4px solidShadowColor;
+/* brand gradient via ui/base/tokens/gradient.css, cloned and deconstructed to adjust the opacity */
+
+@value colorTeal03: #00C4CC;
+@value colorPurple: #7D2AE8;
+@value boxBackground: colorPage;
+@value gradientBorderStart: var(--gradientBorderStart);
+@value gradientBorderEnd: var(--gradientBorderEnd);
+@value gradient: linear-gradient(90deg, gradientBorderStart, gradientBorderEnd);
+/* gradient solution via ui/base/box/magic_box - stack backgrounds
+   There is a `postcss-color-function` limitation that prevents us from using both `color()` and `var(--prop)`
+   in the same property value, so we set each token separately as CSS custom properties. */
+@value gradientBorder: linear-gradient(boxBackground, boxBackground) padding-box, gradient border-box;
+@value gradientShadow: 6px 3px 12px 0 rgb(from colorPurple06 r g b / 15%), -6px -3px 12px 0 rgb(from colorCanvaBrand r g b / 15%);
+
+@value transitionDuration: 500ms;
+@value inputAnimationDuration: 1500ms;
+@value inputHeaderDuration: 1s;
+
+@value maxWidthIsOpen: calc(baseUnit * 120);
+
+.container {
+  position: relative;
+  border-radius: borderRadius;
+  /* 752px, Easel medium container */
+  max-width: calc(baseUnit * 94);
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.container.isOpen {
+  /* 960px, custom container */
+  max-width: maxWidthIsOpen;
+}
+
+/* This prevents the bold gradient from being applied on hover, which would scale up and cause a
+ * visual jump when the Wonder Box collapses on small screens. */
+.hoverDisabled {
+  pointer-events: none;
+}
+
+/*
+ * The Wonder Box transitions its border, background and box shadow quite
+ * freely. Animating these values with a CSS transition is not performant.
+ * Instead we have separate elements for each visual state, and only transition
+ * opacity between two (cross-fade). Sometimes this approach uses
+ * ::before/::after pseudo-elements, but because we have >2 states we need one
+ * element in the DOM for each state.
+ */
+.containerDefault .containerBackgroundGradientDefault {
+  opacity: 1;
+}
+
+.containerDefault:hover .containerBackgroundGradientDefault {
+  opacity: 0;
+}
+
+.containerDefault:hover .containerBackgroundGradientBold {
+  opacity: 1;
+}
+
+.containerSolid .containerBackgroundSolid {
+  opacity: 1;
+}
+
+.containerSolid:focus-within .containerBackgroundSolid {
+  opacity: 0;
+}
+
+.containerSolid:focus-within .containerBackgroundSolidActive {
+  opacity: 1;
+}
+
+.containerGradient .containerBackgroundGradientMuted {
+  opacity: 1;
+}
+
+.containerGradient:focus-within .containerBackgroundGradientMuted {
+  opacity: 0;
+}
+
+.containerGradient:focus-within .containerBackgroundGradientActive {
+  opacity: 1;
+}
+
+.containerBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  margin: -1px 0 0 -1px;
+  border: 1px solid transparent;
+  border-radius: borderRadius;
+  background: colorPage;
+  opacity: 0;
+  z-index: -1;
+}
+
+.containerBackgroundBase {
+  background: colorPage;
+  opacity: 1;
+}
+
+@supports (prefers-reduced-motion: reduced) {
+  .containerBackground {
+    transition-duration: 0s;
+  }
+}
+
+.containerBackgroundGradientDefault {
+  --gradientBorderStart: rgb(from colorTeal03 r g b / 60%);
+  --gradientBorderEnd: rgb(from colorPurple r g b / 60%);
+  background: gradientBorder;
+  border: 1px solid transparent;
+  box-shadow: gradientShadow;
+}
+
+.containerBackgroundGradientMuted {
+  --gradientBorderStart: rgb(from colorTeal03 r g b / 30%);
+  --gradientBorderEnd: rgb(from colorPurple r g b / 30%);
+  background: gradientBorder;
+  border: 1px solid transparent;
+  box-shadow: gradientShadow;
+}
+
+.containerBackgroundGradientActive {
+  --gradientBorderStart: colorTeal03;
+  --gradientBorderEnd: colorPurple;
+  background: gradientBorder;
+  border: 1px solid transparent;
+  box-shadow: gradientShadow;
+}
+
+.containerBackgroundGradientBold {
+  --gradientBorderStart: rgb(from colorTeal03 r g b / 60%);
+  --gradientBorderEnd: rgb(from colorPurple r g b / 60%);
+  background: gradientBorder;
+  border: 1px solid transparent;
+  box-shadow:
+    0px 7.56px 17.64px 0px rgb(from colorPurple06 r g b / 35%),
+    0px 1.26px 1.26px 0px rgb(from colorPurple06 r g b / 35%),
+    -1.89px 0.63px 6.3px 0px rgb(from colorCanvaBrand r g b / 55%);
+}
+
+themeLight {
+  --solidShadowColor: colorPurple02;
+}
+
+themeDark {
+  --solidShadowColor: colorPurple06;
+}
+
+.containerBackgroundSolid {
+  border: 1px solid solidShadowColor;
+  box-shadow: solidShadow;
+}
+
+.containerBackgroundSolidActive {
+  border: 1px solid colorBorderActive;
+  box-shadow: solidShadow;
+}
+
+.footerAdjustments {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 calc(borderRadius - 1px) calc(borderRadius - 1px);
+  z-index: 1;
+}
+
+.footerAdjustmentsContent {
+  position: relative;
+}
+
+.footerAdjustments::before,
+.footerAdjustments::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* -1px to account for the adjustments box being 1px smaller than the container */
+  border-radius: 0 0 calc(borderRadius - 1px) calc(borderRadius - 1px);
+  transition: opacity 200ms ease-out;
+}
+
+.footerAdjustments::after {
+  z-index: -1;
+}
+
+@supports (prefers-reduced-motion: reduced) {
+  .footerAdjustments::before,
+  .footerAdjustments::after {
+    transition-duration: 0s;
+  }
+}
+
+.footerAdjustments::before {
+  opacity: 1;
+  background: colorSecondarySelectedActive;
+}
+
+.footerAdjustments::after {
+  opacity: 0;
+  --gradientBorderStart: rgb(from colorTeal03 r g b / 10%);
+  --gradientBorderEnd: rgb(from colorPurple r g b / 10%);
+  background: gradient;
+}
+
+.input {
+  /** Exists for integration tests */
+}
+
+/* a single-line text input is a few pixels shorter than a one-row multiline input */
+.textInput {
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+
+.multilineInput {
+  padding-left: calc(baseUnit * 0.5);
+  padding-right: calc(baseUnit * 0.5);
+}
+
+.multilineInput.withFooter {
+  width: calc(100% - calc(baseUnit * 4));
+}
+
+.multilineInputFooter {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+  width: calc(baseUnit * 4);
+  height: calc(baseUnit * 4);
+}
+
+.footerAdjustmentsGradient::before {
+  opacity: 0;
+}
+
+.footerAdjustmentsGradient::after {
+  opacity: 1;
+}
+
+.inputWithSuggestions {
+  background: transparent;
+  z-index: 2;
+}
+
+.voiceInputContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+
+  /* inferred from MultilineInput */
+  max-height: calc(baseUnit * 27.5);
+
+  /* The below are copied from the .multilineTextField class in
+     * multiline_input/multiline_input.css.
+     */
+  border: 1px solid transparent;
+  padding: calc(baseUnit + 1px) calc(baseUnit * 1.5) calc(baseUnit * 1.25);
+}
+
+.suggestionsFlyout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: -1px 0 0 -1px;
+  z-index: 1;
+  min-height: calc(100% + 2px);
+  width: calc(100% + 2px);
+  overflow: hidden;
+
+  padding-top: calc(40px + 4 * baseUnit);
+  border: 1px solid colorBorderActive;
+  border-radius: borderRadius;
+  box-shadow: solidShadow;
+}
+
+.suggestionsFlyoutContent {
+  /* iOS safari requires child elements of absolutely positioned parents to be explicitly
+     * relatively positioned in order to avoid problems with z-index.
+     * see https://canvadev.atlassian.net/browse/OB-296
+     */
+  position: relative;
+}
+
+.hiddenContent {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.deferred {
+  pointer-events: none;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.outerAnimationContainer {
+  transform-origin: top;
+  transition-timing-function: step-end;
+}
+
+.innerAnimationContainer {
+  transform-origin: top left;
+  transition-timing-function: step-end;
+}
+
+.inputRevealAnimation {
+  opacity: 0;
+  animation: inputAnimation inputAnimationDuration forwards ease-in-out;
+}
+
+@keyframes inputAnimation {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media belowSmall {
+  .outerAnimationContainer {
+    transform-origin: bottom;
+  }
+
+  .innerAnimationContainer {
+    transform-origin: bottom left;
+  }
+}

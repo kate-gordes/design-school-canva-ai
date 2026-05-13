@@ -1,0 +1,150 @@
+@value colorPage, colorBorder from '@canva/easel/legacy_tokens:ThemeColors';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 300;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sheet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 360px;
+  background: colorPage;
+  z-index: 301;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInLeft 0.25s ease-out;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid colorBorder;
+  flex-shrink: 0;
+}
+
+.composeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #0d1216;
+  width: 32px;
+  height: 32px;
+}
+
+.composeButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.chatList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+}
+
+.section {
+  padding-top: 16px;
+}
+
+.section:first-child {
+  padding-top: 0;
+}
+
+.sectionTitle {
+  padding: 0 12px 8px;
+}
+
+.sectionItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: #0d1216;
+  transition: background 0.15s ease;
+}
+
+.chatItem:hover,
+.chatItem:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.chatItem > :last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.footer {
+  border-top: 1px solid colorBorder;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: #0d1216;
+  transition: background 0.15s ease;
+}
+
+.footerItem:hover,
+.footerItem:active {
+  background: rgba(0, 0, 0, 0.05);
+}

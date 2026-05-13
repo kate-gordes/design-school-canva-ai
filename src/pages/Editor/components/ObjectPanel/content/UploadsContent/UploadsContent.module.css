@@ -1,0 +1,237 @@
+/* Outer scroll panel: viewport height minus editor chrome */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 57px - 32px);
+  max-height: calc(100vh - 57px - 32px);
+  min-height: 0;
+}
+
+.searchHeader {
+  flex-shrink: 0;
+  padding-bottom: 14px;
+}
+
+.scrollBody {
+  height: auto;
+  margin-right: -16px;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}
+
+.uploadActionsRow {
+  display: flex;
+  gap: 8px;
+}
+
+.uploadActionPrimary {
+  flex: 1;
+}
+
+/* Upload item card wrapper */
+.uploadCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.uploadCard:hover .hoverOverlay,
+.uploadCard:has(.flyout) .hoverOverlay {
+  opacity: 1;
+}
+
+/* Thumbnail images */
+.uploadedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover overlay with checkbox + more button */
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.checkboxArea {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  pointer-events: auto;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+}
+
+.checkbox:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.checkboxSelected {
+  background: var(--ui-color-primary, #8b3dff);
+  border-color: var(--ui-color-primary, #8b3dff);
+}
+
+.checkboxSelected:hover {
+  background: var(--ui-color-primary, #8b3dff);
+}
+
+.moreButtonArea {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  pointer-events: auto;
+}
+
+.moreButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+  padding: 0;
+}
+
+.moreButton:hover {
+  background: #f0f0f0;
+}
+
+/* Flyout menu */
+.flyoutBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.flyout {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 1px 4px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.flyoutHeader {
+  padding: 12px 16px 8px;
+}
+
+.flyoutTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flyoutTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d1216;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.flyoutEditButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: #5b6573;
+  flex-shrink: 0;
+}
+
+.flyoutEditButton:hover {
+  color: #0d1216;
+}
+
+.flyoutSubtitle {
+  font-size: 12px;
+  color: #5b6573;
+  margin-top: 2px;
+}
+
+.flyoutDivider {
+  height: 1px;
+  background: #e8eaed;
+  margin: 0 8px;
+}
+
+.flyoutMenuItems {
+  padding: 4px 0;
+}
+
+.flyoutMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0d1216;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.flyoutMenuItem:hover {
+  background: #f0f0f0;
+}
+
+.flyoutMenuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #5b6573;
+}
+
+/* Video-specific styles */
+.videoDuration {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  z-index: 1;
+}

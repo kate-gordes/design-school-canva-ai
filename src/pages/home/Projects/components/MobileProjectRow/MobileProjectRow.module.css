@@ -1,0 +1,110 @@
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.rowButton {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.thumbnail {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(15, 16, 21, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnailPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 16, 21, 0.06);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.dot {
+  color: rgba(15, 16, 21, 0.5);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.miniIcon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.miniIcon svg {
+  width: 10px !important;
+  height: 10px !important;
+  color: white;
+}
+
+.multiIconGroup {
+  display: inline-flex;
+  align-items: center;
+}
+
+.multiIcon {
+  margin-left: -6px;
+  box-shadow: 0 0 0 1.5px white;
+}
+
+.multiIcon:first-child {
+  margin-left: 0;
+}
+
+.menu {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}

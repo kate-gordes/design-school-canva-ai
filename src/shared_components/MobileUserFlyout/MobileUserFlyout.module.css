@@ -1,0 +1,221 @@
+@value colorPage, colorBorder, colorSurfaceSecondaryLow from '@canva/easel/legacy_tokens:ThemeColors';
+@value space100, space200, baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+/* Full screen overlay container */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: colorPage;
+  z-index: 200;
+  overflow-y: auto;
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Header with back button and notification */
+.header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.backButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationButton {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.notificationButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff3b5c;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Content area */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 0 16px 32px 16px;
+}
+
+/* Section styling */
+.sectionHeader {
+  padding: 16px 0 16px 0;
+}
+
+/* Card styling for account and team */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: colorPage;
+  border: 1px solid colorBorder;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  background: colorSurfaceSecondaryLow;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.chevronButton {
+  background: transparent;
+  border: 1px solid colorBorder;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chevronButton:hover {
+  background: colorSurfaceSecondaryLow;
+}
+
+/* Team logo */
+.teamLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Menu items section */
+.menuSection {
+  margin-top: 16px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.menuItem:hover {
+  opacity: 0.8;
+}
+
+.menuItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menuItemRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Staff badge */
+.staffBadge {
+  background: #ff3b5c;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Beta badge */
+.betaBadge {
+  background: #f0f0f0;
+  color: #666;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 8px 0;
+}
+
+/* Avatar button in header (for profile icon) */
+.avatarButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.avatarButton:hover {
+  opacity: 0.9;
+}

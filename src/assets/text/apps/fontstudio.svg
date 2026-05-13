@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#F5E6D0"/>
+  <defs>
+    <clipPath id="sClip">
+      <text x="28" y="105" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="110" letter-spacing="-5">S</text>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#sClip)">
+    <rect y="0" width="128" height="22" fill="#FF6B35"/>
+    <rect y="22" width="128" height="22" fill="#F7C948"/>
+    <rect y="44" width="128" height="22" fill="#3B82F6"/>
+    <rect y="66" width="128" height="22" fill="#F97316"/>
+    <rect y="88" width="128" height="22" fill="#60A5FA"/>
+    <rect y="110" width="128" height="18" fill="#FB923C"/>
+  </g>
+  <text x="28" y="105" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="110" letter-spacing="-5" fill="none" stroke="#1a1a1a" stroke-width="2">S</text>
+</svg>

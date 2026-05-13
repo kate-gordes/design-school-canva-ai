@@ -1,0 +1,33 @@
+/* Required for Tailwind to work */
+/* Can put global styles here but keep in mind that it will be applied to all components */
+
+@import 'tailwindcss';
+
+/* Custom Tailwind theme colors */
+/* Use via var(--color-cyan) or class="bg-cyan" */
+@theme {
+  --color-cyan: #00c4cc;
+  --color-purple: #5a32fa;
+  --color-violet: #7d2ae8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Global CSS overrides */
+
+/* Global styles */
+
+/* Freeze body scroll while overlays (like mobile create sheet) are open */
+body.overlayActive {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}

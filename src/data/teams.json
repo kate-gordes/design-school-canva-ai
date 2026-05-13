@@ -1,0 +1,110 @@
+{
+  "teams": [
+    {
+      "id": "1",
+      "name": "Canva Team",
+      "gradientType": "bluePurple",
+      "avatarType": "logo",
+      "members": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ],
+      "isMainTeam": true
+    },
+    {
+      "id": "2",
+      "name": "Canva Code",
+      "gradientType": "blue",
+      "initials": "CC",
+      "avatarColor": "#3b82f6",
+      "members": ["1", "4", "7", "10", "14", "18", "20", "22"]
+    },
+    {
+      "id": "3",
+      "name": "Canva Video Brand",
+      "gradientType": "purple",
+      "initials": "CV",
+      "avatarColor": "#7c3aed",
+      "members": ["2", "5", "8", "11", "15", "19", "23"]
+    },
+    {
+      "id": "4",
+      "name": "Editor Glow Up",
+      "gradientType": "pinkRed",
+      "initials": "EG",
+      "avatarColor": "#dc2626",
+      "members": ["3", "6", "9", "12", "16", "21", "24"]
+    },
+    {
+      "id": "5",
+      "name": "Magic Mockup - Testing",
+      "gradientType": "orange",
+      "initials": "MM",
+      "avatarColor": "#f97316",
+      "members": ["1", "5", "9", "13", "17", "21", "25"]
+    },
+    {
+      "id": "6",
+      "name": "Design Systems",
+      "gradientType": "bluePurple",
+      "initials": "DS",
+      "avatarColor": "#0ea5e9",
+      "members": ["2", "6", "10", "14", "18", "22"]
+    },
+    {
+      "id": "7",
+      "name": "Growth & Marketing",
+      "gradientType": "orange",
+      "initials": "GM",
+      "avatarColor": "#22c55e",
+      "members": ["3", "7", "11", "15", "19", "23"]
+    },
+    {
+      "id": "8",
+      "name": "AI Research",
+      "gradientType": "purple",
+      "initials": "AI",
+      "avatarColor": "#7c3aed",
+      "members": ["4", "8", "12", "16", "20", "24"]
+    },
+    {
+      "id": "9",
+      "name": "Platform Engineering",
+      "gradientType": "blue",
+      "initials": "PE",
+      "avatarColor": "#3b82f6",
+      "members": ["1", "3", "5", "7", "9", "11", "13", "15", "17", "19", "21", "23", "25"]
+    },
+    {
+      "id": "10",
+      "name": "User Experience",
+      "gradientType": "pinkRed",
+      "initials": "UX",
+      "avatarColor": "#ec4899",
+      "members": ["2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24"]
+    }
+  ]
+}

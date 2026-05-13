@@ -1,0 +1,35 @@
+@value space400, space600 from "@canva/easel/legacy_tokens:Metrics";
+@value colorTypographyPrimary, colorTypographySecondary from "@canva/easel/legacy_tokens:ThemeColors";
+
+.container {
+  min-height: 400px;
+  border: 1px dashed rgb(194, 194, 194);
+  border-radius: 12px;
+}
+
+.content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.categoryImage {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.title {
+  color: colorTypographyPrimary;
+  max-width: 500px;
+}
+
+.description {
+  color: colorTypographySecondary;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.actionButton {
+  min-width: 200px;
+}

@@ -1,0 +1,66 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seeAll {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--xAYPzA);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.seeAll:hover {
+  text-decoration: underline;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  position: relative;
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.label {
+  color: var(--VcZbvQ);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.playBadge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

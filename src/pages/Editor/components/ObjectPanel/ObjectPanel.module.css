@@ -1,0 +1,311 @@
+.drawerContainer {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+  /* Firefox */
+}
+
+.collapseButton {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 42px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e3e5e9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  color: rgba(15, 18, 26, 0.6);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.collapseButton:hover {
+  background: #f5f5f5;
+  color: rgba(15, 18, 26, 0.85);
+}
+
+.drawerInnerOffset {
+  padding-top: 56px;
+}
+
+/* Hide scrollbars by default; show on scroll/hover */
+.drawerContainer::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.drawerContainer:hover::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.drawerContainer:hover::-webkit-scrollbar-thumb {
+  background: rgba(57, 76, 96, 0.3);
+  border-radius: 8px;
+}
+
+.tabBar {
+  /* existing styles likely already defined elsewhere; placeholder to avoid missing class */
+}
+
+.floatingDrawerContainer {
+}
+
+.editPanelOffset {
+}
+
+.toolsPanel {
+}
+
+.drawerOffsetWrapper {
+}
+
+.drawerTranslateOffset {
+  transform: translateY(56px);
+}
+
+/* ========== TOOLS PANEL CLOSE BUTTON ========== */
+
+.toolsCloseButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  background: white;
+  border: 1px solid rgba(57, 76, 96, 0.15);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.toolsCloseButton:hover {
+  background: #f0f1f5;
+}
+
+/* ========== OBJECT PANEL CONTAINER WIDTH CLASSES ========== */
+
+.objectPanelDocked {
+  width: 432px;
+  /* 72px sidebar + 360px content panel */
+}
+
+.objectPanelDockedTools {
+  width: 128px;
+  /* 72px sidebar + 56px Tools panel */
+}
+
+.objectPanelUndocked {
+  width: 72px;
+  /* Just the tabs */
+}
+
+/* ========== CONTENT PANEL CLASSES ========== */
+
+.contentPanel {
+  width: 360px;
+  padding: 16px;
+  border-right: 1px solid rgba(57, 76, 96, 0.15);
+  background-color: rgb(255, 255, 255);
+  height: calc(100vh - 57px);
+  flex-shrink: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentPanelDocked {
+  overflow: visible;
+  height: calc(100vh - 57px);
+  display: flex;
+  flex-direction: column;
+}
+
+.contentContainerUndocked {
+  position: absolute;
+  left: 72px;
+  top: 8px;
+  bottom: 8px;
+  width: 360px;
+  /* No z-index needed - inherits from main content stacking context */
+  display: flex;
+  flex-direction: column;
+}
+
+.contentContainerDocked {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentPanelUndocked {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentPanelTools {
+  position: absolute;
+  width: 56px;
+  top: 365px;
+  height: auto;
+  bottom: auto;
+  padding: 8px;
+  /* No z-index needed - inherits from main content stacking context */
+}
+
+/* ========== SHARED CONTENT STYLES ========== */
+
+.sectionTitle {
+  font-weight: 700 !important;
+  margin-top: 4px;
+}
+
+/* Scrollable tab content.
+ *
+ * Default height fallback for tabs whose parent is not a flex column
+ * (UploadsContent, BrandContent, etc. — their outer wrapper doesn't
+ * propagate height). Tabs that do use a proper flex column layout
+ * (Elements, Templates) override this with `height: auto` and let
+ * flex:1 + min-height:0 size the scroll area against a sibling
+ * flex-shrink:0 header.
+ *
+ * Persistent scrollbar when content overflows, no scrollbar (and no
+ * width reclaimed) when it doesn't — via overflow-y: auto. */
+.scrollableTabContent {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  padding-bottom: 16px;
+  height: calc(100vh - 57px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(57, 76, 96, 0.3) transparent;
+}
+
+.scrollableTabContent::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+.scrollableTabContent::-webkit-scrollbar-thumb {
+  background: rgba(57, 76, 96, 0.3);
+  border-radius: 8px;
+}
+
+/* Search box styling — shared single-line search used across panels */
+.searchBox {
+  width: 100%;
+  border: 1px solid #e7dbff;
+  border-radius: 16px;
+  height: 56px;
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.searchStartIcon {
+  color: rgba(57, 76, 96, 0.7);
+}
+
+/* ========== DRAWER CONTAINER ========== */
+
+.floatingDrawerContainer {
+  /* Elevate stacking context when drawer is floating to appear above Canvas */
+  z-index: 20;
+  /* Easel's floating Drawer overlay uses position:absolute + height:100%, which
+     resolves to 0 unless the nearest positioned ancestor has a definite height.
+     Without this, the floating drawer's panel collapses to min-content sized to
+     the inner searchForm (calc(100vh - 89px)) but its max-height: 100% never
+     bottoms out, producing an outer scrollbar. Same height the docked panel uses. */
+  height: calc(100vh - 57px);
+}
+
+/* In contained/floating mode, Easel's drawer panel (.Io6p0w) is
+ * height:min-content with overflow:auto — when DesignContent's fixed-height
+ * inner content doesn't exactly match, the panel shows its own scrollbar.
+ * The inner .scrollableTabContent already handles scrolling invisibly, so
+ * clip the outer panel to match the docked look. */
+.floatingDrawerContainer :global(.Io6p0w) {
+  overflow: hidden;
+}
+
+/* When showing Edit Panels (toolbar-triggered), start below floating toolbar */
+.editPanelOffset {
+  padding-top: 56px;
+}
+
+.editPanelWrapper {
+}
+
+.editPanelFloatMargin {
+  margin-top: 56px;
+  /* move the entire drawer below the toolbar */
+}
+
+.drawerOffsetWrapper {
+  position: absolute;
+  top: 56px;
+  /* push the entire floating drawer below the toolbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ========== TOOLS PANEL CUSTOM POSITIONING ========== */
+
+.toolsPanelWrapper {
+  position: absolute;
+  left: 0;
+  top: 320px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolsPanel {
+  width: auto;
+  height: auto;
+  background: white;
+  border: 1px solid rgba(57, 76, 96, 0.15);
+  border-radius: 14px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(0, 0, 0, 0.1);
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Sticky header for panel top sections (wonderbox + buttons) */
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: white;
+  padding-bottom: 14px;
+}
+
+/* Tab bar container beside the vertical tabs */
+.tabBar {
+  padding-top: 8px;
+}

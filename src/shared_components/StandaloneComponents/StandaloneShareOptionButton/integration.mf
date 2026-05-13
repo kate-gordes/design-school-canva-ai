@@ -1,0 +1,361 @@
+# Standalone Share Option Button Integration Manifest
+# Version: 1.0.0
+# Created: 2024
+# Description: Instructions for integrating the standalone share option button into any React project
+
+## OVERVIEW
+This manifest provides step-by-step instructions for integrating the Standalone Share Option Button component into your React project. This component recreates Canva's share action buttons with zero external dependencies.
+
+## REQUIREMENTS
+- React 16.8+ (hooks support recommended, but not required)
+- TypeScript 4.0+ (optional but recommended)
+- Modern browser with CSS Grid support
+
+## FILES TO COPY
+Copy these 2 files to your project:
+
+```
+src/components/StandaloneShareOptionButton/
+├── index.tsx          # Main component (REQUIRED)
+└── styles.css         # Styling (REQUIRED)
+```
+
+Optional files for reference:
+```
+├── demo.tsx          # Usage example
+├── README.md         # Documentation
+└── integration.mf    # This file
+```
+
+## INSTALLATION STEPS
+
+### Step 1: Create Directory
+Create the component directory in your project:
+```bash
+mkdir -p src/components/StandaloneShareOptionButton
+```
+
+### Step 2: Copy Files
+Copy the required files:
+- `index.tsx` → `src/components/StandaloneShareOptionButton/index.tsx`
+- `styles.css` → `src/components/StandaloneShareOptionButton/styles.css`
+
+### Step 3: Verify File Structure
+Your project should now have:
+```
+your-project/
+├── src/
+│   └── components/
+│       └── StandaloneShareOptionButton/
+│           ├── index.tsx
+│           └── styles.css
+└── package.json
+```
+
+## USAGE
+
+### Basic Implementation
+```tsx
+// 1. Import the component
+import StandaloneShareOptionButton from './components/StandaloneShareOptionButton';
+
+// 2. Create an icon component
+const DownloadIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+);
+
+// 3. Use the component
+<StandaloneShareOptionButton
+  icon={DownloadIcon}
+  label="Download"
+  onClick={() => console.log('Download clicked')}
+/>
+```
+
+### Complete Example - Action Grid
+```tsx
+import React, { useState } from 'react';
+import StandaloneShareOptionButton from './components/StandaloneShareOptionButton';
+
+function ShareActionGrid() {
+  const [selectedAction, setSelectedAction] = useState<string | null>(null);
+
+  return (
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(4, 1fr)', 
+      gap: '8px' 
+    }}>
+      <StandaloneShareOptionButton
+        icon={DownloadIcon}
+        label="Download"
+        onClick={() => setSelectedAction('download')}
+        selected={selectedAction === 'download'}
+      />
+      
+      <StandaloneShareOptionButton
+        icon={PresentIcon}
+        label="Present"
+        onClick={() => setSelectedAction('present')}
+        selected={selectedAction === 'present'}
+      />
+      
+      {/* Add more buttons... */}
+    </div>
+  );
+}
+
+export default ShareActionGrid;
+```
+
+## PROPS REFERENCE
+
+| Prop        | Type                              | Required | Default | Description                |
+| ----------- | --------------------------------- | -------- | ------- | -------------------------- |
+| `icon`      | `ReactNode \| ComponentType<any>` | Yes      | -       | Icon component or element  |
+| `label`     | `string`                          | Yes      | -       | Button label text          |
+| `onClick`   | `() => void`                      | Yes      | -       | Click handler function     |
+| `selected`  | `boolean`                         | No       | `false` | Whether button is selected |
+| `className` | `string`                          | No       | `''`    | Additional CSS classes     |
+
+## ICON USAGE
+
+### Method 1: Icon as Component
+```tsx
+const MyIcon = () => (
+  <svg width="20" height="20">
+    <path d="..." />
+  </svg>
+);
+
+<StandaloneShareOptionButton icon={MyIcon} label="Action" onClick={...} />
+```
+
+### Method 2: Icon as Element
+```tsx
+<StandaloneShareOptionButton 
+  icon={
+    <svg width="20" height="20">
+      <path d="..." />
+    </svg>
+  } 
+  label="Action" 
+  onClick={...} 
+/>
+```
+
+### Method 3: Icon from Library (if using one)
+```tsx
+import { Download } from 'some-icon-library';
+
+<StandaloneShareOptionButton icon={Download} label="Download" onClick={...} />
+```
+
+## CUSTOMIZATION
+
+### Button Colors
+```css
+.share-option-button {
+  background: transparent;  /* Change background */
+}
+
+.share-option-button:hover {
+  background-color: #f0f0f0;  /* Change hover color */
+}
+```
+
+### Icon Container
+```css
+.share-option-icon {
+  width: 56px;              /* Larger container */
+  height: 56px;
+  background-color: #f5f5f5; /* Different background */
+  border-color: #ddd;        /* Different border */
+}
+```
+
+### Selected State
+```css
+.share-option-icon--selected {
+  border: 2px solid #your-brand-color;
+  color: #your-brand-color;
+}
+
+.share-option-button--selected {
+  background-color: rgba(your-color, 0.05);
+}
+```
+
+### Label Styling
+```css
+.share-option-label {
+  font-size: 13px;      /* Larger text */
+  font-weight: 500;      /* Bolder text */
+  color: #333;           /* Darker color */
+}
+```
+
+## TESTING
+
+### Quick Test
+1. Add button to a page
+2. Click button - should trigger onClick
+3. Toggle selected state - should show purple border
+4. Hover over button - should show hover effect
+5. Test on mobile - should be responsive
+
+### Integration Checklist
+- [ ] Files copied correctly
+- [ ] Component imports without errors
+- [ ] Icon displays properly
+- [ ] Label displays correctly
+- [ ] onClick handler works
+- [ ] Selected state works
+- [ ] Hover effects work
+- [ ] Responsive on mobile
+- [ ] No console errors
+- [ ] Focus states work
+
+## TROUBLESHOOTING
+
+### Common Issues
+
+**Import Error:**
+```
+Module not found: Can't resolve './components/StandaloneShareOptionButton'
+```
+- Solution: Check file paths and ensure `index.tsx` exists
+
+**Icon Not Displaying:**
+```
+Button shows but icon is missing
+```
+- Solution: Verify icon is a valid React element or component
+- Check SVG has proper viewBox attribute
+- Ensure stroke/fill colors are set
+
+**TypeScript Errors:**
+```
+Type 'typeof MyIcon' is not assignable to type 'ReactNode | ComponentType<any>'
+```
+- Solution: The component accepts both - this should work. Check your icon definition.
+
+**Selected State Not Showing:**
+```
+selected prop is true but visual doesn't change
+```
+- Solution: Ensure `styles.css` is imported
+- Check for CSS specificity conflicts
+
+**Button Not Clickable:**
+```
+Button appears but doesn't respond to clicks
+```
+- Solution: Verify onClick prop is provided
+- Check if button has `pointer-events: none` from global styles
+- Check z-index isn't blocking interaction
+
+**Label Truncated:**
+```
+Long labels get cut off
+```
+- Solution: Labels support 2-line truncation by default
+- Adjust `-webkit-line-clamp` value if needed
+- Use shorter, more concise labels
+
+## BROWSER SUPPORT
+- Chrome/Edge 88+
+- Firefox 78+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## PERFORMANCE NOTES
+- Stateless functional component
+- Pure CSS transitions (GPU accelerated)
+- No external dependencies
+- Total bundle size: ~3KB (gzipped: ~1KB)
+- Optimized for fast rendering
+
+## MIGRATION FROM EASEL
+If replacing an Easel-based ShareOptionButton:
+
+1. Remove Easel imports:
+   ```tsx
+   // Remove these
+   import { Text, Box } from '@canva/easel';
+   import { DownloadIcon } from '@canva/easel/icons';
+   ```
+
+2. Create custom icon components:
+   ```tsx
+   // Replace Easel icons with custom SVG
+   const DownloadIcon = () => (
+     <svg width="20" height="20" viewBox="0 0 24 24">
+       <path d="..." />
+     </svg>
+   );
+   ```
+
+3. Update component usage:
+   ```tsx
+   // Old (Easel)
+   import { ShareOptionButton } from '@/shared_components/Header/ShareOptionButton';
+   import { DownloadIcon } from '@canva/easel/icons';
+   
+   <ShareOptionButton 
+     icon={DownloadIcon} 
+     label="Download" 
+     onClick={handler}
+   />
+   
+   // New (Standalone)
+   import StandaloneShareOptionButton from './StandaloneShareOptionButton';
+   
+   const DownloadIcon = () => <svg>...</svg>;
+   
+   <StandaloneShareOptionButton 
+     icon={DownloadIcon} 
+     label="Download" 
+     onClick={handler}
+   />
+   ```
+
+## TYPICAL USE CASE
+This component is designed to be used in share menus, action panels, or any interface where you need icon-labeled action buttons. It works great in grid layouts.
+
+### Full Share Menu Integration
+```tsx
+import StandaloneShareOptionButton from './StandaloneShareOptionButton';
+
+function ShareMenu() {
+  return (
+    <div className="action-grid">
+      <StandaloneShareOptionButton icon={DownloadIcon} label="Download" onClick={...} />
+      <StandaloneShareOptionButton icon={PresentIcon} label="Present" onClick={...} />
+      <StandaloneShareOptionButton icon={CheckIcon} label="Request approval" onClick={...} />
+      <StandaloneShareOptionButton icon={LinkIcon} label="View-only link" onClick={...} />
+      <StandaloneShareOptionButton icon={PrintIcon} label="Print with Canva" onClick={...} />
+      <StandaloneShareOptionButton icon={CameraIcon} label="Present and record" onClick={...} />
+      <StandaloneShareOptionButton icon={GlobeIcon} label="Website" onClick={...} />
+      <StandaloneShareOptionButton icon={MoreIcon} label="See all" onClick={...} />
+    </div>
+  );
+}
+```
+
+## SUPPORT
+For issues or questions:
+1. Check the README.md file
+2. Review the demo.tsx example
+3. Test in a clean React project first
+4. Verify icon component is valid
+
+## VERSION HISTORY
+- v1.0.0: Initial release with full feature parity to Easel version
+
+---
+END OF MANIFEST

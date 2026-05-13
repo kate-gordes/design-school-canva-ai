@@ -1,0 +1,207 @@
+/* Outer scroll panel: viewport height minus editor chrome */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 57px - 32px);
+  max-height: calc(100vh - 57px - 32px);
+  min-height: 0;
+}
+
+.searchHeader {
+  flex-shrink: 0;
+  padding-bottom: 14px;
+}
+
+.scrollBody {
+  height: auto;
+  margin-right: -16px;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}
+
+/* Search row with mic button */
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchRow > :first-child {
+  flex: 1;
+}
+
+.micButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e3e5e9;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: rgba(15, 18, 26, 0.7);
+}
+
+.micButton:hover {
+  background: #f5f5f5;
+}
+
+/* Action buttons row */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.actionButtons > * {
+  flex: 1 1 0%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.searchButtonWrapper {
+  display: flex;
+  height: 40px;
+}
+
+.searchButtonWrapper button {
+  border-radius: 12px !important;
+}
+
+/* Split generate button */
+.generateSplit {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #ced1d7;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 40px;
+}
+
+.generateMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(15, 18, 26, 0.85);
+  padding: 0 12px;
+}
+
+.generateMain:hover {
+  background: #f5f5f5;
+}
+
+.generateDivider {
+  display: block;
+  width: 1px;
+  align-self: stretch;
+  background: #ced1d7;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.generateDropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  flex-shrink: 0;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  color: rgba(15, 18, 26, 0.7);
+  padding: 0 2px 0 0;
+}
+
+.generateDropdown:hover {
+  background: #f5f5f5;
+}
+
+.sectionRows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Browse categories grid */
+.browseCategoriesTitle {
+  margin-bottom: 32px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 12px;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cardStack {
+  position: relative;
+  width: 90px;
+  height: 70px;
+}
+
+.frontCard,
+.backCard {
+  width: 53px;
+  height: 53px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px #fff,
+    0 0 0 0.5px rgba(24, 44, 89, 0.07);
+}
+
+.frontCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: transform 0.12s ease-in-out;
+}
+
+.backCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(7deg) translate(5px, -4px);
+  z-index: 0;
+  transition: transform 0.12s ease-in-out;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoryItem:hover .backCard {
+  transform: translate(-50%, -50%) rotate(7deg) translate(18px, -14px);
+}
+
+.categoryItem:hover .frontCard {
+  transform: translate(-50%, -50%) translate(-6px, -2px) rotate(-6deg);
+}

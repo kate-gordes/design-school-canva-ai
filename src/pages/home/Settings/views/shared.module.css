@@ -1,0 +1,109 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+/* Common container for all settings views */
+.settingsViewContainer {
+  width: 768px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 91px;
+  padding-bottom: calc(baseUnit * 6);
+}
+
+/* Title section with consistent spacing */
+.titleSection {
+  padding-bottom: 80px;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .settingsViewContainer {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: calc(baseUnit * 4);
+  }
+
+  /* Reduce row spacing on mobile */
+  .settingsViewContainer [class*='Rows'] {
+    gap: 8px !important;
+  }
+
+  .settingsViewContainerWide {
+    width: 100%;
+  }
+
+  .titleSection {
+    padding-bottom: 0;
+  }
+
+  .sectionTitle {
+    margin-bottom: 8px;
+  }
+}
+
+/* Gray divider line between sections */
+.divider {
+  border-bottom: 1px solid #e3e5e9;
+}
+
+/* Settings card with smaller rounded corners */
+.settingsCard {
+  border: 1px solid #d7d9de;
+  border-radius: 4px;
+  padding: calc(baseUnit * 2);
+}
+
+/* Settings card with smaller padding (8px) */
+.settingsCardSmallPadding {
+  border: 1px solid #d7d9de;
+  border-radius: 4px;
+  padding: calc(baseUnit * 1);
+}
+
+/* Disabled content visual state */
+.disabledContent {
+  opacity: 0.5;
+}
+
+/* Wider container for People and Groups pages */
+.settingsViewContainerWide {
+  composes: settingsViewContainer;
+  width: 1000px;
+}
+
+/* Shared table styles */
+.tableHeader {
+  border-bottom: 1px solid #e3e5e9;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+}
+
+.tableRow {
+  padding: 16px 0;
+  border-bottom: 1px solid #e3e5e9;
+  margin: 0;
+}
+
+.tableCell {
+  display: flex;
+  align-items: center;
+}
+
+.tableThumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  display: inline-flex;
+  padding: 0 8px;
+  background-color: #377e25;
+  border-radius: 999px;
+}
+
+.statusBadgeText {
+  color: white;
+  font-size: 12px;
+}

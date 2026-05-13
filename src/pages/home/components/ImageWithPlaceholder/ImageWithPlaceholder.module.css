@@ -1,0 +1,24 @@
+@value colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: colorSurface;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.error {
+  opacity: 0.5;
+}

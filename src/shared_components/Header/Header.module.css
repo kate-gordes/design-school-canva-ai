@@ -1,0 +1,71 @@
+@value colorPrimary, colorSurface, colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+.header {
+  position: sticky;
+  background: linear-gradient(90deg, #00c4cc, #7d2ae8);
+  color: colorPrimary;
+  border: none;
+  height: 57px;
+  min-height: 57px;
+  padding: 0 8px;
+  z-index: 1000;
+}
+
+.withNavOffset {
+  margin-left: 72px; /* match PrimaryNav width */
+}
+
+.headerColumns {
+  width: 100%;
+  flex: 1;
+}
+
+.menuButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  height: 32px;
+}
+
+.shareButton {
+  background: #f1eafd;
+  color: colorTypographyPrimary;
+  transition: color 0.2s ease;
+}
+
+.shareButton:hover {
+  background: colorSurface !important;
+}
+
+.shareButton svg {
+  color: colorTypographyPrimary;
+  transition: color 0.2s ease;
+}
+
+.fileMenuWrap {
+  margin-left: -6px;
+  margin-right: 10px;
+}
+
+.viewMenuWrap {
+  margin-right: 10px;
+}
+
+.resizeMenuWrap {
+  margin-right: 0;
+}
+
+.headerDividerWrap {
+  margin-left: 0;
+  margin-right: -6px;
+}
+
+.shareMenuWrap {
+  margin-right: 8px;
+}

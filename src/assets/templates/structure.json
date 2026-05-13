@@ -1,0 +1,973 @@
+[
+  {
+    "name": "Business",
+    "path": "/Business",
+    "children": [
+      {
+        "name": "Docs",
+        "url": "/docs/templates/",
+        "path": "/Business/Docs",
+        "xpath": "//a[@href=\"/docs/templates/\"]",
+        "count": 1914
+      },
+      {
+        "name": "Presentations",
+        "url": "/presentations/templates/",
+        "path": "/Business/Presentations",
+        "xpath": "//a[@href=\"/presentations/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Whiteboard",
+        "url": "/online-whiteboard/templates/",
+        "path": "/Business/Whiteboard",
+        "xpath": "//a[@href=\"/online-whiteboard/templates/\"]",
+        "count": 2107
+      },
+      {
+        "name": "Business Cards",
+        "url": "/business-cards/templates/?ancestorBranches=business",
+        "path": "/Business/Business Cards",
+        "xpath": "//a[@href=\"/business-cards/templates/?ancestorBranches=business\"]",
+        "count": 17704
+      },
+      {
+        "name": "Flyers",
+        "url": "/flyers/templates/?ancestorBranches=business",
+        "path": "/Business/Flyers",
+        "xpath": "//a[@href=\"/flyers/templates/?ancestorBranches=business\"]",
+        "count": 20000
+      },
+      {
+        "name": "Prototypes",
+        "url": "/prototypes/templates/",
+        "path": "/Business/Prototypes",
+        "xpath": "//a[@href=\"/prototypes/templates/\"]",
+        "count": 2210
+      },
+      {
+        "name": "Mind Maps",
+        "url": "/mind-maps/templates/",
+        "path": "/Business/Mind Maps",
+        "xpath": "//a[@href=\"/mind-maps/templates/\"]",
+        "count": 2105
+      },
+      {
+        "name": "Websites",
+        "url": "/website-builder/templates/",
+        "path": "/Business/Websites",
+        "xpath": "//a[@href=\"/website-builder/templates/\"]",
+        "count": 1895
+      },
+      {
+        "name": "Graphs",
+        "url": "/graphs/templates/",
+        "path": "/Business/Graphs",
+        "xpath": "//a[@href=\"/graphs/templates/\"]",
+        "count": 5943
+      },
+      {
+        "name": "Planners",
+        "url": "/planners/templates/?ancestorBranches=business",
+        "path": "/Business/Planners",
+        "xpath": "//a[@href=\"/planners/templates/?ancestorBranches=business\"]",
+        "count": 15719
+      },
+      {
+        "name": "Letterheads",
+        "url": "/letterheads/templates/?ancestorBranches=business",
+        "path": "/Business/Letterheads",
+        "xpath": "//a[@href=\"/letterheads/templates/?ancestorBranches=business\"]",
+        "count": 5587
+      },
+      {
+        "name": "Calendars",
+        "url": "/calendars/templates/",
+        "path": "/Business/Calendars",
+        "xpath": "//a[@href=\"/calendars/templates/\"]",
+        "count": 7213
+      },
+      {
+        "name": "Resumes",
+        "url": "/resumes/templates/?ancestorBranches=business",
+        "path": "/Business/Resumes",
+        "xpath": "//a[@href=\"/resumes/templates/?ancestorBranches=business\"]",
+        "count": 14656
+      },
+      {
+        "name": "Invoices",
+        "url": "/invoice/templates/?ancestorBranches=business",
+        "path": "/Business/Invoices",
+        "xpath": "//a[@href=\"/invoice/templates/?ancestorBranches=business\"]",
+        "count": 6017
+      },
+      {
+        "name": "Proposals",
+        "url": "/proposals/templates/",
+        "path": "/Business/Proposals",
+        "xpath": "//a[@href=\"/proposals/templates/\"]",
+        "count": 2839
+      },
+      {
+        "name": "Reports",
+        "url": "/reports/templates/",
+        "path": "/Business/Reports",
+        "xpath": "//a[@href=\"/reports/templates/\"]",
+        "count": 3025
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "path": "/Social Media",
+    "children": [
+      {
+        "name": "Instagram Posts",
+        "url": "/instagram-posts/templates/",
+        "path": "/Social Media/Instagram Posts",
+        "xpath": "//a[@href=\"/instagram-posts/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Instagram Stories",
+        "url": "/instagram-stories/templates/",
+        "path": "/Social Media/Instagram Stories",
+        "xpath": "//a[@href=\"/instagram-stories/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Instagram Reels",
+        "url": "/instagram-reels/templates/",
+        "path": "/Social Media/Instagram Reels",
+        "xpath": "//a[@href=\"/instagram-reels/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Facebook Posts",
+        "url": "/facebook-posts/templates/",
+        "path": "/Social Media/Facebook Posts",
+        "xpath": "//a[@href=\"/facebook-posts/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Facebook Covers",
+        "url": "/facebook-covers/templates/",
+        "path": "/Social Media/Facebook Covers",
+        "xpath": "//a[@href=\"/facebook-covers/templates/\"]",
+        "count": 15990
+      },
+      {
+        "name": "Facebook Ads",
+        "url": "/facebook-ads/templates/",
+        "path": "/Social Media/Facebook Ads",
+        "xpath": "//a[@href=\"/facebook-ads/templates/\"]",
+        "count": 10181
+      },
+      {
+        "name": "Your Stories",
+        "url": "/your-story/templates/",
+        "path": "/Social Media/Your Stories",
+        "xpath": "//a[@href=\"/your-story/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "TikTok Videos",
+        "url": "/tiktok-videos/templates/",
+        "path": "/Social Media/TikTok Videos",
+        "xpath": "//a[@href=\"/tiktok-videos/templates/\"]",
+        "count": 8350
+      },
+      {
+        "name": "Pinterest Pins",
+        "url": "/pinterest-pins/templates/",
+        "path": "/Social Media/Pinterest Pins",
+        "xpath": "//a[@href=\"/pinterest-pins/templates/\"]",
+        "count": 12814
+      },
+      {
+        "name": "LinkedIn Video Ads",
+        "url": "/linkedin-video-ads/templates/",
+        "path": "/Social Media/LinkedIn Video Ads",
+        "xpath": "//a[@href=\"/linkedin-video-ads/templates/\"]",
+        "count": 397
+      },
+      {
+        "name": "Animated Social Media",
+        "url": "/animated-social-media/templates/",
+        "path": "/Social Media/Animated Social Media",
+        "xpath": "//a[@href=\"/animated-social-media/templates/\"]",
+        "count": 3610
+      },
+      {
+        "name": "Twitter Posts",
+        "url": "/twitter/templates/posts/",
+        "path": "/Social Media/Twitter Posts",
+        "xpath": "//a[@href=\"/twitter/templates/posts/\"]",
+        "count": 9344
+      }
+    ]
+  },
+  {
+    "name": "Education",
+    "path": "/Education",
+    "children": [
+      {
+        "name": "Subject",
+        "path": "/Education/Subject",
+        "children": [
+          {
+            "name": "English Language Arts",
+            "url": "/templates/?category=tAFm-nGdJXI",
+            "path": "/Education/Subject/English Language Arts",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-nGdJXI\"]",
+            "count": 9595
+          },
+          {
+            "name": "Math",
+            "url": "/templates/?category=tAFm-v5OBZY",
+            "path": "/Education/Subject/Math",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-v5OBZY\"]",
+            "count": 8389
+          },
+          {
+            "name": "Science",
+            "url": "/templates/?category=tAFm-jYEeS0",
+            "path": "/Education/Subject/Science",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-jYEeS0\"]",
+            "count": 9176
+          },
+          {
+            "name": "Visual Art",
+            "url": "/templates/?category=tAFm-nmHrLU",
+            "path": "/Education/Subject/Visual Art",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-nmHrLU\"]",
+            "count": 2093
+          },
+          {
+            "name": "Design",
+            "url": "/templates/?category=tAFm-sVUGAk",
+            "path": "/Education/Subject/Design",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-sVUGAk\"]",
+            "count": 3152
+          },
+          {
+            "name": "Social Studies",
+            "url": "/templates/?category=tAFm-rKPu9o",
+            "path": "/Education/Subject/Social Studies",
+            "xpath": "//a[@href=\"/templates/?category=tAFm-rKPu9o\"]",
+            "count": 2430
+          }
+        ]
+      },
+      {
+        "name": "Grade",
+        "path": "/Education/Grade",
+        "children": [
+          {
+            "name": "Pre-school",
+            "url": "/templates/?category=tAFnj1kcGt4",
+            "path": "/Education/Grade/Pre-school",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj1kcGt4\"]",
+            "count": 0
+          },
+          {
+            "name": "Kindergarten",
+            "url": "/templates/?category=tAFnj8B5O9w",
+            "path": "/Education/Grade/Kindergarten",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj8B5O9w\"]",
+            "count": 6563
+          },
+          {
+            "name": "Grade 1",
+            "url": "/templates/?category=tAFnj8xhd40",
+            "path": "/Education/Grade/Grade 1",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj8xhd40\"]",
+            "count": 5039
+          },
+          {
+            "name": "Grade 2",
+            "url": "/templates/?category=tAFnj6_imkE",
+            "path": "/Education/Grade/Grade 2",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj6_imkE\"]",
+            "count": 4267
+          },
+          {
+            "name": "Grade 3",
+            "url": "/templates/?category=tAFnj-dwkns",
+            "path": "/Education/Grade/Grade 3",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj-dwkns\"]",
+            "count": 4762
+          },
+          {
+            "name": "Grade 4",
+            "url": "/templates/?category=tAFnj4WN5-U",
+            "path": "/Education/Grade/Grade 4",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj4WN5-U\"]",
+            "count": 5149
+          },
+          {
+            "name": "Grade 5",
+            "url": "/templates/?category=tAFnj5knbYg",
+            "path": "/Education/Grade/Grade 5",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj5knbYg\"]",
+            "count": 4563
+          },
+          {
+            "name": "Grade 6",
+            "url": "/templates/?category=tAFnjzw8zHM",
+            "path": "/Education/Grade/Grade 6",
+            "xpath": "//a[@href=\"/templates/?category=tAFnjzw8zHM\"]",
+            "count": 4537
+          },
+          {
+            "name": "Grade 7",
+            "url": "/templates/?category=tAFnjxdwa7k",
+            "path": "/Education/Grade/Grade 7",
+            "xpath": "//a[@href=\"/templates/?category=tAFnjxdwa7k\"]",
+            "count": 4337
+          },
+          {
+            "name": "Grade 8",
+            "url": "/templates/?category=tAFnj7nKF1U",
+            "path": "/Education/Grade/Grade 8",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj7nKF1U\"]",
+            "count": 3849
+          },
+          {
+            "name": "Grade 9",
+            "url": "/templates/?category=tAFnj60lT_g",
+            "path": "/Education/Grade/Grade 9",
+            "xpath": "//a[@href=\"/templates/?category=tAFnj60lT_g\"]",
+            "count": 1973
+          },
+          {
+            "name": "Grade 10",
+            "url": "/templates/?category=tAFnjwJsauk",
+            "path": "/Education/Grade/Grade 10",
+            "xpath": "//a[@href=\"/templates/?category=tAFnjwJsauk\"]",
+            "count": 1778
+          },
+          {
+            "name": "Grade 11",
+            "url": "/templates/?category=tAFnjxJBv0A",
+            "path": "/Education/Grade/Grade 11",
+            "xpath": "//a[@href=\"/templates/?category=tAFnjxJBv0A\"]",
+            "count": 1288
+          },
+          {
+            "name": "Grade 12",
+            "url": "/templates/?category=tAFnjwP2eIs",
+            "path": "/Education/Grade/Grade 12",
+            "xpath": "//a[@href=\"/templates/?category=tAFnjwP2eIs\"]",
+            "count": 804
+          }
+        ]
+      },
+      {
+        "name": "Resource Type",
+        "path": "/Education/Resource Type",
+        "children": [
+          {
+            "name": "Lessons",
+            "url": "/lessons/templates/",
+            "path": "/Education/Resource Type/Lessons",
+            "xpath": "//a[@href=\"/lessons/templates/\"]",
+            "count": 833
+          },
+          {
+            "name": "Presentations",
+            "url": "/presentations/templates/education/",
+            "path": "/Education/Resource Type/Presentations",
+            "xpath": "//a[@href=\"/presentations/templates/education/\"]",
+            "count": 6887
+          },
+          {
+            "name": "Posters",
+            "url": "/posters/templates/educational/",
+            "path": "/Education/Resource Type/Posters",
+            "xpath": "//a[@href=\"/posters/templates/educational/\"]",
+            "count": 13170
+          },
+          {
+            "name": "Worksheets and activities",
+            "url": "/worksheets/templates/",
+            "path": "/Education/Resource Type/Worksheets and activities",
+            "xpath": "//a[@href=\"/worksheets/templates/\"]",
+            "count": 16304
+          },
+          {
+            "name": "Whiteboards",
+            "url": "/templates/?category=tAFIPotUSQQ",
+            "path": "/Education/Resource Type/Whiteboards",
+            "xpath": "//a[@href=\"/templates/?category=tAFIPotUSQQ\"]",
+            "count": 686
+          },
+          {
+            "name": "Infographics",
+            "url": "/infographics/templates/cute/",
+            "path": "/Education/Resource Type/Infographics",
+            "xpath": "//a[@href=\"/infographics/templates/cute/\"]",
+            "count": 3138
+          },
+          {
+            "name": "Flashcards",
+            "url": "/flashcards/templates/",
+            "path": "/Education/Resource Type/Flashcards",
+            "xpath": "//a[@href=\"/flashcards/templates/\"]",
+            "count": 4189
+          },
+          {
+            "name": "Group Work",
+            "url": "/templates/?category=tAEMCjlQrkk",
+            "path": "/Education/Resource Type/Group Work",
+            "xpath": "//a[@href=\"/templates/?category=tAEMCjlQrkk\"]",
+            "count": 599
+          },
+          {
+            "name": "Comic Strips",
+            "url": "/comic-strips/templates/",
+            "path": "/Education/Resource Type/Comic Strips",
+            "xpath": "//a[@href=\"/comic-strips/templates/\"]",
+            "count": 554
+          },
+          {
+            "name": "Graphic Organizers",
+            "url": "/graphic-organizers/templates/",
+            "path": "/Education/Resource Type/Graphic Organizers",
+            "xpath": "//a[@href=\"/graphic-organizers/templates/\"]",
+            "count": 1146
+          },
+          {
+            "name": "Storyboards",
+            "url": "/storyboards/templates/",
+            "path": "/Education/Resource Type/Storyboards",
+            "xpath": "//a[@href=\"/storyboards/templates/\"]",
+            "count": 340
+          },
+          {
+            "name": "Story Books",
+            "url": "/templates/?category=tAEp223WVYo",
+            "path": "/Education/Resource Type/Story Books",
+            "xpath": "//a[@href=\"/templates/?category=tAEp223WVYo\"]",
+            "count": 147
+          },
+          {
+            "name": "Websites",
+            "url": "/website-builder/templates/education/",
+            "path": "/Education/Resource Type/Websites",
+            "xpath": "//a[@href=\"/website-builder/templates/education/\"]",
+            "count": 159
+          },
+          {
+            "name": "Videos",
+            "url": "/video-editor/templates/educational/",
+            "path": "/Education/Resource Type/Videos",
+            "xpath": "//a[@href=\"/video-editor/templates/educational/\"]",
+            "count": 1288
+          },
+          {
+            "name": "Daily Agendas",
+            "url": "/templates/?category=tAEQiGRAmcw",
+            "path": "/Education/Resource Type/Daily Agendas",
+            "xpath": "//a[@href=\"/templates/?category=tAEQiGRAmcw\"]",
+            "count": 66
+          },
+          {
+            "name": "Newsletters",
+            "url": "/templates/?category=tAFmbM9XNFc",
+            "path": "/Education/Resource Type/Newsletters",
+            "xpath": "//a[@href=\"/templates/?category=tAFmbM9XNFc\"]",
+            "count": 599
+          },
+          {
+            "name": "Classroom Calendars",
+            "url": "/calendars/templates/classroom/",
+            "path": "/Education/Resource Type/Classroom Calendars",
+            "xpath": "//a[@href=\"/calendars/templates/classroom/\"]",
+            "count": 416
+          },
+          {
+            "name": "Class Schedules",
+            "url": "/class-schedules/templates/",
+            "path": "/Education/Resource Type/Class Schedules",
+            "xpath": "//a[@href=\"/class-schedules/templates/\"]",
+            "count": 3503
+          },
+          {
+            "name": "Report Cards",
+            "url": "/report-cards/templates/",
+            "path": "/Education/Resource Type/Report Cards",
+            "xpath": "//a[@href=\"/report-cards/templates/\"]",
+            "count": 340
+          },
+          {
+            "name": "Lesson Plans",
+            "url": "/lesson-plans/templates/",
+            "path": "/Education/Resource Type/Lesson Plans",
+            "xpath": "//a[@href=\"/lesson-plans/templates/\"]",
+            "count": 1224
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Video",
+    "path": "/Video",
+    "children": [
+      {
+        "name": "Videos (16:9)",
+        "url": "/video-editor/templates/",
+        "path": "/Video/Videos (16:9)",
+        "xpath": "//a[@href=\"/video-editor/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Facebook Videos",
+        "url": "/facebook-videos/templates/",
+        "path": "/Video/Facebook Videos",
+        "xpath": "//a[@href=\"/facebook-videos/templates/\"]",
+        "count": 3958
+      },
+      {
+        "name": "Video Messages",
+        "url": "/video-messages/templates/",
+        "path": "/Video/Video Messages",
+        "xpath": "//a[@href=\"/video-messages/templates/\"]",
+        "count": 408
+      },
+      {
+        "name": "Mobile Videos",
+        "url": "/mobile-videos/templates/",
+        "path": "/Video/Mobile Videos",
+        "xpath": "//a[@href=\"/mobile-videos/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Video Collages",
+        "url": "/video-collages/templates/",
+        "path": "/Video/Video Collages",
+        "xpath": "//a[@href=\"/video-collages/templates/\"]",
+        "count": 672
+      },
+      {
+        "name": "YouTube Videos",
+        "url": "/youtube/templates/",
+        "path": "/Video/YouTube Videos",
+        "xpath": "//a[@href=\"/youtube/templates/\"]",
+        "count": 6076
+      },
+      {
+        "name": "Feed Ad Videos (Portrait)",
+        "url": "/feed-ad-videos/templates/",
+        "path": "/Video/Feed Ad Videos (Portrait)",
+        "xpath": "//a[@href=\"/feed-ad-videos/templates/\"]",
+        "count": 886
+      }
+    ]
+  },
+  {
+    "name": "Marketing",
+    "path": "/Marketing",
+    "children": [
+      {
+        "name": "Business Cards",
+        "url": "/business-cards/templates/?ancestorBranches=marketing",
+        "path": "/Marketing/Business Cards",
+        "xpath": "//a[@href=\"/business-cards/templates/?ancestorBranches=marketing\"]",
+        "count": 17704
+      },
+      {
+        "name": "Flyers",
+        "url": "/flyers/templates/?ancestorBranches=marketing",
+        "path": "/Marketing/Flyers",
+        "xpath": "//a[@href=\"/flyers/templates/?ancestorBranches=marketing\"]",
+        "count": 20000
+      },
+      {
+        "name": "Logos",
+        "url": "/logos/templates/",
+        "path": "/Marketing/Logos",
+        "xpath": "//a[@href=\"/logos/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Posters",
+        "url": "/posters/templates/?ancestorBranches=marketing",
+        "path": "/Marketing/Posters",
+        "xpath": "//a[@href=\"/posters/templates/?ancestorBranches=marketing\"]",
+        "count": 20000
+      },
+      {
+        "name": "Brochures",
+        "url": "/brochures/templates/?ancestorBranches=marketing",
+        "path": "/Marketing/Brochures",
+        "xpath": "//a[@href=\"/brochures/templates/?ancestorBranches=marketing\"]",
+        "count": 4830
+      },
+      {
+        "name": "Menus",
+        "url": "/menus/templates/",
+        "path": "/Marketing/Menus",
+        "xpath": "//a[@href=\"/menus/templates/\"]",
+        "count": 12853
+      },
+      {
+        "name": "Newsletters",
+        "url": "/newsletters/templates/",
+        "path": "/Marketing/Newsletters",
+        "xpath": "//a[@href=\"/newsletters/templates/\"]",
+        "count": 3732
+      },
+      {
+        "name": "Infographics",
+        "url": "/infographics/templates/?ancestorBranches=marketing",
+        "path": "/Marketing/Infographics",
+        "xpath": "//a[@href=\"/infographics/templates/?ancestorBranches=marketing\"]",
+        "count": 10453
+      }
+    ]
+  },
+  {
+    "name": "Print products",
+    "path": "/Print products",
+    "children": [
+      {
+        "name": "Photos and gifts",
+        "path": "/Print products/Photos and gifts",
+        "children": [
+          {
+            "name": "Photo Books",
+            "url": "/photo-books/templates/",
+            "path": "/Print products/Photos and gifts/Photo Books",
+            "xpath": "//a[@href=\"/photo-books/templates/\"]",
+            "count": 363
+          },
+          {
+            "name": "Wall Calendars",
+            "url": "/wall-calendars/templates/",
+            "path": "/Print products/Photos and gifts/Wall Calendars",
+            "xpath": "//a[@href=\"/wall-calendars/templates/\"]",
+            "count": 387
+          },
+          {
+            "name": "Gift Certificates",
+            "url": "/gift-certificates/templates/",
+            "path": "/Print products/Photos and gifts/Gift Certificates",
+            "xpath": "//a[@href=\"/gift-certificates/templates/\"]",
+            "count": 3282
+          },
+          {
+            "name": "Mugs",
+            "url": "/mugs/templates/",
+            "path": "/Print products/Photos and gifts/Mugs",
+            "xpath": "//a[@href=\"/mugs/templates/\"]",
+            "count": 3176
+          },
+          {
+            "name": "Canvas Prints",
+            "url": "/canvas-prints/templates/",
+            "path": "/Print products/Photos and gifts/Canvas Prints",
+            "xpath": "//a[@href=\"/canvas-prints/templates/\"]",
+            "count": 7069
+          },
+          {
+            "name": "Coasters",
+            "url": "/coasters/templates/",
+            "path": "/Print products/Photos and gifts/Coasters",
+            "xpath": "//a[@href=\"/coasters/templates/\"]",
+            "count": 322
+          },
+          {
+            "name": "Mouse Pads",
+            "url": "/mouse-pads/templates/",
+            "path": "/Print products/Photos and gifts/Mouse Pads",
+            "xpath": "//a[@href=\"/mouse-pads/templates/\"]",
+            "count": 973
+          },
+          {
+            "name": "Water Bottles",
+            "url": "/waterbottles/templates/",
+            "path": "/Print products/Photos and gifts/Water Bottles",
+            "xpath": "//a[@href=\"/waterbottles/templates/\"]",
+            "count": 67
+          }
+        ]
+      },
+      {
+        "name": "Marketing materials",
+        "path": "/Print products/Marketing materials",
+        "children": [
+          {
+            "name": "Banners",
+            "url": "/banners/templates/",
+            "path": "/Print products/Marketing materials/Banners",
+            "xpath": "//a[@href=\"/banners/templates/\"]",
+            "count": 16960
+          },
+          {
+            "name": "Brochures",
+            "url": "/brochures/templates/?ancestorBranches=custom-prints--marketing-materials",
+            "path": "/Print products/Marketing materials/Brochures",
+            "xpath": "//a[@href=\"/brochures/templates/?ancestorBranches=custom-prints--marketing-materials\"]",
+            "count": 502
+          },
+          {
+            "name": "Business Cards",
+            "url": "/business-cards/templates/?ancestorBranches=custom-prints--marketing-materials",
+            "path": "/Print products/Marketing materials/Business Cards",
+            "xpath": "//a[@href=\"/business-cards/templates/?ancestorBranches=custom-prints--marketing-materials\"]",
+            "count": 16328
+          },
+          {
+            "name": "Flyers",
+            "url": "/flyers/templates/?ancestorBranches=custom-prints--marketing-materials",
+            "path": "/Print products/Marketing materials/Flyers",
+            "xpath": "//a[@href=\"/flyers/templates/?ancestorBranches=custom-prints--marketing-materials\"]",
+            "count": 20000
+          },
+          {
+            "name": "Posters",
+            "url": "/posters/templates/?ancestorBranches=custom-prints--marketing-materials",
+            "path": "/Print products/Marketing materials/Posters",
+            "xpath": "//a[@href=\"/posters/templates/?ancestorBranches=custom-prints--marketing-materials\"]",
+            "count": 20000
+          },
+          {
+            "name": "Rack Cards",
+            "url": "/rack-cards/templates/",
+            "path": "/Print products/Marketing materials/Rack Cards",
+            "xpath": "//a[@href=\"/rack-cards/templates/\"]",
+            "count": 21
+          },
+          {
+            "name": "Retractable Banners",
+            "url": "/retractable-banners/templates/",
+            "path": "/Print products/Marketing materials/Retractable Banners",
+            "xpath": "//a[@href=\"/retractable-banners/templates/\"]",
+            "count": 1085
+          },
+          {
+            "name": "Yard Signs",
+            "url": "/yard-signs/templates/",
+            "path": "/Print products/Marketing materials/Yard Signs",
+            "xpath": "//a[@href=\"/yard-signs/templates/\"]",
+            "count": 2366
+          }
+        ]
+      },
+      {
+        "name": "Documents and office",
+        "path": "/Print products/Documents and office",
+        "children": [
+          {
+            "name": "Bound Documents",
+            "url": "/bound-documents/templates/",
+            "path": "/Print products/Documents and office/Bound Documents",
+            "xpath": "//a[@href=\"/bound-documents/templates/\"]",
+            "count": 184
+          },
+          {
+            "name": "Infographics",
+            "url": "/infographics/templates/?ancestorBranches=custom-prints--documents-and-office",
+            "path": "/Print products/Documents and office/Infographics",
+            "xpath": "//a[@href=\"/infographics/templates/?ancestorBranches=custom-prints--documents-and-office\"]",
+            "count": 56
+          },
+          {
+            "name": "Invoices",
+            "url": "/invoice/templates/?ancestorBranches=custom-prints--documents-and-office",
+            "path": "/Print products/Documents and office/Invoices",
+            "xpath": "//a[@href=\"/invoice/templates/?ancestorBranches=custom-prints--documents-and-office\"]",
+            "count": 6017
+          },
+          {
+            "name": "Letterheads",
+            "url": "/letterheads/templates/?ancestorBranches=custom-prints--documents-and-office",
+            "path": "/Print products/Documents and office/Letterheads",
+            "xpath": "//a[@href=\"/letterheads/templates/?ancestorBranches=custom-prints--documents-and-office\"]",
+            "count": 5288
+          },
+          {
+            "name": "Notebook Covers",
+            "url": "/notebooks/templates/",
+            "path": "/Print products/Documents and office/Notebook Covers",
+            "xpath": "//a[@href=\"/notebooks/templates/\"]",
+            "count": 2173
+          },
+          {
+            "name": "Notepads",
+            "url": "/notepads/templates/",
+            "path": "/Print products/Documents and office/Notepads",
+            "xpath": "//a[@href=\"/notepads/templates/\"]",
+            "count": 241
+          },
+          {
+            "name": "Planners",
+            "url": "/planners/templates/?ancestorBranches=custom-prints--documents-and-office",
+            "path": "/Print products/Documents and office/Planners",
+            "xpath": "//a[@href=\"/planners/templates/?ancestorBranches=custom-prints--documents-and-office\"]",
+            "count": 15719
+          },
+          {
+            "name": "Resumes",
+            "url": "/resumes/templates/?ancestorBranches=custom-prints--documents-and-office",
+            "path": "/Print products/Documents and office/Resumes",
+            "xpath": "//a[@href=\"/resumes/templates/?ancestorBranches=custom-prints--documents-and-office\"]",
+            "count": 14656
+          }
+        ]
+      },
+      {
+        "name": "Cards and invites",
+        "path": "/Print products/Cards and invites",
+        "children": [
+          {
+            "name": "Envelopes",
+            "url": "/envelopes/templates/",
+            "path": "/Print products/Cards and invites/Envelopes",
+            "xpath": "//a[@href=\"/envelopes/templates/\"]",
+            "count": 303
+          },
+          {
+            "name": "Folded Cards",
+            "url": "/folded-cards/templates/",
+            "path": "/Print products/Cards and invites/Folded Cards",
+            "xpath": "//a[@href=\"/folded-cards/templates/\"]",
+            "count": 3341
+          },
+          {
+            "name": "Invitations",
+            "url": "/invitations/templates/?ancestorBranches=custom-prints--cards-and-invites",
+            "path": "/Print products/Cards and invites/Invitations",
+            "xpath": "//a[@href=\"/invitations/templates/?ancestorBranches=custom-prints--cards-and-invites\"]",
+            "count": 20000
+          },
+          {
+            "name": "Postcards",
+            "url": "/postcards/templates/?ancestorBranches=custom-prints--cards-and-invites",
+            "path": "/Print products/Cards and invites/Postcards",
+            "xpath": "//a[@href=\"/postcards/templates/?ancestorBranches=custom-prints--cards-and-invites\"]",
+            "count": 8553
+          },
+          {
+            "name": "Tags",
+            "url": "/tags/templates/",
+            "path": "/Print products/Cards and invites/Tags",
+            "xpath": "//a[@href=\"/tags/templates/\"]",
+            "count": 425
+          }
+        ]
+      },
+      {
+        "name": "Stickers and packaging",
+        "path": "/Print products/Stickers and packaging",
+        "children": [
+          {
+            "name": "Bumper Stickers",
+            "url": "/bumper-stickers/templates/",
+            "path": "/Print products/Stickers and packaging/Bumper Stickers",
+            "xpath": "//a[@href=\"/bumper-stickers/templates/\"]",
+            "count": 191
+          },
+          {
+            "name": "Floor Decals",
+            "url": "/floor-decals/templates/",
+            "path": "/Print products/Stickers and packaging/Floor Decals",
+            "xpath": "//a[@href=\"/floor-decals/templates/\"]",
+            "count": 207
+          },
+          {
+            "name": "Labels",
+            "url": "/labels/templates/",
+            "path": "/Print products/Stickers and packaging/Labels",
+            "xpath": "//a[@href=\"/labels/templates/\"]",
+            "count": 4972
+          },
+          {
+            "name": "Paper Bags with Handles",
+            "url": "/paper-bags/templates/",
+            "path": "/Print products/Stickers and packaging/Paper Bags with Handles",
+            "xpath": "//a[@href=\"/paper-bags/templates/\"]",
+            "count": 122
+          },
+          {
+            "name": "Shipping Envelopes",
+            "url": "/shipping-envelopes/templates/",
+            "path": "/Print products/Stickers and packaging/Shipping Envelopes",
+            "xpath": "//a[@href=\"/shipping-envelopes/templates/\"]",
+            "count": 36
+          },
+          {
+            "name": "Stickers",
+            "url": "/stickers/templates/",
+            "path": "/Print products/Stickers and packaging/Stickers",
+            "xpath": "//a[@href=\"/stickers/templates/\"]",
+            "count": 13703
+          }
+        ]
+      },
+      {
+        "name": "Clothing and accessories",
+        "path": "/Print products/Clothing and accessories",
+        "children": [
+          {
+            "name": "Hoodies",
+            "url": "/hoodies/templates/",
+            "path": "/Print products/Clothing and accessories/Hoodies",
+            "xpath": "//a[@href=\"/hoodies/templates/\"]",
+            "count": 1417
+          },
+          {
+            "name": "Sweatshirts",
+            "url": "/sweatshirts/templates/",
+            "path": "/Print products/Clothing and accessories/Sweatshirts",
+            "xpath": "//a[@href=\"/sweatshirts/templates/\"]",
+            "count": 790
+          },
+          {
+            "name": "T-Shirts",
+            "url": "/t-shirts/templates/",
+            "path": "/Print products/Clothing and accessories/T-Shirts",
+            "xpath": "//a[@href=\"/t-shirts/templates/\"]",
+            "count": 14852
+          },
+          {
+            "name": "Tote Bags",
+            "url": "/tote-bags/templates/",
+            "path": "/Print products/Clothing and accessories/Tote Bags",
+            "xpath": "//a[@href=\"/tote-bags/templates/\"]",
+            "count": 2778
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cards and invitations",
+    "path": "/Cards and invitations",
+    "children": [
+      {
+        "name": "Invitations",
+        "url": "/invitations/templates/?ancestorBranches=cards-and-invitations",
+        "path": "/Cards and invitations/Invitations",
+        "xpath": "//a[@href=\"/invitations/templates/?ancestorBranches=cards-and-invitations\"]",
+        "count": 20000
+      },
+      {
+        "name": "Cards",
+        "url": "/cards/templates/",
+        "path": "/Cards and invitations/Cards",
+        "xpath": "//a[@href=\"/cards/templates/\"]",
+        "count": 20000
+      },
+      {
+        "name": "Postcards",
+        "url": "/postcards/templates/?ancestorBranches=cards-and-invitations",
+        "path": "/Cards and invitations/Postcards",
+        "xpath": "//a[@href=\"/postcards/templates/?ancestorBranches=cards-and-invitations\"]",
+        "count": 9399
+      }
+    ]
+  }
+]

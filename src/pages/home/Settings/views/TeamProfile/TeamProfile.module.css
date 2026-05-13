@@ -1,0 +1,5 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.logoContainer {
+  padding: calc(baseUnit * 0.5) 0;
+}

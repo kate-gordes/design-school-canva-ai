@@ -1,0 +1,38 @@
+@value baseUnit from "ui/base/metrics/metrics.css";
+
+/* Width of the brand tab contextual nav */
+@value navWidth: calc(baseUnit * 27.5);
+/* Width of the default object panel */
+@value defaultObjectPanelWidth: calc(baseUnit * 45);
+/* Padding of the contextual nav */
+@value contextualNavRightPadding: calc(baseUnit * 2);
+
+.rootWrapper {
+  width: max-content;
+  height: 100%;
+}
+.rootWrapper.sheet {
+  width: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.contextualNavWidth {
+  width: navWidth;
+  padding-right: contextualNavRightPadding;
+}
+.contextualNavWidth.detailViewOpen {
+  width: calc(navWidth - contextualNavRightPadding);
+  padding-right: 0;
+}
+
+.detailViewWidth {
+  width: defaultObjectPanelWidth;
+}
+
+.resetObjectPanelWidth {
+  width: defaultObjectPanelWidth;
+  height: 100%;
+}

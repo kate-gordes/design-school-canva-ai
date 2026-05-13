@@ -1,0 +1,79 @@
+/* ui/apps/app_collection_card/app_collection_card.css containerBase/container
+   height: calc(baseUnit * 25) = 200px
+   min-width: calc(baseUnit * 39.75) = 318px
+   border-radius: radius24 = 24px
+   border: 1px solid colorActionSecondaryBorder (#35415A33 light)
+   At largeUp (>=1200px): max-width: calc(baseUnit * 73.5) = 588px */
+.container {
+  width: 100%;
+  height: 200px;
+  min-width: 318px;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 24px;
+  border: 1px solid rgba(53, 65, 90, 0.2);
+  background-clip: padding-box;
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 588px;
+  }
+}
+
+/* BaseButton inside — we render a plain button so the background color applies */
+.cardButton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* thumbnailWrapper (light) — left side, 200x200 + white gradient overlay */
+.thumbnailWrapper {
+  position: relative;
+  flex: 0 0 auto;
+  align-self: stretch;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+}
+
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  display: block;
+  background: #e5e7eb;
+  border: none;
+}
+
+/* contentWrapper — right side with ::before 80% white wash */
+.contentWrapper {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.contentWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.appIcon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid rgba(53, 65, 90, 0.2);
+  background: #e5e7eb;
+}

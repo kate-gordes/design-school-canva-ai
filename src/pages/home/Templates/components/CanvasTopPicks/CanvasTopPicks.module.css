@@ -1,0 +1,71 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seeAll {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--xAYPzA);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.seeAll:hover {
+  text-decoration: underline;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 320px;
+  height: 112px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card:hover .image {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.label {
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 55%;
+  z-index: 1;
+}
+
+.imageContainer {
+  position: absolute;
+  right: -8px;
+  top: 14px;
+  width: 110px;
+  height: 96px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}

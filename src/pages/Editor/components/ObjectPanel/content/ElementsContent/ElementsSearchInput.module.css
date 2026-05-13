@@ -1,0 +1,159 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.container {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #a570ff;
+  border-radius: calc(baseUnit * 2);
+  background: #fff;
+  overflow: visible;
+  transition:
+    height 0.2s ease,
+    min-height 0.2s ease,
+    max-height 0.2s ease;
+}
+
+.containerNeutral {
+  border-color: #ced1d7;
+}
+
+/* Expanded (focused) state — 112px total height, same padding as collapsed */
+.containerExpanded {
+  height: 112px;
+  min-height: 112px;
+  max-height: 112px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.containerExpanded .inputSection {
+  height: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.containerExpanded .inputRow {
+  align-items: flex-start;
+}
+
+/* Collapsed starting state: single row with [+] [input] [mic].
+   No height constraint — the container keeps its natural size (driven by
+   .collapsedRow's min-height). */
+.containerCollapsed {
+  cursor: text;
+  border-color: #e7dbff;
+}
+
+.collapsedRow {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+  padding: 6px 12px;
+  min-height: 44px;
+}
+
+.collapsedRow .input {
+  text-align: left;
+}
+
+/* Active border when input is focused */
+.container:focus-within {
+  border-color: #a570ff;
+}
+
+.inputSection {
+  padding: 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(baseUnit * 1);
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+  min-height: 24px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(14, 19, 24);
+}
+
+.input::placeholder {
+  color: rgba(14, 19, 24, 0.45);
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(14, 19, 24, 0.15);
+  cursor: pointer;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.clearButton:hover {
+  background: rgba(14, 19, 24, 0.25);
+}
+
+.clearButton svg,
+.clearButton path {
+  color: inherit !important;
+  fill: inherit !important;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgb(14, 19, 24);
+  border-radius: 4px;
+}
+
+.actionIcon svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.actionIcon svg,
+.actionIcon path {
+  color: rgb(14, 19, 24) !important;
+  fill: rgb(14, 19, 24) !important;
+}
+
+.actionIcon:hover {
+  background: rgba(14, 19, 24, 0.06);
+}
+
+.actionIcon:focus,
+.actionIcon:focus-visible {
+  outline: none;
+}
+
+.actionIconEnd {
+  margin-left: auto;
+}

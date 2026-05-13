@@ -1,0 +1,32 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.domainCard {
+  border: 1px solid #d2d5dd;
+  border-radius: 4px;
+  padding: calc(baseUnit * 2);
+}
+
+.statusBadge {
+  display: inline-flex;
+  padding: 0 8px;
+  border-radius: 999px;
+  align-items: center;
+}
+
+.statusBadgeText {
+  color: white;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.badgeExpired {
+  background-color: #c93135;
+}
+
+.badgePending {
+  background-color: #f59e0b;
+}
+
+.badgeConnected {
+  background-color: #377e25;
+}

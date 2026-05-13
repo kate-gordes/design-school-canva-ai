@@ -1,0 +1,26 @@
+.container {
+  padding: 32px 8px;
+}
+
+.mobilePairSlot {
+  width: 150px;
+}
+
+.desktopCarouselSlot {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.pairColumn {
+  display: grid;
+  grid-auto-rows: 1fr;
+  row-gap: 12px;
+  width: 150px;
+  /* Ensures Carousel can measure item width */
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px 16px;
+  }
+}

@@ -1,0 +1,23 @@
+.textWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* anchor text to left to avoid mid-clipping during grow */
+  overflow: hidden; /* ensure selection box encloses text */
+}
+
+.text {
+  display: inline-block; /* intrinsic width equals content width for accurate measurement */
+  font-size: 150px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+  user-select: text;
+  line-height: 1.15; /* more breathing room to avoid top/bottom clipping */
+  white-space: nowrap; /* keep single line; width grows horizontally */
+}
+
+/* Remove browser focus outline inside selection when editing */
+.text[contenteditable='true']:focus {
+  outline: none;
+}

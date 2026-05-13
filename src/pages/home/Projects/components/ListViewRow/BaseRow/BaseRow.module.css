@@ -1,0 +1,43 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorSurfaceSecondary from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorActionPrimaryBg from "@canva/easel/legacy_tokens:ThemeColors";
+
+.baseRow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.baseRow:hover {
+  background-color: colorSurfaceSecondary;
+}
+
+.baseRow:focus-visible {
+  outline: 2px solid colorActionPrimaryBg;
+  outline-offset: -2px;
+}
+
+.selected {
+  background-color: colorSurfaceSecondary;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.detailsOpen {
+  background-color: colorSurfaceSecondary;
+}
+
+.small {
+  min-height: calc(baseUnit * 6);
+}
+
+.large {
+  min-height: calc(baseUnit * 8);
+}

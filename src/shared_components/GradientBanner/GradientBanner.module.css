@@ -1,0 +1,26 @@
+@value colorBrand, colorPage, colorPageTransparent from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* Gradient container - fixed at top, 278px high */
+.gradientContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 278px;
+  background:
+    radial-gradient(ellipse 72% 150% at 50% 100%, colorPage, colorPageTransparent),
+    linear-gradient(to bottom, colorPageTransparent 0%, colorPageTransparent 9.5%, colorPage 94%),
+    linear-gradient(
+      color(from colorPage srgb r g b / 0.35),
+      color(from colorPage srgb r g b / 0.35)
+    ),
+    linear-gradient(
+      color(from colorPage srgb r g b / 0.35),
+      color(from colorPage srgb r g b / 0.35)
+    ),
+    linear-gradient(color(from colorPage srgb r g b / 0.1), color(from colorPage srgb r g b / 0.1)),
+    linear-gradient(to bottom, colorPageTransparent 0%, colorPage 100%),
+    linear-gradient(to right, colorBrand 0%, #6f00ff 100%);
+  pointer-events: none;
+  z-index: 0;
+}

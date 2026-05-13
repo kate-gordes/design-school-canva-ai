@@ -1,0 +1,7 @@
+/* Copyright 2024 Canva Inc. All Rights Reserved. */
+
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.appIcon {
+  border-radius: baseUnit;
+}

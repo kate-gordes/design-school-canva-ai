@@ -1,0 +1,458 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.searchInput {
+  width: 202px;
+}
+
+.peopleSelect {
+  width: 120px;
+}
+
+.groupsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  gap: calc(baseUnit * 2);
+}
+
+.groupCard {
+  width: 320px;
+  height: 201px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gradientBanner {
+  height: 141px;
+  width: calc(100% - 16px);
+  margin: 8px 8px 0 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Gradient variants - matching Your Teams */
+.gradientBluePurple {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+}
+
+.gradientBlue {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.gradientPurple {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+}
+
+.gradientPinkRed {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #f43f5e 100%);
+}
+
+.gradientOrange {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    linear-gradient(to right, #fdba74 0%, #f97316 100%);
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+  padding: 0 calc(baseUnit * 1.5);
+  height: 60px;
+}
+
+.avatarCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarText {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cardInfo {
+  flex: 1;
+}
+
+.memberAvatars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.memberPhoto {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.memberInitials {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memberInitialsText {
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.memberCount {
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop/Mobile visibility */
+.desktopTitle {
+  display: block;
+}
+
+.mobileTitle {
+  display: none;
+}
+
+.desktopFilters {
+  display: block;
+}
+
+.mobileFilters {
+  display: none;
+}
+
+.mobileIcons {
+  display: none;
+}
+
+.desktopIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.desktopIconButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.desktopList {
+  display: block;
+}
+
+.desktopListHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: calc(baseUnit * 1.5) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.desktopGrid {
+  display: block;
+}
+
+.mobileList {
+  display: none;
+}
+
+.mobileGrid {
+  display: none;
+}
+
+.mobileGroupsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(baseUnit * 2);
+}
+
+/* Mobile list view styles */
+.listHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: calc(baseUnit * 1.5) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.groupListRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: calc(baseUnit * 1.5) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.groupListName {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+  min-width: 0;
+}
+
+.groupNameText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.listAvatarCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.listAvatarText {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.groupListMembers {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.listMemberAvatars {
+  display: flex;
+  align-items: center;
+}
+
+.listMemberPhoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: -8px;
+  border: 2px solid white;
+}
+
+.listMemberPhoto:first-child {
+  margin-left: 0;
+}
+
+.listMemberInitials {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+  border: 2px solid white;
+}
+
+.listMemberInitials:first-child {
+  margin-left: 0;
+}
+
+.listMemberInitialsText {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.listMemberCount {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  margin-left: -8px;
+  border: 2px solid white;
+}
+
+/* Sort sheet */
+.sheetBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.sortSheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  z-index: 101;
+  padding-bottom: 24px;
+}
+
+.sheetHandle {
+  width: 40px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 12px auto;
+}
+
+.sortSheetHeader {
+  padding: 0 24px 12px 24px;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.sortSheetContent {
+  padding: 8px 0;
+}
+
+.sortOption {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1.5);
+  width: 100%;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.sortOption:hover {
+  background: #f5f5f5;
+}
+
+.sortOptionActive {
+  background: #f0f0f0;
+}
+
+/* Scroll fade gradient */
+.scrollFadeGradient {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .scrollFadeGradient {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(245, 246, 250, 0), rgba(245, 246, 250, 1));
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .desktopTitle {
+    display: none;
+  }
+
+  .mobileTitle {
+    display: block;
+  }
+
+  .desktopFilters {
+    display: none;
+  }
+
+  .desktopList {
+    display: none;
+  }
+
+  .desktopGrid {
+    display: none;
+  }
+
+  .mobileList {
+    display: block;
+  }
+
+  .mobileGrid {
+    display: block;
+  }
+
+  .mobileFilters {
+    display: block;
+  }
+
+  .mobileIcons {
+    display: flex;
+    justify-content: flex-end;
+    gap: calc(baseUnit * 2);
+  }
+
+  .mobileIconButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobileSearchInput {
+    width: 100%;
+  }
+
+  .mobileSelectWrapper {
+    width: 100%;
+  }
+
+  .groupsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .groupCard {
+    width: 100%;
+  }
+}

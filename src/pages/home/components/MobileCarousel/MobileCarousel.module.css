@@ -1,0 +1,105 @@
+/* Unified carousel component */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Grid container for multi-row carousels */
+.gridContainer {
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  grid-template-rows: var(--grid-rows);
+  row-gap: var(--row-gap);
+  column-gap: var(--item-gap);
+  grid-auto-flow: var(--grid-flow);
+  align-items: flex-start;
+  width: max-content;
+  padding-left: 16px;
+}
+
+/* Flex container for single-row carousels */
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  gap: var(--item-gap);
+  align-items: flex-start;
+  width: max-content;
+  padding-left: 16px;
+}
+
+/* Navigation buttons */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: box-shadow 0.2s ease;
+}
+
+.navButton:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.navButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navButtonLeft {
+  left: 8px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.navButtonLeft:active {
+  transform: translateY(-50%) rotate(180deg) scale(0.95);
+}
+
+.navButtonRight {
+  right: 0;
+}
+
+/* Chevron button (just arrow, no circle) */
+.chevronButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.chevronButton:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.chevronButton:active {
+  transform: translateY(-50%) scale(0.95);
+}

@@ -1,0 +1,28 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorTypographyPrimary from "@canva/easel/legacy_tokens:ThemeColors";
+
+.listViewTableHeader {
+  min-height: calc(baseUnit * 4);
+  height: fit-content;
+  font-weight: 600;
+  color: colorTypographyPrimary;
+  display: grid;
+  align-items: center;
+  /* Grid template to match folder list items */
+  grid-template-columns: 1fr auto auto auto;
+  gap: calc(baseUnit * 2);
+}
+
+.paddedCell {
+  padding: 0 baseUnit;
+}
+
+.nameColumnButton {
+  /*A special styling here is needed just for the name column button because*/
+  /*1. It needs to be horizontal and vertically aligned with the SortControls button in grid view*/
+  /*so the experience isn't janky when the user is switching views. Hence the usage of display flex and align-items*/
+  /*2. the name column button cannot use the paddedCell class like every other column cell because that will push it */
+  /*to be misaligned with SortControls in grid view*/
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,96 @@
+/* Mobile chat input — soft purple border, white fill, 16px radius.
+   Collapses to a single-line bar when unfocused, expands on focus.
+   Single persistent textarea + CSS-ordered buttons so focus never leaves. */
+
+.chatBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid #e7dbff;
+  border-radius: 16px;
+  background: #ffffff;
+  transition:
+    height 0.2s ease,
+    padding 0.2s ease;
+  cursor: text;
+}
+
+.chatBox:focus-within {
+  border-color: #5858e0;
+}
+
+/* Collapsed: [+] [input] [mic] on one row, 56px bar */
+.chatBoxCollapsed {
+  height: 56px;
+  padding: 8px;
+  gap: 4px;
+}
+
+.chatBoxCollapsed .plusButton {
+  order: 0;
+}
+.chatBoxCollapsed .chatInput {
+  order: 1;
+  flex: 1;
+}
+.chatBoxCollapsed .micButton {
+  order: 2;
+}
+
+/* Expanded: input on row 1 (full width), [+] and [mic] on row 2 */
+.chatBoxExpanded {
+  height: 116px;
+  padding: 14px 14px 10px;
+  row-gap: 6px;
+}
+
+.chatBoxExpanded .chatInput {
+  order: 0;
+  flex: 1 0 100%;
+  width: 100%;
+}
+.chatBoxExpanded .plusButton {
+  order: 1;
+  margin-right: auto;
+}
+.chatBoxExpanded .micButton {
+  order: 2;
+}
+
+.chatInput {
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(14, 19, 24);
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  resize: none;
+  font-family: inherit;
+}
+
+.chatInput::placeholder {
+  color: rgba(14, 19, 24, 0.6);
+}
+
+/* Plus + mic wrappers — hold Easel tertiary Buttons, circular hover state */
+.plusButton,
+.micButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.plusButton :global(button),
+.micButton :global(button) {
+  border-radius: 50% !important;
+  transition: background-color 0.15s ease;
+}
+
+.plusButton :global(button):hover,
+.micButton :global(button):hover {
+  background-color: rgba(14, 19, 24, 0.06) !important;
+}

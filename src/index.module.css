@@ -1,0 +1,12 @@
+.container {
+  background: linear-gradient(
+    180deg,
+    #fcfbfe 0%,
+    #f6f2fd 100%
+  ); /* monorepo shell_layout bg gradient */
+  min-height: 100vh;
+  max-width: 100vw;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}

@@ -1,0 +1,297 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorPage, colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+
+.container {
+  position: relative;
+  background: colorPage;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.headerBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(baseUnit * 8);
+  background-color: colorSurface;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.headerBackground.visible {
+  opacity: 1;
+}
+
+.backButton {
+  position: fixed;
+  top: 0;
+  left: calc(baseUnit * 2);
+  height: calc(baseUnit * 8);
+  z-index: 101;
+  display: flex;
+  align-items: center;
+}
+
+.viewToggleButton {
+  position: fixed;
+  top: 0;
+  right: calc(baseUnit * 2);
+  height: calc(baseUnit * 8);
+  z-index: 101;
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  position: fixed;
+  top: 0;
+  left: calc(baseUnit * 6);
+  height: calc(baseUnit * 8);
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.headerTitle.visible {
+  opacity: 1;
+}
+
+.headerArea {
+  min-height: 108px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: calc(baseUnit * 10) calc(baseUnit * 2) 0;
+}
+
+.mobileViewContent {
+  padding-top: 28px;
+}
+
+/* Horizontal scroller for filter pills on narrow viewports.
+   No padding-top: the preceding MobileSearchBox supplies the 16px gap
+   (matches Templates / Projects mobile pages).
+   Extra padding-bottom gives the first content section room to breathe. */
+.filterPillsScroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 calc(baseUnit * 2) calc(baseUnit * 6);
+  scrollbar-width: none;
+}
+
+.filterPillsScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.filterPillsRow {
+  display: inline-flex;
+  gap: calc(baseUnit * 1);
+  align-items: center;
+}
+
+/* Cancel the carousel's built-in 16px padding-left so the first card aligns
+   with the title; right edge stays inside the parent Box's paddingX="2u". */
+.starredCarouselBleed {
+  margin-left: calc(baseUnit * -2);
+}
+
+.starredCardItem {
+  width: 124px;
+}
+
+/* Mobile grid of brand-template cards: shave a bit of height off the
+   thumbnail → content gap so cards don't feel taller than the thumbnail. */
+.mobileCardGrid :global([class*='CardContent']) {
+  padding-top: 4px !important;
+}
+
+/* Reset internal top padding from desktop view components (Rows > Box[paddingTop="4u"]). */
+.desktopViewReset > :first-child > :first-child,
+.desktopViewReset > :first-child > :first-child > :first-child {
+  padding-top: 0 !important;
+}
+
+.pageTitle {
+  font-weight: 500 !important;
+}
+
+.titleButtonLarge {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+}
+
+.dropdownIconCircleLarge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(baseUnit * 3);
+  height: calc(baseUnit * 3);
+  border-radius: 50%;
+  background-color: colorSurface;
+  border: 1px solid rgba(53, 71, 90, 0.2);
+  margin-left: calc(baseUnit * 0.5);
+}
+
+/* Brand Navigation Sheet */
+.sheetContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 4px;
+}
+
+.sheetItemSelected {
+  background-color: rgba(139, 70, 255, 0.08);
+  border-radius: calc(baseUnit * 1);
+}
+
+.sheetItemSelected * {
+  color: rgb(115, 64, 206) !important;
+}
+
+.sheetIconMenu {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.brandKitSearchInput::placeholder {
+  color: rgba(15, 16, 21, 0.4);
+  font-weight: 300;
+}
+
+/* ── Brand Kit Picker sub-menu ── */
+.pickerHeader {
+  position: relative;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.pickerHeaderLeft {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.pickerHeaderRight {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.pickerDivider {
+  margin: 0 -8px;
+  padding-bottom: 16px;
+}
+
+.pickerSearchWrapper {
+  padding: 0 8px 16px;
+}
+
+.pickerSearchBox {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.pickerSearchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  background: transparent;
+  color: rgb(15, 16, 21);
+  font-family: 'Canva Sans', sans-serif;
+}
+
+.pickerItem {
+  display: flex;
+  align-items: center;
+  padding: 14px 12px;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.pickerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickerAvatarDefault {
+  background-color: rgba(53, 65, 90, 0.2);
+  box-shadow: rgba(57, 70, 96, 0.14) 0px 0px 0px 1px inset;
+}
+
+.pickerAvatarImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pickerAvatarCanvaLarge {
+  transform: scale(1.5);
+  display: flex;
+}
+
+.pickerItemLabel {
+  flex: 1;
+}
+
+/* ── Main navigation sheet ── */
+.sheetHeader {
+  display: flex;
+  min-height: 56px;
+  height: 56px;
+  align-items: center;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.sheetHeaderClose {
+  margin-left: auto;
+}
+
+.sheetMenuIconCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

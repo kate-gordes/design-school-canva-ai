@@ -1,0 +1,36 @@
+/* Ported verbatim from sheet-agent-prototype:
+   src/components/SideNav/CanvaAIPanel/style.css (.canva-ai-loading-swirl rules) */
+
+.swirl {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.bgSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bgSvgSpinning {
+  animation: avatarSpin 2s linear forwards;
+}
+
+.sprite {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes avatarSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

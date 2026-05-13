@@ -1,0 +1,15 @@
+/* Right-side controls row (Sort / view-toggle / add-new).
+   Plain div + paddingTop:56px because Easel Box only accepts a fixed set of
+   space tokens (max 12u) — 56px is outside that set. */
+.rightControlsRow {
+  width: 100%;
+  padding-top: 56px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Negative marginTop trims DesignSection's internal 32px top padding
+   so the gap between controls and the Recents heading is tighter. */
+.recentsTrim {
+  margin-top: -16px;
+}

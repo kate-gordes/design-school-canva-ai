@@ -1,0 +1,32 @@
+/* Element wrapper styles */
+
+.element {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+}
+
+.element.locked {
+  cursor: not-allowed;
+}
+
+.element.hidden {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.element.editing {
+  cursor: auto;
+}
+
+.elementContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Prevent content from being selectable when not editing */
+.elementContent:not(.editing) {
+  user-select: none;
+}

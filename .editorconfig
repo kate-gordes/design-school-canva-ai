@@ -1,0 +1,23 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.patch]
+trim_trailing_whitespace = false
+
+[*.rs]
+indent_size = 4
+
+[*.tsv]
+indent_style = tab
+
+[*.go]
+indent_style = tab

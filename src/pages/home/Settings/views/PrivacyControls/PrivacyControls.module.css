@@ -1,0 +1,24 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.privacyCard {
+  background: white;
+}
+
+.disabledContent {
+  opacity: 0.5;
+}
+
+.cardLayout {
+  display: flex;
+  gap: calc(baseUnit * 3);
+}
+
+.textColumn {
+  flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 80px);
+}
+
+.toggleColumn {
+  flex-shrink: 0;
+}

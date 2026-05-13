@@ -1,0 +1,33 @@
+@value baseUnit, colorContentFg from "@canva/easel/legacy_tokens:ThemeColors";
+
+.breadcrumbNav {
+  overflow-x: hidden;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.item:last-of-type {
+  /* prevents last item to be completely hidden when it collapses */
+  flex: 1 0 calc(2 * baseUnit);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  margin: 0 baseUnit;
+  color: colorContentFg;
+  min-width: calc(2 * baseUnit);
+}

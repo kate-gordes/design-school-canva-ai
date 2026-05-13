@@ -1,0 +1,36 @@
+.headerButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: white;
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerButton:hover {
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  color: white !important;
+}
+
+.headerButton span,
+.headerButton svg {
+  color: white !important;
+  fill: white !important;
+}
+
+.headerButton:hover span,
+.headerButton:hover svg {
+  color: white !important;
+  fill: white !important;
+}
+
+.crownIcon {
+  color: #bbf3f4;
+  fill: #bbf3f4;
+  width: 16px;
+  height: 16px;
+}

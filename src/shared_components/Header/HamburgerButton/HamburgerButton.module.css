@@ -1,0 +1,30 @@
+.hamburgerButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: white;
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburgerButton:hover {
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  color: white !important;
+}
+
+.hamburgerButton span,
+.hamburgerButton svg {
+  color: white !important;
+  fill: white !important;
+}
+
+.hamburgerButton:hover span,
+.hamburgerButton:hover svg {
+  color: white !important;
+  fill: white !important;
+}

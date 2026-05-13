@@ -1,0 +1,76 @@
+/* Source: pages/home/ui/borderless_banner/default_banner/hero_title.css */
+/* @value transforms applied per Rule A: aboveSmall=(min-width:600px), belowSmall=(max-width:599px) */
+/* @value transforms applied per Rule S: themeLight/:global(.light), themeDark/:global(.dark) */
+/* baseTextPixel = calc(baseUnitInRem / 8) = calc(0.8rem / 8) = 0.1rem = 1px at 10px root */
+/* font-size: calc(40 * baseTextPixel) = calc(40 * 1px) = 40px */
+
+/* heroGradient themeLight: linear-gradient(to bottom right, #00C4CC, #5A32FA, #7D2AE8) */
+:global(.light) {
+  --heroGradient: linear-gradient(to bottom right, #00c4cc, #5a32fa, #7d2ae8);
+}
+
+/* heroGradient themeDark: linear-gradient(to bottom right, #10E2EA 30%, #8B3DFF) */
+:global(.dark) {
+  --heroGradient: linear-gradient(to bottom right, #10e2ea 30%, #8b3dff);
+}
+
+/* .heroTitleOverride from hero_title.css */
+.gradientText {
+  margin-top: 0;
+  margin-bottom: 0; /* reset browser default h3 margin-bottom (~1em) */
+  text-align: center;
+  font-feature-settings: normal;
+  /* sets Canva Sans Display */
+  font-variation-settings: 'opsz' 100;
+  /* calc(40 * baseTextPixel) = 40px at 62.5% root font size */
+  font-size: 40px;
+  font-weight: 500;
+  /* calc(44 * baseTextPixel) = 44px */
+  line-height: 44px;
+  letter-spacing: -1px;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  /* .withGradient applied via gradient text */
+  background-image: var(
+    --heroGradient,
+    linear-gradient(to bottom right, #00c4cc, #5a32fa, #7d2ae8)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: block;
+  /* filter uses elevationSurfaceBg = #ffffff light / #16171D dark */
+  filter: drop-shadow(0px 0px 4px var(--elevationSurfaceBg, #ffffff));
+}
+
+/* Plain variant: same size/weight/position as the gradient hero title,
+   but with solid text color (used on Projects and similar pages). */
+.plain {
+  background-image: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  color: #000;
+  filter: none;
+}
+
+/* Mobile portrait sizes from hero_title.css:
+   heroTitlePortraitSmall: calc(24 * baseTextPixel) = 24px
+   heroTitlePortraitMedium: calc(26 * baseTextPixel) = 26px
+   heroTitlePortraitLarge: calc(40 * baseTextPixel) = 40px
+   We use a single responsive breakpoint for mobile. */
+@media (max-width: 599px) {
+  .gradientText {
+    /* heroTitlePortraitSmall: 24px — default small portrait size */
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+/* Desktop-specific styles — aboveSmall = (min-width: 600px) */
+/* No size change needed — 40px is already the desktop size */
+@media (min-width: 600px) {
+  .gradientText {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

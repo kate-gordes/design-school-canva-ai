@@ -1,0 +1,32 @@
+@value colorCanvas from '@canva/easel/legacy_tokens:ThemeColors';
+
+.content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0; /* editor grid accounts for left rail; no extra gap */
+}
+
+.contentFullWidth {
+  width: 100vw;
+  padding: 0 !important;
+  margin-left: 0; /* Remove margin when nav is hidden */
+}
+
+@media (max-width: 600px) {
+  .content {
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100vw;
+    height: calc(100vh - 56px); /* Account for 56px footer nav */
+    padding: 0;
+    margin: 0;
+  }
+
+  .contentNoNavTabs {
+    height: 100vh;
+  }
+}

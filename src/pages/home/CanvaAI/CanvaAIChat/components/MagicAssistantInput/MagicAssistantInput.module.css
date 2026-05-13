@@ -1,0 +1,63 @@
+.container {
+  /* Gradient border (teal → violet) matching the monorepo Canva AI input. */
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #00c4cc 0%, #7d2ae8 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 16px 16px 8px 16px;
+}
+
+.inputRow {
+  width: 100%;
+  min-height: 72px;
+}
+
+.actionsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.plusButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f0f1f5;
+  border: none;
+  cursor: pointer;
+  color: #0e1318;
+  transition: background 0.15s ease;
+}
+
+.plusButton:hover:not(:disabled) {
+  background: #e8e9ed;
+}
+
+.plusButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voiceButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #0e1318;
+}
+
+.voiceButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

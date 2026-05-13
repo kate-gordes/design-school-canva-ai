@@ -1,0 +1,30 @@
+.customGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  grid-auto-rows: min-content;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .customGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .customGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .customGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.customGrid > * {
+  margin: 0;
+  padding: 0;
+}

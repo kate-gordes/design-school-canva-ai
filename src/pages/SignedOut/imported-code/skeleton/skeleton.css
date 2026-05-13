@@ -1,0 +1,74 @@
+/* Copyright 2024 Canva Inc. All Rights Reserved. */
+
+@value maxPageWidth from "pages/seo_landing_page/ui/metrics/metrics.css";
+@value baseUnit from "ui/base/metrics/metrics.css";
+@value safeAreaInsetBottom, safeAreaInsetTop from "ui/base/platform_quirks/safe_area_insets.css";
+@value colorPage from "ui/base/theme/theme.css";
+@value colorPurpleA03, colorTeal03 from "ui/base/tokens/primitive/primitive_color.css";
+
+@value colorTealA03: rgba(from colorTeal03 r g b / 20%);
+
+.rootContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: colorPage;
+}
+
+.rootContainerGradient {
+  background: linear-gradient(
+    180deg,
+    colorPurpleA03 0vh,
+    colorTealA03 60vh,
+    colorTealA03 90vh,
+    transparent 120vh
+  );
+}
+
+.main {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* TODO(SEOPL-768): clean up once content spacing/width is reconciled */
+.main.contained {
+  max-width: maxPageWidth;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.header.applyInsets {
+  padding-top: safeAreaInsetTop;
+}
+
+.redesignedHeader {
+  background-color: transparent;
+  padding-top: 0;
+}
+
+.redesignedHeader.collapsed {
+  pointer-events: none;
+}
+
+.stickyContentContainer {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+}
+
+.stickyContentContainer.applyInsets {
+  padding-bottom: safeAreaInsetBottom;
+}
+
+.assistant {
+  position: fixed;
+  bottom: calc(baseUnit * 11);
+  right: calc(baseUnit * 2);
+  z-index: 3;
+}

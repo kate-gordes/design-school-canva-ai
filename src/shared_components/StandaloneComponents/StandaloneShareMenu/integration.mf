@@ -1,0 +1,349 @@
+file
+# Standalone Share Menu Integration Manifest
+# Version: 1.0.0
+# Created: 2024
+# Description: Instructions for integrating the standalone share menu into any React project
+
+## OVERVIEW
+This manifest provides step-by-step instructions for integrating the Standalone Share Menu component into your React project. The component recreates Canva's share design panel with zero external dependencies.
+
+## REQUIREMENTS
+- React 16.8+ (hooks support)
+- TypeScript 4.0+ (optional but recommended)
+- Modern browser with CSS Grid support
+
+## FILES TO COPY
+Copy these 2 files to your project:
+
+```
+src/components/StandaloneShareMenu/
+├── index.tsx          # Main component (REQUIRED)
+└── styles.css         # Styling (REQUIRED)
+```
+
+Optional files for reference:
+```
+├── demo.tsx          # Usage example
+├── README.md         # Documentation
+└── integration.mf    # This file
+```
+
+## INSTALLATION STEPS
+
+### Step 1: Create Directory
+Create the component directory in your project:
+```bash
+mkdir -p src/components/StandaloneShareMenu
+```
+
+### Step 2: Copy Files
+Copy the required files:
+- `index.tsx` → `src/components/StandaloneShareMenu/index.tsx`
+- `styles.css` → `src/components/StandaloneShareMenu/styles.css`
+
+### Step 3: Verify File Structure
+Your project should now have:
+```
+your-project/
+├── src/
+│   └── components/
+│       └── StandaloneShareMenu/
+│           ├── index.tsx
+│           └── styles.css
+└── package.json
+```
+
+## USAGE
+
+### Basic Implementation
+```tsx
+// 1. Import the component
+import StandaloneShareMenu from './components/StandaloneShareMenu';
+
+// 2. Use the component
+<StandaloneShareMenu />
+```
+
+### Complete Example
+```tsx
+import React, { useState } from 'react';
+import StandaloneShareMenu from './components/StandaloneShareMenu';
+
+function MyHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px' }}>
+      <StandaloneShareMenu 
+        isOpen={isMenuOpen}
+        onToggle={setIsMenuOpen}
+        visitorCount={5}
+        currentUser={{
+          name: 'John Doe',
+          avatar: 'https://example.com/avatar.jpg'
+        }}
+      />
+    </header>
+  );
+}
+
+export default MyHeader;
+```
+
+## PROPS REFERENCE
+
+| Prop            | Type                                           | Required | Default | Description                        |
+| --------------- | ---------------------------------------------- | -------- | ------- | ---------------------------------- |
+| `isOpen`        | `boolean`                                      | No       | -       | Control the menu open state        |
+| `onToggle`      | `(isOpen: boolean) => void`                    | No       | -       | Callback when menu opens/closes    |
+| `visitorCount`  | `number`                                       | No       | `0`     | Number of current visitors         |
+| `currentUser`   | `{ name?: string; avatar?: string }`           | No       | -       | Current user information           |
+
+## FEATURES
+
+### Included Functionality
+- ✅ Share button trigger
+- ✅ Flyout panel with smooth animations
+- ✅ People search and invite
+- ✅ Access level dropdown (3 options)
+- ✅ Copy link button
+- ✅ 8 action buttons (Download, Present, etc.)
+- ✅ Visitor count display
+- ✅ Settings icon
+- ✅ Click outside to close
+- ✅ Responsive design
+
+### Access Levels
+1. **Only you can access** - Private
+2. **Team** - Team members only
+3. **Anyone with the link** - Public
+
+### Share Actions
+1. Download
+2. Present
+3. Request approval
+4. View-only link
+5. Print with Canva
+6. Present and record
+7. Website
+8. See all
+
+## CUSTOMIZATION
+
+### Button Styling
+Change the share button appearance:
+```css
+.share-button {
+  background: #your-brand-color;
+  color: white;
+}
+```
+
+### Panel Positioning
+Adjust panel position:
+```css
+.share-menu-panel {
+  right: 0;     /* Align to right */
+  left: auto;   /* Or align to left */
+}
+```
+
+### Panel Width
+Modify panel size:
+```css
+.share-menu-panel {
+  width: 450px;  /* Default is 416px */
+}
+```
+
+### Colors
+Override color scheme:
+```css
+.copy-link-button {
+  background: linear-gradient(90deg, #your-primary, #your-secondary);
+}
+
+.selected-option {
+  background-color: #your-accent-color;
+}
+```
+
+### Action Grid
+Change grid layout:
+```css
+.action-grid {
+  grid-template-columns: repeat(3, 1fr);  /* 3 columns instead of 4 */
+  gap: 12px;                               /* Larger gap */
+}
+```
+
+## TESTING
+
+### Quick Test
+1. Add component to your header
+2. Click share button - menu should open
+3. Click outside - menu should close
+4. Test dropdown - options should display
+5. Test copy link button - should log or copy
+6. Test action buttons - should log action
+7. Test on mobile - should be responsive
+
+### Integration Checklist
+- [ ] Files copied correctly
+- [ ] Component imports without errors
+- [ ] Menu opens when button clicked
+- [ ] Menu closes when clicking outside
+- [ ] Dropdown works properly
+- [ ] Copy link button functions
+- [ ] All action buttons clickable
+- [ ] Responsive on mobile
+- [ ] No console errors
+
+## TROUBLESHOOTING
+
+### Common Issues
+
+**Import Error:**
+```
+Module not found: Can't resolve './components/StandaloneShareMenu'
+```
+- Solution: Check file paths and ensure `index.tsx` exists
+
+**Menu Doesn't Open:**
+```
+Button clicks but nothing happens
+```
+- Solution: Check browser console for errors
+- Verify `useState` is working properly
+
+**Panel Cut Off:**
+```
+Menu panel is partially hidden
+```
+- Solution: Check parent container doesn't have `overflow: hidden`
+- Add `position: relative` to parent if needed
+
+**Click Outside Not Working:**
+```
+Menu doesn't close when clicking outside
+```
+- Solution: Check z-index values
+- Verify refs are properly attached
+
+**Styling Broken:**
+```
+Component appears but styling is wrong
+```
+- Solution: Ensure `styles.css` is imported in `index.tsx`
+- Check for CSS conflicts with other stylesheets
+
+**Dropdown Not Showing:**
+```
+Access level dropdown doesn't appear
+```
+- Solution: Check z-index of `.dropdown-menu`
+- Verify `isDropdownOpen` state is updating
+
+## BROWSER SUPPORT
+- Chrome/Edge 88+
+- Firefox 78+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## PERFORMANCE NOTES
+- Component only renders panel when open
+- CSS transitions are GPU-accelerated
+- No external dependencies to load
+- Total bundle size: ~8KB (gzipped: ~3KB)
+
+## MIGRATION FROM EASEL
+If replacing an Easel-based ShareMenu:
+
+1. Remove Easel imports:
+   ```tsx
+   // Remove these
+   import { FlyoutMenu } from '@canva/easel/flyout_menu';
+   import { Text, Box, Button } from '@canva/easel';
+   ```
+
+2. Update component usage:
+   ```tsx
+   // Old (Easel)
+   <ShareMenu />
+   
+   // New (Standalone)
+   <StandaloneShareMenu />
+   ```
+
+3. Update event handlers:
+   ```tsx
+   // Old (Easel) - FlyoutMenu trigger pattern
+   <FlyoutMenu trigger={props => ...}>
+   
+   // New (Standalone) - Simple toggle
+   <StandaloneShareMenu isOpen={isOpen} onToggle={setIsOpen} />
+   ```
+
+4. Remove Easel icon imports and use inline SVG
+
+## ADVANCED INTEGRATION
+
+### With Backend API
+```tsx
+const handleCopyLink = async () => {
+  try {
+    const response = await fetch('/api/share/create-link', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ designId: currentDesignId })
+    });
+    const { link } = await response.json();
+    await navigator.clipboard.writeText(link);
+    showSuccessToast('Link copied!');
+  } catch (error) {
+    showErrorToast('Failed to copy link');
+  }
+};
+```
+
+### With State Management
+```tsx
+// Redux example
+import { useDispatch, useSelector } from 'react-redux';
+
+function MyComponent() {
+  const dispatch = useDispatch();
+  const isShareMenuOpen = useSelector(state => state.ui.shareMenuOpen);
+  
+  return (
+    <StandaloneShareMenu 
+      isOpen={isShareMenuOpen}
+      onToggle={(open) => dispatch(setShareMenuOpen(open))}
+    />
+  );
+}
+```
+
+### With Analytics
+```tsx
+<StandaloneShareMenu 
+  onToggle={(isOpen) => {
+    if (isOpen) {
+      analytics.track('Share Menu Opened');
+    }
+  }}
+/>
+```
+
+## SUPPORT
+For issues or questions:
+1. Check the README.md file
+2. Review the demo.tsx example
+3. Verify browser compatibility
+4. Test in a clean React project first
+
+## VERSION HISTORY
+- v1.0.0: Initial release with full feature parity to Easel version
+
+---
+END OF MANIFEST

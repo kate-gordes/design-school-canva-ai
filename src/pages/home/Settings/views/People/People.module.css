@@ -1,0 +1,466 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.searchInput {
+  width: 304px;
+}
+
+.roleSelect {
+  width: 200px;
+}
+
+.gridButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gridButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Grid layout specific to People */
+.gridRow {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
+  align-items: center;
+  gap: calc(baseUnit * 2);
+}
+
+.profileImageInitials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.initialsText {
+  color: white;
+  font-weight: bold;
+}
+
+.extraBadge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  margin-left: -8px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.extraBadgeText {
+  font-family:
+    'Canva Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.groupBadges {
+  display: flex;
+  align-items: center;
+}
+
+.groupBadge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.groupBadge:first-child {
+  margin-left: 0;
+  z-index: 5;
+}
+
+.groupBadge:nth-child(2) {
+  z-index: 4;
+}
+
+.groupBadge:nth-child(3) {
+  z-index: 3;
+}
+
+.groupBadge:nth-child(4) {
+  z-index: 2;
+}
+
+.groupBadgeText {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Mobile/Desktop visibility */
+.desktopFilters {
+  display: block;
+}
+
+.desktopTable {
+  display: block;
+}
+
+.desktopGrid {
+  display: block;
+}
+
+.desktopGridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: calc(baseUnit * 4);
+}
+
+.desktopGridCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+}
+
+.desktopGridCardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(baseUnit * 0.25);
+}
+
+.desktopGridAvatar {
+  width: 200px;
+  height: 200px;
+  border-radius: calc(baseUnit * 0.5);
+  object-fit: cover;
+}
+
+.desktopGridAvatarInitials {
+  width: 200px;
+  height: 200px;
+  border-radius: calc(baseUnit * 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktopGridInitialsText {
+  color: white;
+  font-weight: normal;
+  font-size: 64px;
+}
+
+.mobileFilters {
+  display: none;
+}
+
+.mobileList {
+  display: none;
+}
+
+.mobileGridButton {
+  display: none;
+}
+
+/* Mobile person card */
+.mobilePersonCard {
+  padding: calc(baseUnit * 2) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.mobileAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mobileAvatarInitials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileSectionHeader {
+  padding: calc(baseUnit * 1.5) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.mobileSearchRow {
+  display: flex;
+  gap: calc(baseUnit * 2);
+  align-items: center;
+}
+
+.mobileSearchInput {
+  flex: 1;
+  max-width: calc(100% - 56px);
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filterButton:hover {
+  background: #f5f5f5;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 6px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  color: #333;
+  background: white;
+  cursor: pointer;
+  font-family:
+    'Canva Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 12px;
+}
+
+.roleBadge:hover {
+  background: #f5f5f5;
+}
+
+/* Filter sheet */
+.sheetBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  z-index: 101;
+  padding-bottom: 24px;
+}
+
+.sheetHandle {
+  width: 40px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 12px auto;
+}
+
+.sheetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px 16px 24px;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.sheetDoneButton {
+  background: none;
+  border: none;
+  color: #8b3dff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.sheetContent {
+  padding: 16px 24px;
+}
+
+.filterCheckbox {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1.5);
+  padding: 12px 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filterCheckbox input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Simple filter sheet */
+.sheetSimple {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  z-index: 101;
+  padding-bottom: 16px;
+}
+
+.sheetContentSimple {
+  padding: 8px 24px 16px 24px;
+}
+
+.filterCheckboxSimple {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1.5);
+  padding: 10px 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filterCheckboxSimple input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Mobile grid view */
+.mobileGridContainer {
+  display: none;
+}
+
+.mobileGridCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+  min-width: 0;
+}
+
+.gridCardNameEmail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(baseUnit * 0.25);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileGridAvatar {
+  width: 100%;
+  height: 160px;
+  border-radius: calc(baseUnit * 0.5);
+  object-fit: cover;
+}
+
+.mobileGridAvatarInitials {
+  width: 100%;
+  height: 160px;
+  border-radius: calc(baseUnit * 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridInitialsText {
+  color: white;
+  font-weight: 500;
+  font-size: 82px;
+}
+
+.roleDropdown {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 0.5);
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.roleDropdown:hover {
+  opacity: 0.7;
+}
+
+/* Scroll fade gradient */
+.scrollFadeGradient {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .scrollFadeGradient {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(245, 246, 250, 0), rgba(245, 246, 250, 1));
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .desktopFilters {
+    display: none;
+  }
+
+  .desktopTable {
+    display: none;
+  }
+
+  .desktopGrid {
+    display: none;
+  }
+
+  .mobileFilters {
+    display: block;
+  }
+
+  .mobileList {
+    display: block;
+  }
+
+  .mobileGridButton {
+    display: block;
+  }
+
+  .mobileGridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(baseUnit * 3);
+  }
+}

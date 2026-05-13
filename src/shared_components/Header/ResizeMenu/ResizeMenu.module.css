@@ -1,0 +1,64 @@
+/* ResizeMenu component styles */
+
+.resizeMenuContent {
+  width: 400px;
+  max-height: 877px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Above main content since dropdowns are portaled, not header children */
+}
+
+.scrollableContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  border-top: 1px solid #e0e0e0;
+  background: white;
+}
+
+.footerButton {
+  height: 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.menuSection {
+  padding: 16px 16px 8px 16px;
+}
+
+.firstMenuSection {
+  padding: 8px 16px 0 16px;
+}
+
+.purpleIcon {
+  color: rgba(153, 43, 255, 1);
+  fill: rgba(153, 43, 255, 1);
+}
+
+.orangeIcon {
+  color: rgba(255, 97, 5, 1);
+  fill: rgba(255, 97, 5, 1);
+}
+
+.magentaIcon {
+  color: rgba(233, 80, 247, 1);
+  fill: rgba(233, 80, 247, 1);
+}
+
+.blueIcon {
+  color: rgba(74, 83, 250, 1);
+  fill: rgba(74, 83, 250, 1);
+}
+
+.greenIcon {
+  color: rgba(0, 168, 93, 1);
+  fill: rgba(0, 168, 93, 1);
+}

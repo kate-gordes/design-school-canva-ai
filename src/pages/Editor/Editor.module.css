@@ -1,0 +1,171 @@
+.editorContainer {
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: #f3f4f7;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Make the second Rows child (main content) grow to fill remaining height */
+.rowsMain {
+  flex: 1 1 auto;
+  min-height: 0; /* required so inner flex children can size */
+}
+
+.objectPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 72px;
+  position: relative;
+  z-index: 20; /* ensure OP stays above thumbs nav and footer */
+}
+
+.leftRailUndocked {
+  width: 72px;
+  flex: 0 0 72px;
+}
+
+.leftRailDocked {
+  width: 432px; /* 72 + 360 */
+  flex: 0 0 432px;
+}
+
+.leftRailDockedBrand {
+  width: 636px; /* 72 + 564 */
+  flex: 0 0 636px;
+}
+
+.leftRailDockedBrandSidebar {
+  width: 294px; /* 72 + 222 */
+  flex: 0 0 294px;
+}
+
+.leftRailDockedTools {
+  width: 128px; /* 72 + 56 */
+  flex: 0 0 128px;
+}
+
+.canvasArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden; /* scrolling handled by inner canvasScroll */
+}
+
+/*
+ * Wraps the doctype canvas + the optional Design School video panel so the
+ * panel can dock to any side of the artboard (left/right => row,
+ * top/bottom => column). The wrapper takes the canvas's slot inside
+ * `.mainContent` (`flex: 1`), and the inner doctype keeps its existing
+ * `flex: 1` behavior — so when no panel is mounted the layout is unchanged
+ * vs. rendering the doctype directly.
+ */
+.canvasAndPanelWrapper {
+  flex: 1 1 auto;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.canvasAndPanelWrapperRow {
+  flex-direction: row;
+}
+
+.canvasAndPanelWrapperColumn {
+  flex-direction: column;
+}
+
+.canvasScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto; /* vertical scrolling for canvas pages */
+  padding: 48px 0; /* ensure ~48px gap top/bottom while allowing full scroll */
+}
+
+/* === Mobile editor layout === */
+.mobileEditor {
+  height: 100vh;
+  height: 100dvh; /* use dynamic viewport height on mobile */
+  overflow: hidden;
+}
+
+.mobileMain {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f7;
+  /* Reserve space at bottom for the fixed action bar */
+  padding-bottom: 72px;
+}
+
+/* Mobile grid view: scrollable main + taller padding for grid action bar */
+.mobileMainGrid {
+  overflow: auto;
+  padding-bottom: 80px;
+}
+
+/* Mobile canvas gets full width, no side panels */
+.mobileMain .canvasArea,
+.mobileMain > div {
+  width: 100%;
+}
+
+/*
+ * Pinned slot for the Design School video.
+ *
+ * The slot is a sibling of `.mobileMain` inside the `.mobileEditor` flex
+ * column. Three states:
+ *
+ * 1. Empty (no card portaled in): zero height, no visual effect. The
+ *    base rule's `max-height` / `overflow` are no-ops on a zero-height
+ *    container so they cost nothing.
+ *
+ * 2. `data-pinned-mode='full'` (full pinned card with video + transcript):
+ *    the slot grows to fill all remaining vertical space between the
+ *    canvas above and the bottom nav below, so the white card surface
+ *    inside reaches the bottom of the screen — matching the reference
+ *    layout where the card visually anchors to the bottom edge rather
+ *    than floating mid-screen with empty space below it. Scroll for
+ *    overflowing content (e.g. open transcript) is owned by the *card's*
+ *    inner body, not the slot, so the chrome (header + close affordances)
+ *    stays anchored. Hence `overflow: hidden` here.
+ *
+ * 3. `data-pinned-mode='compact'` (mini strip): the strip is short and
+ *    we don't want the slot to take half the screen for it. Hug content
+ *    height, no cap needed.
+ *
+ * The `data-pinned-mode` attribute is toggled by `MobilePinnedCard` via
+ * a ref/effect when it mounts/changes mode.
+ */
+.designSchoolMobilePinnedSlot {
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.designSchoolMobilePinnedSlot[data-pinned-mode='full'] {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.designSchoolMobilePinnedSlot[data-pinned-mode='compact'] {
+  flex: 0 1 auto;
+}

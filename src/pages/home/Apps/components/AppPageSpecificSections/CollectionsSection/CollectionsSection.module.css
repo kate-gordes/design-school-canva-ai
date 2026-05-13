@@ -1,0 +1,15 @@
+/* ui/apps/app_collection_list/app_collection_list.css .cardsList
+   display: flex; flex-wrap: wrap (default) → nowrap at largeUp (>=1200px)
+   gap: 2u (16px) provided via <Box gap='2u'> */
+.cardsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .cardsList {
+    flex-wrap: nowrap;
+  }
+}

@@ -1,0 +1,159 @@
+@value colorTypographyPrimary, colorSecondary, colorSecondaryHover from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorPurple06 from "@canva/easel/legacy_tokens:PrimitiveColors";
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.avatarMenuContainer {
+  position: relative;
+}
+
+.avatarButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  border: 3px solid colorPurple06;
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.avatarButton:hover {
+  opacity: 0.9;
+}
+
+/* Green ring when the user is signed in to the Canva Connect API so it's
+   visually clear that live data is flowing in. */
+.avatarButtonConnected {
+  border-color: #00c853;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Flyout menu positioned to the right of avatar, bottom-aligned */
+.flyoutMenu {
+  position: absolute;
+  left: 100%;
+  bottom: -16px;
+  width: 320px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-left: 8px;
+  padding-bottom: calc(baseUnit * 1);
+}
+
+/* Invisible bridge to prevent menu from closing when moving mouse */
+.flyoutMenu::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: transparent;
+}
+
+.sectionHeader {
+  padding: calc(baseUnit * 1.5) calc(baseUnit * 2) calc(baseUnit * 0.5);
+}
+
+.accountRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(baseUnit * 1.5) calc(baseUnit * 2);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.accountRow:hover {
+  background-color: #f5f5f5;
+}
+
+.accountRow:disabled {
+  cursor: wait;
+}
+
+.accountRow[aria-busy='true'] {
+  cursor: wait;
+}
+
+.accountInfo {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 3);
+}
+
+.accountAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.accountAvatarPlaceholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.accountText {
+  display: flex;
+  flex-direction: column;
+  gap: calc(baseUnit * 0.25);
+}
+
+.divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: calc(baseUnit * 1) 0;
+}
+
+.createTeamContainer {
+  padding: calc(baseUnit * 0.5) calc(baseUnit * 2) calc(baseUnit * 1);
+}
+
+/* Submenu flyout to the right of the Accounts row, anchored to its top. */
+.accountsSubmenu {
+  position: absolute;
+  left: 100%;
+  top: calc(baseUnit * 4);
+  width: 320px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  padding-bottom: calc(baseUnit * 1);
+}

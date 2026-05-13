@@ -1,0 +1,28 @@
+.exploreSection {
+  padding-top: 56px;
+}
+
+.exploreColumn {
+  width: 225px;
+  flex-shrink: 0;
+}
+
+.templateTile {
+  height: 256px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.templateTileImage {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* Larger circular scroll buttons for all carousels on the Templates page. */
+.templatesPage :global(.o8cjRg.m1krnA) {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}

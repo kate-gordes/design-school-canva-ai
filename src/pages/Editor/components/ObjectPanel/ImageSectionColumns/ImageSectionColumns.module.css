@@ -1,0 +1,60 @@
+.placeholderContainer {
+  width: 100%;
+}
+
+.gridWrapper {
+}
+
+.templateImage {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  border: 1px solid #e3e5e9;
+  display: block;
+}
+
+.templateImageContain {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.cardWrapper {
+  position: relative;
+}
+
+.proBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+}
+
+@media (max-width: 599px) {
+  .gridWrapper > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  .placeholderContainer {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .templateImage {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .templateImageContain {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+}

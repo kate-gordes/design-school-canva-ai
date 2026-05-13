@@ -1,0 +1,56 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorBorderLow, colorWhite from "@canva/easel/legacy_tokens:ThemeColors";
+
+.card {
+  width: 100%;
+  height: auto;
+  margin-bottom: calc(baseUnit * 3);
+}
+
+.background {
+  border-radius: baseUnit;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.appIcon {
+  height: calc(baseUnit * 5);
+  width: calc(baseUnit * 5);
+  border-radius: baseUnit;
+  border: 1px solid #cccccc;
+}
+
+.autoWidth {
+  width: auto;
+}
+
+.constantWidth {
+  width: calc(baseUnit * 28);
+  display: inline-block;
+}
+
+.details {
+  background-color: colorWhite;
+}
+
+.placeholder {
+  width: calc(baseUnit * 28);
+  height: calc(baseUnit * 30);
+}
+
+.border {
+  border: 1px solid colorBorderLow;
+}
+
+.proBadge {
+  position: absolute;
+  bottom: baseUnit;
+  right: baseUnit;
+}

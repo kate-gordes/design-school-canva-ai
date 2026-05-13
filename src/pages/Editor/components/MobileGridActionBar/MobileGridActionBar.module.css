@@ -1,0 +1,76 @@
+@value colorPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+.bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  border-top: 1px solid #e5e6ec;
+  gap: 4px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.actionButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0f121a;
+  flex-shrink: 0;
+}
+
+.actionButton:active {
+  background: #f0f1f5;
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionLabel {
+  font-size: 11px !important;
+  color: #0f121a !important;
+  white-space: nowrap;
+}
+
+.doneButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #d8dadf;
+  color: #0d1216;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.doneButton:active {
+  background: #f0f1f5;
+}

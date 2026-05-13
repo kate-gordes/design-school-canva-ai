@@ -1,0 +1,126 @@
+/* Standalone Gradient Text Component Styles */
+/* No external dependencies - pure CSS */
+
+.gradient-text {
+  /* Core gradient styling */
+  background-image: linear-gradient(to bottom right, #00c4cc, #5a32fa, #7d2ae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: block;
+
+  /* Drop shadow effect */
+  filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.1));
+
+  /* Typography defaults */
+  font-weight: 500;
+  letter-spacing: -1px;
+  text-wrap: balance;
+  word-break: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+/* Size variants */
+.gradient-text--small {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+}
+
+.gradient-text--medium {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+}
+
+.gradient-text--large {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.75px;
+}
+
+.gradient-text--xlarge {
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -1px;
+}
+
+/* Alignment variants */
+.gradient-text--left {
+  text-align: left;
+}
+
+.gradient-text--center {
+  text-align: center;
+}
+
+.gradient-text--right {
+  text-align: right;
+}
+
+/* Mobile variant - smaller sizes */
+.gradient-text--mobile {
+  font-size: 26px !important;
+  line-height: 30px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .gradient-text--xlarge {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .gradient-text--large {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .gradient-text--medium {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .gradient-text--small {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-text--xlarge {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .gradient-text--large {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+/* Browser compatibility */
+@supports not (background-clip: text) {
+  .gradient-text {
+    background-image: none;
+    color: #5a32fa;
+    /* Fallback color */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gradient-text {
+    background-image: none;
+    color: currentColor;
+    filter: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    filter: none;
+  }
+}

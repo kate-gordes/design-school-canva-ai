@@ -1,0 +1,65 @@
+@value colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+/* Main footer content container */
+.footerContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: calc(baseUnit * 6) calc(baseUnit * 4);
+}
+
+/* Bottom bar styling */
+.bottomBar {
+  padding-top: calc(baseUnit * 4);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Legal links */
+.legalLink {
+  color: colorTypographyPrimary;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.legalLink:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* Sticky action button container - positioned at bottom right */
+.stickyActionContainer {
+  position: fixed;
+  bottom: calc(baseUnit * 3);
+  right: calc(baseUnit * 3);
+  z-index: 4;
+}
+
+.stickyButton {
+  min-width: 200px;
+  padding: calc(baseUnit * 2) calc(baseUnit * 4);
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footerContent {
+    padding: calc(baseUnit * 4) calc(baseUnit * 2);
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: calc(baseUnit * 3);
+  }
+
+  .stickyActionContainer {
+    bottom: calc(baseUnit * 2);
+    right: calc(baseUnit * 2);
+    left: calc(baseUnit * 2);
+  }
+
+  .stickyButton {
+    width: 100%;
+  }
+}

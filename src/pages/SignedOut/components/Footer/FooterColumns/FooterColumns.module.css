@@ -1,0 +1,21 @@
+@value colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* Footer links styling */
+.footerLink {
+  color: colorTypographyPrimary;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+}
+
+.footerLink:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* External link icon */
+.externalIcon {
+  font-size: 12px;
+  margin-left: 4px;
+  opacity: 0.6;
+}

@@ -1,0 +1,294 @@
+@value baseUnit, radiusElement from "@canva/easel/legacy_tokens:Metrics";
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* Reduce spacing between thumbnail and content */
+.cardWrapper :global([class*='CardContent']) {
+  padding-top: 8px !important;
+}
+
+/* Single-line title with ellipsis */
+.singleLineTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+.iconContainer {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* White icon styling with size - absolutely centered */
+.iconContainer :global(svg) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px !important;
+  height: 10px !important;
+  color: white;
+}
+
+/* Document type specific backgrounds */
+.sheetIcon {
+  background-color: rgb(19, 142, 255);
+}
+
+.docIcon {
+  background-color: rgb(19, 163, 181);
+}
+
+.whiteboardIcon {
+  background-color: rgb(11, 168, 74);
+}
+
+.presentationIcon {
+  background-color: rgb(255, 97, 5);
+}
+
+.websiteIcon {
+  background-color: rgb(74, 83, 250);
+}
+
+.designIcon {
+  background-color: rgb(138, 43, 226); /* Purple for Design */
+}
+
+.multiDesignIcon {
+  background-color: rgb(255, 105, 180); /* Pink for Multi-design */
+}
+
+.imageIcon {
+  background-color: rgb(220, 95, 190); /* Magenta for Image */
+}
+
+.videoIcon {
+  background-color: rgb(153, 51, 255); /* Purple for Video */
+}
+
+.emailIcon {
+  background-color: rgb(255, 158, 27); /* Orange for Email */
+}
+
+/* Multi-design icon group - overlapping icons */
+.multiIconGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.multiIcon {
+  margin-left: -6px;
+  box-shadow: 0 0 0 1.5px white;
+  z-index: var(--multi-icon-z, 0);
+}
+
+.multiIcon:first-child {
+  margin-left: 0;
+}
+
+/* Brand asset image container with centering */
+.brandImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.brandImageContainer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Design thumbnail container with centering */
+.designThumbnailContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Design thumbnail image with drop shadow */
+.designThumbnailImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.08),
+    0 0.5px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Borderless thumbnail image for brand assets (logos, emojis, etc.) */
+.borderlessThumbnailImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Play button overlay for video thumbnails */
+.playButtonOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.playButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgb(123, 97, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.playButton svg {
+  color: rgb(123, 97, 255);
+  fill: rgb(123, 97, 255);
+  margin-left: 2px; /* Optical centering for play icon */
+}
+
+.cardWrapper:hover .playButton {
+  transform: scale(1.1);
+  border-color: rgb(143, 117, 255);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.cardWrapper:hover .playButton svg {
+  color: rgb(143, 117, 255);
+  fill: rgb(143, 117, 255);
+}
+
+/* Mobile action button (single ellipsis pill shown on mobile cards) */
+.mobileActionButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow:
+    rgba(64, 79, 109, 0.06) 0px 0px 0px 0.5px,
+    rgba(24, 44, 89, 0.137) 0px 1px 2px 0px,
+    rgba(24, 44, 89, 0.137) 0px 2px 4px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Flex-grow helper for Sheet header title column */
+.flexGrow {
+  flex: 1;
+}
+
+/* Brand kit color bar overlay (bottom of thumbnail) */
+.colorBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  display: flex;
+}
+
+.colorSwatch {
+  flex: 1;
+  height: 100%;
+  background-color: var(--swatch-bg);
+}
+
+/* Video Modal */
+.videoModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.videoModalContent {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.videoModalClose {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.videoModalClose:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.videoModalTitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.videoContainer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+}
+
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

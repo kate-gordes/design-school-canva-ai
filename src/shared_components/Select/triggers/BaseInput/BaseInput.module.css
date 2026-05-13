@@ -1,0 +1,40 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorSurfaceSecondary from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorBorderStandard from "@canva/easel/legacy_tokens:ThemeColors";
+@value radiusElementStandard from "@canva/easel/legacy_tokens:ThemeColors";
+
+.baseInput {
+  border: 1px solid colorBorderStandard;
+  border-radius: radiusElementStandard;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  min-width: calc(baseUnit * 20);
+}
+
+.baseInput:hover:not(:disabled) {
+  background-color: colorSurfaceSecondary;
+}
+
+.baseInput:focus-visible {
+  outline: 2px solid var(--colorActionPrimaryBg);
+  outline-offset: -2px;
+}
+
+.baseInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stretch {
+  width: 100%;
+}
+
+.chevron {
+  transition: transform 0.15s ease;
+}
+
+.chevron.expanded {
+  transform: rotate(180deg);
+}

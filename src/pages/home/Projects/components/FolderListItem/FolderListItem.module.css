@@ -1,0 +1,28 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.folderListRow {
+  min-height: calc(baseUnit * 4);
+  height: fit-content;
+  display: grid;
+  align-items: center;
+  /* Grid template matching ListHeader plus actions column */
+  grid-template-columns: 1fr auto auto auto auto;
+  gap: calc(baseUnit * 2);
+  width: 100%;
+}
+
+.actionsColumn {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 0.5);
+}
+
+.nameColumn {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1);
+}
+
+.paddedCell {
+  padding: 0 baseUnit;
+}

@@ -1,0 +1,174 @@
+/* ProjectsContent specific styles */
+
+/* Outer scroll panel: viewport height minus editor chrome */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 57px - 32px);
+  max-height: calc(100vh - 57px - 32px);
+  min-height: 0;
+}
+
+.searchHeader {
+  flex-shrink: 0;
+  padding-bottom: 14px;
+}
+
+.scrollBody {
+  height: auto;
+  margin-right: -16px;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}
+
+/* Project selector dropdown */
+.projectDropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ui-color-border, #d4d4d4);
+  border-radius: 8px;
+  background: var(--ui-color-surface, #fff);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.dropdownTrigger:hover {
+  border-color: var(--ui-color-border-hover, #8b3dff);
+}
+
+.dropdownTrigger:focus-visible {
+  outline: 2px solid var(--ui-color-primary, #8b3dff);
+  outline-offset: 1px;
+}
+
+.triggerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.triggerIcon img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.triggerLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.triggerChevron {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.triggerChevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--ui-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.dropdownOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.dropdownOption:hover {
+  background: var(--ui-color-surface-hover, #f0f0f0);
+}
+
+.optionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.optionAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.optionLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Video thumbnail styling */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.videoThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #e3e5e9;
+}
+
+.videoDuration {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}

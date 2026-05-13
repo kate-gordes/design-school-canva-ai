@@ -1,0 +1,317 @@
+/*
+ * Design School "X-ray" overlay — fixed-position layer that lights up
+ * colour-coded hotspots over key features.
+ *
+ * Raw-CSS escape hatches in this module:
+ *   - Hotspots use `position: fixed` + `transform: translate(-50%, -50%)`
+ *     so coordinates from `xrayHotspots.ts` mean "centre of the hotspot
+ *     anchored at this point", which is much easier to reason about for
+ *     designers iterating on positions. Easel layout primitives are flow-
+ *     based and have no equivalent.
+ *   - Custom `--xray-color` CSS variable drives the per-hotspot accent
+ *     (tooltip top border + eyebrow) from a single source — set once on
+ *     the wrapper as an inline style, all child rules read it.
+ *   - The dim effect is a `filter: opacity()` applied to `#root` (the
+ *     React mount node), not a covering backdrop overlay. The X-ray
+ *     overlay portal lives outside `#root` so it stays at full opacity
+ *     while the editor chrome fades behind it.
+ */
+
+/*
+ * Fade the editor chrome while X-ray mode is active. Targets `#root`
+ * directly via `:global()` because the data attribute toggle lives on
+ * `document.body` (set by `XrayOverlay`), and the React tree we want
+ * to fade lives at `#root`. The portal contents (hotspots, legend) sit
+ * elsewhere under `body`, so they aren't affected.
+ */
+:global(body[data-xray-active='true']) :global(#root) {
+  opacity: 0.35;
+  filter: saturate(0.6);
+  transition:
+    opacity 200ms ease-out,
+    filter 200ms ease-out;
+}
+:global(#root) {
+  transition:
+    opacity 160ms ease-out,
+    filter 160ms ease-out;
+}
+
+/* ---------------------------------------------------------------- */
+/* Top-pill legend                                                  */
+/* ---------------------------------------------------------------- */
+
+.legend {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9001;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: xray-legend-in 220ms ease-out backwards;
+}
+
+.legendBadge {
+  background-image: linear-gradient(135deg, #7d2ae8 0%, #5a32fa 45%, #00c4cc 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 9999px;
+  /* Justified padding — pill chrome on a fixed-position chip. */
+  padding: 8px 16px;
+  box-shadow: 0 8px 24px rgba(125, 42, 232, 0.32);
+}
+
+.legendHint {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4b5563;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  /* Justified padding — same pill chrome rationale as the badge. */
+  padding: 4px 12px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/* ---------------------------------------------------------------- */
+/* Hotspots                                                         */
+/* ---------------------------------------------------------------- */
+
+/*
+ * Per-hotspot position is driven by CSS custom properties set inline on
+ * the wrapper via `style={{'--xray-top': ...}}` — the Easel rules
+ * explicitly permit inline `style` when it only contains CSS variables,
+ * and there's no Easel layout primitive for `position: fixed` with
+ * arbitrary inset values. Defaulting each inset to `auto` lets a hotspot
+ * anchor against any combination of edges (e.g. some are top+left,
+ * others are bottom+right).
+ */
+.hotspotWrapper {
+  position: fixed;
+  top: var(--xray-top, auto);
+  right: var(--xray-right, auto);
+  bottom: var(--xray-bottom, auto);
+  left: var(--xray-left, auto);
+  transform: translate(-50%, -50%);
+  z-index: 9002;
+  pointer-events: none;
+  animation: xray-hotspot-in 220ms ease-out backwards;
+}
+
+.hotspot {
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--xray-color, #7d2ae8);
+  pointer-events: auto;
+  position: relative;
+}
+
+/*
+ * Pulsing dot at the centre. Always uses the Canva brand gradient
+ * (purple → indigo → cyan) regardless of the hotspot's category — the
+ * category colour still drives the tooltip accent, so categorisation
+ * is preserved without making the surface visually noisy.
+ */
+.dot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background-image: linear-gradient(135deg, #7d2ae8 0%, #5a32fa 50%, #00c4cc 100%);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 24px 4px rgba(125, 42, 232, 0.55);
+  z-index: 1;
+}
+
+/*
+ * Two stacked rings expand outward to draw the eye to each hotspot.
+ * Border colour stays a solid Canva purple — gradient borders aren't
+ * supported, and a single brand tone matched to the dot reads cleanly
+ * against the (now-faded) editor chrome below.
+ */
+.dot::before,
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid #7d2ae8;
+  opacity: 0;
+  animation: xray-pulse 1.8s ease-out infinite;
+}
+
+.dot::after {
+  animation-delay: 900ms;
+}
+
+/*
+ * Tooltip card next to the hotspot. The accent border keeps the per-
+ * category `--xray-color` so the tooltip still reads as belonging to a
+ * specific category, even though every dot wears the brand gradient.
+ *
+ * The base `.tooltip` rule defines chrome only; per-placement classes
+ * (`.tooltipTop` / `.tooltipBottom` / `.tooltipLeft` / `.tooltipRight`)
+ * apply the `top`/`right`/`bottom`/`left`/`transform`/`border` rules
+ * needed to sit on the correct side of the dot. Picking the right
+ * placement per hotspot avoids tooltips being clipped by viewport edges
+ * — e.g. left-rail hotspots use `.tooltipRight` so the tooltip flows
+ * INTO the canvas instead of off the left side of the screen.
+ */
+.tooltip {
+  position: absolute;
+  background-color: #ffffff;
+  color: #0e1318;
+  border-radius: 12px;
+  /* `padding` here is a justified escape — the tooltip card is a fixed-
+   * position floating element rendered inside a <button>, so we can't
+   * substitute Easel `<Box paddingX paddingY>` without breaking the
+   * `position: absolute` chain off the hotspot wrapper. */
+  padding: 10px 14px;
+  min-width: 180px;
+  max-width: 240px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+/* Above the dot — accent border on the bottom (the side facing the dot). */
+.tooltipTop {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 3px solid currentColor;
+}
+
+/* Below the dot — accent border on top so it points back at the dot. */
+.tooltipBottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 3px solid currentColor;
+}
+
+/* To the right of the dot (used for left-rail hotspots so the card
+ * doesn't run off the left edge of the viewport). Accent border on the
+ * left, facing the dot. */
+.tooltipRight {
+  top: 50%;
+  left: calc(100% + 8px);
+  transform: translateY(-50%);
+  border-left: 3px solid currentColor;
+}
+
+/* To the left of the dot (mirror of the above for any future right-edge
+ * hotspots). */
+.tooltipLeft {
+  top: 50%;
+  right: calc(100% + 8px);
+  transform: translateY(-50%);
+  border-right: 3px solid currentColor;
+}
+
+.hotspot:hover .tooltip,
+.hotspot:focus-visible .tooltip {
+  opacity: 1;
+}
+
+/* Inner tooltip rows are spans (so they nest cleanly inside the <button>
+ * — divs would technically be valid HTML5 but spans avoid the legacy
+ * "block inside button" footgun). The flex column on `.tooltip` handles
+ * vertical rhythm, so the rows just need `display: block` to take their
+ * own line. */
+.tooltipCategory {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+.tooltipTitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0e1318;
+  line-height: 1.25;
+}
+
+.tooltipDescription {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+/* ---------------------------------------------------------------- */
+/* Animations                                                       */
+/* ---------------------------------------------------------------- */
+
+@keyframes xray-hotspot-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes xray-legend-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes xray-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hotspot,
+  .legend,
+  .dot::before,
+  .dot::after {
+    animation: none;
+  }
+  :global(body[data-xray-active='true']) :global(#root) {
+    transition: none;
+  }
+}

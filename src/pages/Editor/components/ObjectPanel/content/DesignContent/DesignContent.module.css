@@ -1,0 +1,23 @@
+/* Outer panel wrapper: fills viewport minus editor chrome; header-search row
+   should not scroll (flex-shrink:0) while the content area scrolls. */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 57px - 32px);
+  max-height: calc(100vh - 57px - 32px);
+  min-height: 0;
+}
+
+.searchHeader {
+  flex-shrink: 0;
+  padding-bottom: 14px;
+}
+
+/* Scrollable body; extends into the drawer's 16px right padding so the
+   scrollbar-gutter doesn't cause content to visibly narrow on hover. */
+.scrollBody {
+  height: auto;
+  margin-right: -16px;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}

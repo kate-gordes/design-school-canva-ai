@@ -1,0 +1,28 @@
+/* Main content area styling */
+.contentArea {
+  padding: 48px 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Source: /web/src/pages/home/wonder_box/magic_assistant/default/banner/banner.css .logo
+   Plus monorepo Rows spacing="1u" (= 8px) to the title below. */
+.logo {
+  display: flex;
+  margin: 0 auto 8px;
+  height: 20px;
+}
+
+.logo img,
+.logo svg {
+  height: 20px;
+  width: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .contentArea {
+    padding: 32px 0 12px;
+  }
+}

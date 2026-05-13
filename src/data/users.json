@@ -1,0 +1,370 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "A'laa Shadi",
+      "email": "alaashadi@canva.com",
+      "initials": "AS",
+      "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "LT", "color": "#22c55e" },
+        { "initials": "DG", "color": "#6b7280" }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "AA Abong",
+      "email": "triplea@canva.com",
+      "initials": "AA",
+      "photo": null,
+      "avatarColor": "#3b82f6",
+      "role": "Team member",
+      "groups": [
+        { "initials": "C-", "color": "#a3a3a3" },
+        { "initials": "JV", "color": "#eab308" },
+        { "initials": "AC", "color": "#22c55e" },
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "DG", "color": "#6b7280" }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Aanchal Jiwrajka",
+      "email": "aanchal@canva.com",
+      "initials": "AJ",
+      "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "TD", "color": "#eab308" },
+        { "initials": "DR", "color": "#eab308" },
+        { "initials": "I", "color": "#22c55e" },
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "UX", "color": "#ec4899" }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Aaron Bradley",
+      "email": "aaronbradley@canva.com",
+      "initials": "AB",
+      "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "CT", "color": "#22c55e" },
+        { "initials": "DG", "color": "#eab308" },
+        { "initials": "AC", "color": "#3b82f6" },
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "AI", "color": "#7c3aed" }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Aaron Dacosta",
+      "email": "aarond@canva.com",
+      "initials": "AD",
+      "photo": null,
+      "avatarColor": "#eab308",
+      "role": "Team member",
+      "groups": [
+        { "initials": "G", "color": "#22c55e" },
+        { "initials": "DG", "color": "#eab308" },
+        { "initials": "AC", "color": "#3b82f6" },
+        { "initials": "QA", "color": "#22c55e" },
+        { "initials": "IF", "color": "#6366f1" }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Aaron Foote",
+      "email": "aaronf@canva.com",
+      "initials": "AF",
+      "photo": null,
+      "avatarColor": "#3b82f6",
+      "role": "Team member",
+      "groups": [
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "DG", "color": "#6b7280" },
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "CT", "color": "#0ea5e9" }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Aaron John-Baptiste",
+      "email": "aaronjb@canva.com",
+      "initials": "AJ",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "DG", "color": "#22c55e" },
+        { "initials": "IF", "color": "#6366f1" },
+        { "initials": "BT", "color": "#a855f7" }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Aaron Li",
+      "email": "aaronli@canva.com",
+      "initials": "AL",
+      "photo": null,
+      "avatarColor": "#3b82f6",
+      "role": "Team member",
+      "groups": [
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "DG", "color": "#22c55e" },
+        { "initials": "A", "color": "#22c55e" }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Aaron Pavilack",
+      "email": "apavilack@canva.com",
+      "initials": "AP",
+      "photo": null,
+      "avatarColor": "#22c55e",
+      "role": "Team member",
+      "groups": [
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "DG", "color": "#22c55e" }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Aaron Perez",
+      "email": "aperez@canva.com",
+      "initials": "AP",
+      "photo": null,
+      "avatarColor": "#dc2626",
+      "role": "Team admin",
+      "groups": [
+        { "initials": "IG", "color": "#eab308" },
+        { "initials": "TE", "color": "#22c55e" },
+        { "initials": "TS", "color": "#3b82f6" },
+        { "initials": "LT", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Aaron Rispler",
+      "email": "arispler@canva.com",
+      "initials": "AR",
+      "photo": null,
+      "avatarColor": "#22c55e",
+      "role": "Team member",
+      "groups": [
+        { "initials": "E", "color": "#dc2626" },
+        { "initials": "AI", "color": "#22c55e" },
+        { "initials": "IG", "color": "#3b82f6" },
+        { "initials": "QA", "color": "#22c55e" },
+        { "initials": "TS", "color": "#ef4444" }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Aaron Rodrigues",
+      "email": "aaronrodrigues@canva.com",
+      "initials": "AR",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "I&", "color": "#dc2626" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "AC", "color": "#3b82f6" },
+        { "initials": "MK", "color": "#f59e0b" },
+        { "initials": "CT", "color": "#0ea5e9" }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Bella Martinez",
+      "email": "bellamart@canva.com",
+      "initials": "BM",
+      "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
+      "role": "Team admin",
+      "groups": [
+        { "initials": "DG", "color": "#7c3aed" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "MT", "color": "#22c55e" }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Carlos Silva",
+      "email": "carlos.silva@canva.com",
+      "initials": "CS",
+      "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "EG", "color": "#dc2626" },
+        { "initials": "UI", "color": "#3b82f6" }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Diana Chen",
+      "email": "dianachen@canva.com",
+      "initials": "DC",
+      "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "DG", "color": "#6b7280" },
+        { "initials": "UX", "color": "#ec4899" },
+        { "initials": "QA", "color": "#22c55e" },
+        { "initials": "AI", "color": "#7c3aed" }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Eduardo Santos",
+      "email": "eduardos@canva.com",
+      "initials": "ES",
+      "photo": null,
+      "avatarColor": "#7c3aed",
+      "role": "Team member",
+      "groups": [
+        { "initials": "BE", "color": "#22c55e" },
+        { "initials": "AC", "color": "#dc2626" }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Fiona Williams",
+      "email": "fionaw@canva.com",
+      "initials": "FW",
+      "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
+      "role": "Team admin",
+      "groups": [
+        { "initials": "PM", "color": "#3b82f6" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "LD", "color": "#22c55e" },
+        { "initials": "LT", "color": "#dc2626" }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "George Kim",
+      "email": "gkim@canva.com",
+      "initials": "GK",
+      "photo": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "DS", "color": "#dc2626" },
+        { "initials": "UX", "color": "#7c3aed" }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Hannah Patel",
+      "email": "hpatel@canva.com",
+      "initials": "HP",
+      "photo": null,
+      "avatarColor": "#f97316",
+      "role": "Team member",
+      "groups": [
+        { "initials": "QA", "color": "#22c55e" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "IF", "color": "#6366f1" },
+        { "initials": "BT", "color": "#a855f7" },
+        { "initials": "TS", "color": "#ef4444" },
+        { "initials": "MK", "color": "#f59e0b" }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Ivan Petrov",
+      "email": "ivanp@canva.com",
+      "initials": "IP",
+      "photo": "https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "SE", "color": "#3b82f6" },
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "DG", "color": "#6b7280" }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Julia Nguyen",
+      "email": "julian@canva.com",
+      "initials": "JN",
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face",
+      "role": "Team admin",
+      "groups": [
+        { "initials": "HR", "color": "#ec4899" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "OP", "color": "#22c55e" }
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Kevin O'Brien",
+      "email": "kobrien@canva.com",
+      "initials": "KO",
+      "photo": null,
+      "avatarColor": "#0ea5e9",
+      "role": "Team member",
+      "groups": [
+        { "initials": "IT", "color": "#6b7280" },
+        { "initials": "AC", "color": "#dc2626" },
+        { "initials": "CT", "color": "#0ea5e9" },
+        { "initials": "FE", "color": "#f97316" },
+        { "initials": "UX", "color": "#ec4899" }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Luna Garcia",
+      "email": "lunag@canva.com",
+      "initials": "LG",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "MK", "color": "#f97316" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "BR", "color": "#7c3aed" }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Marcus Johnson",
+      "email": "marcusj@canva.com",
+      "initials": "MJ",
+      "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face",
+      "role": "Team member",
+      "groups": [
+        { "initials": "FN", "color": "#22c55e" },
+        { "initials": "AC", "color": "#dc2626" }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Nina Yamamoto",
+      "email": "ninay@canva.com",
+      "initials": "NY",
+      "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face",
+      "role": "Team admin",
+      "groups": [
+        { "initials": "EX", "color": "#3b82f6" },
+        { "initials": "AC", "color": "#eab308" },
+        { "initials": "ST", "color": "#22c55e" },
+        { "initials": "LT", "color": "#dc2626" },
+        { "initials": "QA", "color": "#22c55e" },
+        { "initials": "AI", "color": "#7c3aed" },
+        { "initials": "DG", "color": "#6b7280" },
+        { "initials": "HR", "color": "#ec4899" }
+      ]
+    }
+  ]
+}

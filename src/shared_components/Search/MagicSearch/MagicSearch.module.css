@@ -1,0 +1,16 @@
+.startIcon {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.endIcon {
+  padding-left: 4px;
+  padding-right: 4px;
+  cursor: pointer;
+  color: var(--canva-color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.endIcon:hover {
+  color: var(--canva-color-text-primary);
+}

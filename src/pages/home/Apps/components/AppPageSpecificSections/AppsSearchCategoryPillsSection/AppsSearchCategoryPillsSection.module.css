@@ -1,0 +1,23 @@
+.searchContainer {
+  min-width: 400px;
+}
+
+.categoryFilters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categoryFilters::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryButton {
+  flex: 0 0 auto;
+  width: auto !important;
+  min-width: 0 !important;
+  white-space: nowrap;
+  font-weight: normal !important;
+}

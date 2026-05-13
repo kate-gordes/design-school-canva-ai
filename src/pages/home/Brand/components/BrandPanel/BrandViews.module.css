@@ -1,0 +1,162 @@
+/* Brand Views Shared Styles */
+
+/* Shared wrapper applied by parents around every brand view — single source of top spacing */
+.brandViewContent {
+  padding-top: 16px;
+}
+
+/* Brand Templates thumbnails styling */
+.brandTemplateThumbnail {
+  width: 120px;
+  height: 120px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brand Assist section styling */
+.brandAssistHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandAssistContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: white;
+  border: 1px solid rgba(57, 76, 96, 0.15);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  gap: 8px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.brandAssistContainer:hover {
+  background: #f9fafb;
+  border-color: rgba(57, 76, 96, 0.4);
+  box-shadow: 0 0 0 1px rgba(57, 76, 96, 0.15);
+}
+
+.brandAssistIcon {
+  width: 18px;
+  height: 16px;
+  background: rgb(139, 61, 255);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+/* Logos section styling */
+.logoThumbnail {
+  width: 120px;
+  height: 120px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.foldersText {
+  margin-left: 8px;
+}
+
+.sectionTitle {
+  font-weight: 700 !important;
+}
+
+.mobileBrandTitleBack {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  padding: 0 0 8px;
+  cursor: pointer;
+  color: #0f121a;
+}
+
+/* Colors section styling */
+.colorPalettesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section icon styling */
+.sectionIcon {
+  margin-right: 8px;
+  color: #333;
+}
+
+.brandVoiceBox {
+  background: rgba(64, 87, 109, 0.07);
+}
+
+/* Icons section styling - 120x120 */
+.iconsThumbnail {
+  width: 120px;
+  height: 120px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brand Templates panel search */
+.brandTemplatesSearch {
+  width: 100%;
+  border: 1px solid #e7dbff;
+  border-radius: 16px;
+  height: 56px;
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Filter button next to search */
+.filterButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: rgba(15, 18, 26, 0.6);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterButton:hover {
+  color: rgba(15, 18, 26, 0.9);
+}
+
+/* Charts section styling - 93x128 */
+.chartsThumbnail {
+  width: 93px;
+  height: 128px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}

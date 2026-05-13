@@ -1,0 +1,20 @@
+@value colorBorder from '@canva/easel/legacy_tokens:ThemeColors';
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.profileSection {
+  padding: calc(baseUnit * 2);
+  padding-top: calc(baseUnit * 1.5);
+}
+
+.divider {
+  height: 1px;
+  background-color: colorBorder;
+  margin: calc(baseUnit * 2) 0;
+}

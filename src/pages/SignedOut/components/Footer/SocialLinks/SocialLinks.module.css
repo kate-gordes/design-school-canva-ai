@@ -1,0 +1,64 @@
+@value colorTypographyPrimary, colorBorder from '@canva/easel/legacy_tokens:ThemeColors';
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(baseUnit * 3);
+}
+
+/* Language selector button */
+.languageSelector {
+  display: inline-block;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--colorBorder);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: colorTypographyPrimary;
+  font-size: 14px;
+}
+
+.languageButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.globeIcon {
+  font-size: 18px;
+}
+
+/* Social media icons */
+.socialIcons {
+  display: flex;
+  gap: calc(baseUnit * 2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: colorTypographyPrimary;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.socialLink:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.socialIcon {
+  font-size: 20px;
+}

@@ -1,0 +1,16 @@
+.divider {
+  width: 1px;
+  height: 57px; /* Full header height */
+  background: none;
+  margin: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider::before {
+  content: '';
+  width: 1px;
+  height: 16px;
+  background-color: hsla(0, 0%, 100%, 0.2);
+}

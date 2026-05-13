@@ -1,0 +1,231 @@
+.icon {
+  position: relative;
+
+  /* This sets the viewing for the 3d animation */
+  perspective-origin: 50% 91%;
+  width: 24px;
+  height: 24px;
+
+  --folderBackFillGradientStop1: #464749;
+  --folderBackFillGradientStop2: #464749;
+  --folderBackFillOpacity: 0.4;
+
+  --folderFrontFill50: #dadadb;
+  --folderFrontFill40: #d3d3d3;
+}
+
+.svgContainer {
+  clip-rule: evenodd;
+  fill-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+}
+
+.partiallyOpen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-duration: 0.4s;
+  transform-origin: center 100%;
+  transform: perspective(none) scaleY(1) rotateX(0deg);
+}
+
+.folderBackGradient1 {
+  stop-color: var(--folderBackFillGradientStop1);
+  stop-opacity: var(--folderBackFillOpacity);
+}
+
+.folderBackGradient2 {
+  stop-color: var(--folderBackFillGradientStop2);
+  stop-opacity: var(--folderBackFillOpacity);
+}
+
+.folderFront {
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-duration: 0.4s;
+
+  position: absolute;
+  transform-origin: center 100%;
+  transform: perspective(none) rotateX(-29deg);
+
+  width: 20px;
+  height: 16px;
+  bottom: 2px;
+  left: 2px;
+
+  border-top-right-radius: 1.5px;
+  border-top-left-radius: 1.5px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  background-color: var(--folderFrontFill50);
+}
+
+.open .folderFront {
+  animation-name: animated-front;
+}
+
+.closed .folderFront {
+  animation-name: animated-front-reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disableAnimation .folderFront {
+    animation-delay: -999s;
+  }
+}
+
+.disableAnimation .folderFront {
+  animation-delay: -999s;
+}
+
+.open .partiallyOpen {
+  animation-name: animated-front-icon;
+}
+
+.closed .partiallyOpen {
+  animation-name: animated-front-icon-reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disableAnimation .partiallyOpen {
+    animation-delay: -999s;
+  }
+}
+
+.disableAnimation .partiallyOpen {
+  animation-delay: -999s;
+}
+
+@keyframes animated-front {
+  0% {
+    animation-timing-function: linear;
+    transform: perspective(none) rotateX(-29deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  24% {
+    animation-timing-function: linear;
+    transform: perspective(none) rotateX(0deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  25% {
+    animation-timing-function: linear;
+    transform: perspective(80px) rotateX(0deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  50% {
+    animation-timing-function: ease-out;
+    transform: perspective(80px) rotateX(-43deg);
+    background-color: var(--folderFrontFill40);
+    box-shadow: 0px 0.5px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  65% {
+    animation-timing-function: ease-in-out;
+    transform: perspective(80px) rotateX(-66deg);
+    background-color: var(--folderFrontFill40);
+    box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.3) inset;
+  }
+  100% {
+    transform: perspective(80px) rotateX(-53deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+}
+
+@keyframes animated-front-reverse {
+  100% {
+    transform: perspective(none) rotateX(-29deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  76% {
+    animation-timing-function: linear;
+    transform: perspective(none) rotateX(0deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  75% {
+    animation-timing-function: linear;
+    transform: perspective(80px) rotateX(0deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  50% {
+    animation-timing-function: linear;
+    transform: perspective(80px) rotateX(-43deg);
+    background-color: var(--folderFrontFill40);
+    box-shadow: 0px 0.5px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+  35% {
+    animation-timing-function: ease-in;
+    transform: perspective(80px) rotateX(-66deg);
+    background-color: var(--folderFrontFill40);
+    box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.3) inset;
+  }
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: perspective(80px) rotateX(-53deg);
+    background-color: var(--folderFrontFill50);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  }
+}
+
+@keyframes animated-front-icon {
+  0% {
+    animation-timing-function: linear;
+    transform: perspective(none) scaleY(1) rotateX(0deg);
+  }
+  24% {
+    animation-timing-function: linear;
+    transform: perspective(none) scaleY(1.1) rotateX(0deg);
+  }
+  25% {
+    animation-timing-function: linear;
+    transform: perspective(80px) scaleY(1.1) rotateX(0deg);
+  }
+  50% {
+    animation-timing-function: ease-out;
+    transform: perspective(80px) scaleY(1.1) rotateX(-43deg);
+  }
+  65% {
+    animation-timing-function: ease-in-out;
+    transform: perspective(80px) scaleY(1.1) rotateX(-66deg);
+  }
+  100% {
+    transform: perspective(80px) scaleY(1.1) rotateX(-53deg);
+  }
+}
+
+@keyframes animated-front-icon-reverse {
+  100% {
+    transform: perspective(none) scaleY(1) rotateX(0deg);
+  }
+  76% {
+    animation-timing-function: linear;
+    transform: perspective(none) scaleY(1.1) rotateX(0deg);
+  }
+  75% {
+    animation-timing-function: linear;
+    transform: perspective(80px) scaleY(1.1) rotateX(0deg);
+  }
+  50% {
+    animation-timing-function: linear;
+    transform: perspective(80px) scaleY(1.1) rotateX(-43deg);
+  }
+  35% {
+    animation-timing-function: ease-in;
+    transform: perspective(80px) scaleY(1.1) rotateX(-66deg);
+  }
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: perspective(80px) scaleY(1.1) rotateX(-53deg);
+  }
+}

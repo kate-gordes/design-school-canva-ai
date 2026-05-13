@@ -1,0 +1,34 @@
+.accordionContainer {
+  position: relative;
+  padding: 30px 30px 0px 30px;
+}
+
+.greenIcon,
+.greenText {
+  color: #0ca849;
+}
+
+.redIcon,
+.redText {
+  color: #fe3a4a;
+}
+
+.collapseExpandButton {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* border-radius: 45%; */
+  border: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.collapseExpandButtonContainer {
+  /* position: absolute;
+    top: 0;
+    right: 0; */
+  position: relative;
+  top: 12px;
+}

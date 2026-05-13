@@ -1,0 +1,54 @@
+@value colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* Pull the section slightly up from the Rows spacing="3u" gap (24px) so the
+   Explore templates title sits closer to the pills above. */
+.section {
+  margin-top: -12px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 72px;
+}
+
+.item > * {
+  flex-shrink: 0;
+}
+
+.item:hover {
+  opacity: 0.9;
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  width: 96px;
+  height: auto;
+  /* Bottom-right anchor so the image pokes out of the card's bottom-right;
+     matches canva.com's desktop DoctypeTile imagery composition. */
+  right: -22px;
+  bottom: -1px;
+  transform: rotate(5deg);
+  filter: drop-shadow(0 2px 6px rgba(23, 26, 34, 0.15));
+}
+
+.label {
+  text-align: center;
+  color: colorTypographyPrimary;
+  max-width: 72px;
+  word-wrap: break-word;
+}

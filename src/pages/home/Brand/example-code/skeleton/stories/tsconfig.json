@@ -1,0 +1,36 @@
+{
+  "include": ["../../../../../../../declarations/storybook_addon_visreg.d.ts", "./**/*.*"],
+  "compilerOptions": {
+    "types": ["node"],
+    "isolatedDeclarations": true
+  },
+  "references": [
+    { "path": "../.." },
+    { "path": "../../../../../../base" },
+    { "path": "../../../../../../base/offline_status" },
+    { "path": "../../../../../../ui/base/box" },
+    { "path": "../../../../../../ui/base/button" },
+    { "path": "../../../../../../ui/base/form/text_input" },
+    { "path": "../../../../../../ui/base/icons" },
+    { "path": "../../../../../../ui/base/layout" },
+    { "path": "../../../../../../ui/base/menu" },
+    { "path": "../../../../../../ui/base/page_layout" },
+    { "path": "../../../../../../ui/base/placeholder" },
+    { "path": "../../../../../../ui/base/typography" },
+    { "path": "../../../../../../ui/base/view_stack" },
+    { "path": "../../../../surfaces/object_panel/fake" },
+    { "path": "../../../ui" },
+    { "path": "../../../ui/scroll_container" },
+    { "path": "../../ui" }
+  ],
+  "externalReferences": [
+    "@storybook/addon-actions",
+    "@storybook/addon-knobs",
+    "@storybook/react",
+    "mobx",
+    "react"
+  ],
+  "exclude": [],
+  "extends": "../../../../../../../tsconfig.build.json",
+  "moduleSignatureReferences": []
+}

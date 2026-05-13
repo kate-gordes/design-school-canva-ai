@@ -1,0 +1,40 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+
+.appBlock {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.appBlock:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.iconContainer {
+  width: calc(baseUnit * 6);
+  height: calc(baseUnit * 6);
+  flex-shrink: 0;
+  border-radius: calc(baseUnit * 1);
+  overflow: hidden;
+  background-color: colorSurface;
+}
+
+.appIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(baseUnit * 1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .iconContainer {
+    width: calc(baseUnit * 5);
+    height: calc(baseUnit * 5);
+  }
+}

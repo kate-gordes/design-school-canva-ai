@@ -1,0 +1,99 @@
+.toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--keyboard-height, 0px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  padding: 0 4px;
+  transition: bottom 0.15s ease;
+}
+
+.toolbarScrollable {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.toolbarScrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.toolbarScrollable {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.toolbarDoneArea {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #e5e5e5;
+  padding-left: 4px;
+  background: #fff;
+}
+
+.toolbarButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  color: #1e1e1e;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toolbarButton:active {
+  background: #f0f0f0;
+}
+
+.toolbarButton svg {
+  display: block;
+}
+
+.toolbarDivider {
+  width: 1px;
+  height: 24px;
+  background: #e5e5e5;
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+.toolbarLabel {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.doneButton {
+  composes: toolbarButton;
+  color: #8b5cf6;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Selection mode: sits at bottom with safe area, no keyboard */
+.toolbarSelection {
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+  gap: 4px;
+}
+
+.toolbarButton .toolbarLabel {
+  margin-left: 4px;
+}

@@ -1,0 +1,131 @@
+@value baseUnit, radiusElement from "@canva/easel/legacy_tokens:Metrics";
+@value colorBlue06, colorPurple07, colorPurple08, colorPurple09, colorGreen07, colorPink07, colorOrange07, colorTeal07, colorGrey02, colorGrey06, colorWhite from "@canva/easel/legacy_tokens:PrimitiveColors";
+
+.triggerButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #8b3dff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.triggerButton:hover {
+  background: #7c35e6;
+}
+
+.triggerIcon {
+  color: white;
+}
+
+.container {
+  width: 340px;
+  max-width: 340px;
+  padding: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.iconCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background: colorGrey02;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconLabel {
+  line-height: 1.2;
+}
+
+/* Simple placeholder icon colors for categories/types */
+.docIcon {
+  width: 28px;
+  height: 28px;
+  background: colorTeal07;
+  border-radius: 6px;
+}
+.presentationIcon {
+  width: 28px;
+  height: 28px;
+  background: colorOrange07;
+  border-radius: 6px;
+}
+.whiteboardIcon {
+  width: 28px;
+  height: 28px;
+  background: colorGreen07;
+  border-radius: 6px;
+}
+.sheetIcon {
+  width: 28px;
+  height: 28px;
+  background: colorBlue06;
+  border-radius: 6px;
+}
+.websiteIcon {
+  width: 28px;
+  height: 28px;
+  background: colorPurple08;
+  border-radius: 6px;
+}
+.printIcon {
+  width: 28px;
+  height: 28px;
+  background: colorPurple07;
+  border-radius: 6px;
+}
+.socialIcon {
+  width: 28px;
+  height: 28px;
+  background: colorPink07;
+  border-radius: 6px;
+}
+
+.categoryIcon {
+  position: relative;
+}
+.categoryIcon::before,
+.categoryIcon::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.06);
+}
+.categoryIcon::before {
+  left: -6px;
+  top: -6px;
+}
+.categoryIcon::after {
+  right: -6px;
+  bottom: -6px;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+}

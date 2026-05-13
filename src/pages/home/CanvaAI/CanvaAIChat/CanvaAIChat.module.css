@@ -1,0 +1,102 @@
+@value colorPage, colorPageTransparent from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* Source: web/src/pages/home/assistant/magic_assistant/full_page/full_page.css
+   (.chatGradientTop). Paints the teal→violet gradient in the top 30% of the
+   chat panel, softened by layered page-color overlays. */
+.defaultBackground {
+  position: relative;
+  background-color: colorPage;
+  background:
+    radial-gradient(ellipse 72% 150% at 50% calc(100% + 56px), colorPage, colorPageTransparent),
+    linear-gradient(to bottom, colorPageTransparent 0%, colorPageTransparent 9.5%, colorPage 94%),
+    linear-gradient(
+      color(from colorPage srgb r g b / 0.35),
+      color(from colorPage srgb r g b / 0.35)
+    ),
+    linear-gradient(
+      color(from colorPage srgb r g b / 0.35),
+      color(from colorPage srgb r g b / 0.35)
+    ),
+    linear-gradient(color(from colorPage srgb r g b / 0.1), color(from colorPage srgb r g b / 0.1)),
+    linear-gradient(to bottom, colorPageTransparent 0%, colorPage 100%),
+    linear-gradient(to right, #00c4cc 0%, #6f00ff 100%) no-repeat;
+  background-size: 100% 30%;
+  height: 100%;
+  padding: 16px 24px;
+  overflow: hidden;
+}
+
+.conversationArea {
+  padding-top: 100px;
+}
+
+/* Mobile chat: flush to viewport edges — no rounded corners or shadow */
+.mobileBackground {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 16px 16px !important;
+}
+
+.mobileConversationArea {
+  padding-top: 100px;
+}
+
+/* Mobile chat header — home + history icon bar at the top */
+.mobileHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 12px 16px 12px 12px;
+  z-index: 2;
+}
+
+.mobileHeaderButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0e1318;
+  padding: 0;
+}
+
+.mobileHeaderButton:active {
+  transform: scale(0.95);
+}
+
+.assistantMessage {
+  white-space: pre-wrap;
+  width: 100%;
+  padding: 8px 0;
+}
+
+/* Source: web/src/ui/assistant/magic_assistant/cards/outbound_card/outbound_card.css
+   (.query.gradient). User message bubble — teal→violet gradient overlay at
+   15% opacity in light mode. */
+.userMessage {
+  position: relative;
+  white-space: pre-wrap;
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-left: auto;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.userMessage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00c4cc, #7d2ae8);
+  opacity: 0.15;
+  z-index: -1;
+}

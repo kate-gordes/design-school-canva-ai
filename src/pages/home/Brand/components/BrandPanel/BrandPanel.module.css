@@ -1,0 +1,298 @@
+/* Brand Panel Container */
+.brandPanel {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 564px;
+  /* 214px sidebar + 8px gap + 342px content */
+  background: white;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: visible;
+  /* Allow Select dropdown to overflow panel bounds */
+}
+
+.brandPanel.floating {
+  top: 8px;
+  bottom: 8px;
+  border-radius: 8px;
+}
+
+.brandPanel.docked {
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-right: 1px solid rgba(57, 76, 96, 0.15);
+}
+
+/* When only sidebar is visible */
+.brandPanel.sidebarOnly {
+  width: 214px;
+}
+
+/* Close button for docked state */
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+/* Panel content container */
+.panelContent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+  /* Keep content contained */
+  gap: 8px;
+}
+
+/* Left navigation sidebar */
+.leftSidebar {
+  width: 214px;
+  min-width: 214px;
+  max-width: 214px;
+  border-right: none;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  /* Allow Select dropdown to overflow */
+  border-radius: 8px;
+  position: relative;
+  z-index: 50;
+  /* Higher than panel content to allow dropdown to appear */
+}
+
+.leftSidebarSearchWrap {
+  flex-shrink: 0;
+  background: white;
+  padding: 16px 16px 4px 16px;
+}
+
+.leftSidebarScrollable {
+  overflow-y: auto;
+  overflow-x: visible;
+  /* Allow Select dropdown to overflow horizontally */
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 8px 14px 16px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  /* Firefox */
+}
+
+/* Hide scrollbar by default */
+.leftSidebarScrollable::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Show scrollbar on hover */
+.leftSidebarScrollable:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leftSidebarScrollable:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+/* Right content area */
+.rightContent {
+  width: 342px;
+  min-width: 342px;
+  max-width: 342px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  position: relative;
+  z-index: 1;
+  border-radius: 0 8px 8px 0;
+}
+
+/* When detail view is active, enable sliding */
+.rightContent.detailViewActive {
+  position: relative;
+}
+
+.rightContentScrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  padding: 0 8px 16px 2px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  /* Firefox */
+  position: relative;
+  z-index: 1;
+}
+
+/* Hide scrollbar by default */
+.rightContentScrollable::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Show scrollbar on hover */
+.rightContentScrollable:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rightContentScrollable:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+/* Navigation menu styling */
+.navMenu {
+  margin-bottom: 12px;
+}
+
+.navMenu button {
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  border-radius: 12px !important;
+  margin-bottom: 2px !important;
+}
+
+/* Section heading styling (legacy TreeMenuItem-based) */
+.sectionHeading {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  padding: 8px 12px !important;
+  pointer-events: none;
+}
+
+/* Section heading label (plain div) */
+.sectionHeadingLabel {
+  font-family: 'Canva Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f121a;
+  padding: 18px 14px 14px 14px;
+}
+
+/* Search box in left sidebar */
+.searchBox {
+  width: 100%;
+  border: 1px solid #e7dbff;
+  border-radius: 16px;
+  height: 56px;
+  flex-shrink: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 8px;
+}
+
+/* Divider line */
+.divider {
+  height: 1px;
+  background: rgba(57, 76, 96, 0.15);
+  margin: 8px 0;
+}
+
+/* Brand Kit Selector wrapper */
+.brandKitSelectorWrap {
+  width: 100%;
+  padding: 8px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+}
+
+.brandKitSelectorWrap * {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.brandKitSelectorWrap button {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 48px !important;
+  border: 1px solid rgba(57, 76, 96, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 0 8px !important;
+  gap: 2px !important;
+  box-sizing: border-box !important;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+
+.brandKitSelectorWrap button:hover {
+  border-color: rgba(57, 76, 96, 0.4) !important;
+  box-shadow: 0 0 0 1px rgba(57, 76, 96, 0.15) !important;
+}
+
+/* Brand Kit Selector container with elevated z-index (legacy) */
+.brandKitSelectorContainer {
+  position: relative;
+  z-index: 100;
+}
+
+/* Ensure Select dropdown appears above all content */
+.leftSidebar :global(.easel-select-menu),
+.leftSidebar :global([role='listbox']),
+.brandKitSelectorContainer :global(.easel-select-menu),
+.brandKitSelectorContainer :global([role='listbox']) {
+  z-index: 1000 !important;
+}
+
+/* If Easel uses Layer component for dropdown, ensure it appears above */
+.leftSidebar :global(.NoN2AA),
+.brandKitSelectorContainer :global(.NoN2AA),
+:global(.NoN2AA._5_MXiw) {
+  z-index: 1000 !important;
+}
+
+/* Detail view slide animations */
+.detailViewSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  overflow-y: auto;
+  padding: 16px;
+  z-index: 10;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.detailViewSlide.slideIn {
+  transform: translateX(0);
+}
+
+.rightContentScrollable.slideOut {
+  transform: translateX(-20px);
+  opacity: 0.5;
+  pointer-events: none;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Back button styling */
+.backButton {
+  padding: 8px 0 !important;
+  background: transparent !important;
+  border: none !important;
+}

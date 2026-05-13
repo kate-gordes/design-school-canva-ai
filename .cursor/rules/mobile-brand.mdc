@@ -1,0 +1,78 @@
+---
+description: Mobile brand context — applies when working on the mobile brand experience at /brand
+globs: src/pages/home/Brand/MobileBrand*
+alwaysApply: false
+---
+
+# Mobile Brand Context
+
+The "mobile brand" refers to the `/brand` route when viewed on a mobile device (viewport < 600px).
+
+## Key Details
+
+- Route: `/brand` (see `src/App.tsx`)
+- Mobile detection: `useIsMobile` hook from `@/hooks/useIsMobile` (breakpoint: 600px)
+- Entry point: `src/pages/home/Brand/index.tsx` — branches to `MobileBrand` when `isMobile` is true
+- Navigation: Users reach `/brand` via More menu (`/more` → Brand item)
+- View switching: `?view=` URL param (default: `brand-templates`), managed via `useSearchParams`
+
+## Mobile-Specific Components
+
+- `MobileBrand` (`src/pages/home/Brand/MobileBrand.tsx`) — full mobile brand page with custom header, gradient banner, brand navigation sheet, and brand templates grid
+- `MobileBrand.module.css` — styles including fixed header, scroll behavior, back button, action buttons, sheet styles
+- `DesignCard` (`src/pages/home/components/CardThumbnails/`) — 2-column grid cards for brand template items
+- `MobileSearchBox` (`src/pages/home/components/MobileSearchBox/`) — search input for brand templates
+- `GradientBanner` (`src/shared_components/GradientBanner/`) — shared gradient background behind content
+
+## Layout & Behaviour on Mobile
+
+- The page has its **own custom header** (not `MobilePageLayout` or `MobileHomeHeader`), with:
+  - Fixed back button (top left, navigates to `/more`)
+  - Current view title (appears on scroll)
+  - Action buttons (print photo book, more options) at top right
+  - White header background that fades in on scroll via `data-mobile-scroll-container` scroll listener
+- Content scrolls in a full-height container with `overflow-y: auto`
+- Below the gradient banner, the title has a **chevron dropdown button** that opens a brand navigation Sheet
+- A search box (`MobileSearchBox`) for searching brand templates
+- Templates are organized in sections: **Starred for team** and **All Brand Templates**
+- Each section uses a 2-column `Grid` with `DesignCard` components (variant="icon")
+- The default landing view is "All Brand Templates" (matching the desktop default)
+
+## Brand Navigation Sheet
+
+- Uses Easel `Sheet` component (`@canva/easel/surface/sheet`) with `size="large"`
+- Opened by tapping the chevron next to the page title
+- Contains a scrollable menu with all brand views:
+  - **All Brand Templates** (highlighted when selected, with `ContentBrandIcon`)
+  - **Brand Kit** section: "Canva Brand Kit" with chevron (links to `all-assets`)
+  - Top-level: All assets, Guidelines
+  - **Core Brand**: Emojis, Logos, Photography, Colors, Fonts, Motion, UI, Visual Suite, Brand voice, Charts
+  - **Internal Brand**: Stickers, Canva Values, Script Marks, Canva Photos
+- Selected item shows bold text
+- Selecting a view updates the `?view=` URL param and closes the sheet
+
+## Key Patterns
+
+- Scroll-based header reveal: attaches scroll listener to `[data-mobile-scroll-container="true"]` element
+- Fixed positioning for header elements (z-index 100–101)
+- Header height: `calc(baseUnit * 8)` (64px)
+- The `MobileBrand` component does **not** use `MobilePageLayout` — it has a fully custom layout
+- View labels managed via `viewLabels` Record mapping view keys to display names
+
+## Shared Dependencies
+
+- `src/shared_components/GradientBanner` — gradient background
+- `src/shared_components/icons` — ContentBrandIcon
+- `src/pages/home/components/CardThumbnails` — DesignCard, ProjectDesign type
+- `src/pages/home/components/MobileSearchBox` — search input
+- `react-router-dom` — useNavigate, useSearchParams
+
+## Guidelines
+
+- Always test brand changes against mobile viewport (390x844, or any width < 600px).
+- Navigate to `/brand` via More menu on mobile, or directly via URL.
+- Prefer touch-friendly controls and adequate tap targets.
+- Keep the custom scroll-based header pattern when modifying the layout.
+- Brand template data is currently hardcoded in `MobileBrand.tsx` — keep in sync with `BrandTemplatesView.tsx` if needed.
+- Reuse `DesignCard` from `CardThumbnails` for consistency with other mobile pages.
+- Use the `viewLabels` Record when adding new views to keep labels consistent.

@@ -1,0 +1,62 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorSurfacePrimary from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorSurfaceSecondary from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorBorderStandard from "@canva/easel/legacy_tokens:ThemeColors";
+@value colorActionPrimaryBg from "@canva/easel/legacy_tokens:ThemeColors";
+@value radiusElementStandard from "@canva/easel/legacy_tokens:ThemeColors";
+@value shadowSurface from "@canva/easel/legacy_tokens:ThemeColors";
+
+.baseSelectMenu {
+  background-color: colorSurfacePrimary;
+  border: 1px solid colorBorderStandard;
+  border-radius: radiusElementStandard;
+  box-shadow: shadowSurface;
+  overflow: hidden;
+  max-height: calc(baseUnit * 50);
+  /* 400px */
+}
+
+.optionsList {
+  max-height: calc(baseUnit * 43.75);
+  /* 350px */
+  overflow-y: auto;
+}
+
+.optionContent {
+  gap: calc(baseUnit * 1);
+}
+
+.option {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  transition: background-color 0.15s ease;
+}
+
+/* Doubled class for higher specificity to beat Easel BasicButton defaults */
+.option.option:hover:not(.disabled) {
+  background-color: #f4f4f5;
+}
+
+.option.option.selected:hover:not(.disabled) {
+  background-color: #f4f4f5;
+}
+
+.checkmark {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: #0e1318;
+}
+
+.option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.option.disabled:hover {
+  background-color: transparent;
+}

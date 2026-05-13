@@ -1,0 +1,6 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+/* Login-specific styles */
+.sectionTitle {
+  font-weight: bold;
+}

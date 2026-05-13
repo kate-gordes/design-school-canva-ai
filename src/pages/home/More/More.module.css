@@ -1,0 +1,24 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.divider {
+  height: 1px;
+  background-color: rgba(64, 87, 109, 0.12);
+  margin: 0;
+}
+
+.menu {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.menu > *:not(.divider) {
+  padding: calc(baseUnit * 1) calc(baseUnit * 2) !important;
+  margin: 0 !important;
+}
+
+/* Ensure menu items inside have no extra padding */
+.menu button,
+.menu [role='menuitem'] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

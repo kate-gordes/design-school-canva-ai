@@ -1,0 +1,251 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.invoiceInput {
+  width: 280px;
+}
+
+.typeSelect {
+  width: 175px;
+}
+
+.dateSelect {
+  width: 140px;
+}
+
+/* Grid layout specific to Orders and Invoices */
+.gridRow {
+  display: grid;
+  grid-template-columns: 1.4fr 1.2fr 0.8fr 1fr 1fr 48px;
+  align-items: center;
+  gap: calc(baseUnit * 2);
+}
+
+.thumbnail {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Override row padding for tighter rows with larger thumbnails */
+.orderRow {
+  padding: 16px 0;
+  border-bottom: 1px solid #e3e5e9;
+  margin: 0;
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.moreButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.moreCell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Desktop/Mobile visibility */
+.desktopFilters {
+  display: block;
+}
+
+.desktopTable {
+  display: block;
+}
+
+.mobileFilters {
+  display: none;
+}
+
+.mobileList {
+  display: none;
+}
+
+.filterIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.filterIconButton:hover {
+  opacity: 0.7;
+}
+
+/* Mobile list container */
+.mobileListContainer {
+  border-top: 1px solid #e3e5e9;
+}
+
+/* Mobile order row */
+.mobileOrderRow {
+  display: flex;
+  align-items: center;
+  gap: calc(baseUnit * 1.5);
+  padding: calc(baseUnit * 1.5) 0;
+  border-bottom: 1px solid #e3e5e9;
+}
+
+.mobileThumbnail {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mobileOrderInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(baseUnit * 0.5);
+}
+
+.mobileOrderTitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.badgeWrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mobileStatusBadge {
+  font-size: 12px;
+}
+
+.mobileOrderTitle {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.mobileChevron {
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+/* Filter sheet */
+.sheetBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+
+.filterSheet {
+  position: fixed;
+  top: 8px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sheetHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: calc(baseUnit * 2);
+  border-bottom: 1px solid #e3e5e9;
+  flex-shrink: 0;
+}
+
+.sheetCloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  position: absolute;
+  right: calc(baseUnit * 2);
+}
+
+.sheetCloseButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sheetContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: calc(baseUnit * 2);
+}
+
+.filterSectionTitle {
+  padding: calc(baseUnit * 1.5) 0;
+  padding-left: calc(baseUnit * 1);
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: calc(baseUnit * 1.5) calc(baseUnit * 1);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.filterOption:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.filterOptionActive {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 768px) {
+  .desktopFilters {
+    display: none;
+  }
+
+  .desktopTable {
+    display: none;
+  }
+
+  .mobileFilters {
+    display: block;
+  }
+
+  .mobileList {
+    display: block;
+  }
+
+  .invoiceInput {
+    width: 100%;
+  }
+}

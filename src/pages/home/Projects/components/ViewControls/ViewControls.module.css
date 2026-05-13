@@ -1,0 +1,19 @@
+@value colorActionSecondaryBg, colorActionSecondaryHover from '@canva/easel/legacy_tokens:ThemeColors';
+
+.viewControls {
+  /* Ensure consistent sizing */
+  min-width: 40px;
+  height: 40px;
+
+  /* Add subtle hover state */
+  transition: background-color 0.2s ease;
+}
+
+.viewControls:hover {
+  background-color: colorActionSecondaryHover;
+}
+
+/* For testing purposes */
+.viewControls[data-testid] {
+  /* Test identifier styling if needed */
+}

@@ -1,0 +1,39 @@
+@value colorSecondaryHover from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* H1/H2 heading toggle buttons */
+.headingButton {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Ask Canva labeled button */
+.askCanvaButton {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  gap: 6px;
+  border: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.askCanvaInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.askCanvaLabel {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}

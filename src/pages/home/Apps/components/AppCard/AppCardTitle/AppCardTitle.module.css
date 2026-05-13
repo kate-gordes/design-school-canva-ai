@@ -1,0 +1,44 @@
+/* Copyright 2024 Canva Inc. All Rights Reserved. */
+
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value featureLineHeight: calc(2.75 * baseUnit);
+@value baseLineHeight: calc(2.25 * baseUnit);
+
+.text {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.featureText {
+  line-height: featureLineHeight;
+  min-height: calc(2.5 * baseLineHeight);
+}
+
+.baseText {
+  line-height: baseLineHeight;
+  min-height: calc(2.15 * baseLineHeight);
+}
+
+/*
+* We are overriding the color of the title text based on the background color
+* This is design supplied and doesn't change from light/dark mode
+ */
+
+.darkText {
+  /* stylelint-disable canva/prefer-functional-colors -- see comment above */
+  color: #000000;
+}
+
+.lightText {
+  color: #ffffff;
+}
+
+.iconContainer {
+  white-space: nowrap;
+}
+
+.nbsp {
+  /* keeps the chevron close to the heading text */
+  font-size: 0;
+  line-height: 0;
+}

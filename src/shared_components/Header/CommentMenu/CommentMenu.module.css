@@ -1,0 +1,88 @@
+.commentButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 40px;
+  width: 40px;
+}
+
+.commentButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.commentButton svg {
+  color: white;
+}
+
+.menuContent {
+  width: 312px;
+  padding: 0;
+  z-index: 1001; /* Above main content since dropdowns are portaled, not header children */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.pageSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.headerIcon {
+  color: #666;
+}
+
+.pageText {
+  font-weight: 500;
+  color: #333;
+}
+
+.chevronIcon {
+  color: #666;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background-color: #f0f0f0;
+}
+
+.contentArea {
+  padding: 16px;
+  text-align: center;
+}
+
+.emptyMessage {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.addCommentButton {
+  color: #7d2ae8;
+  font-weight: 500;
+}

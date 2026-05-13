@@ -1,0 +1,37 @@
+---
+description: Mobile editor context — applies when working on the mobile editor experience at /editor
+globs: src/pages/Editor/**
+alwaysApply: false
+---
+
+# Mobile Editor Context
+
+The "mobile editor" refers to the `/editor` route when viewed on a mobile device.
+
+## Key Details
+
+- Route: `/editor` and `/editor/:doctype` (see `src/App.tsx`)
+- Mobile detection: use the `useIsMobile` hook from `@/hooks/useIsMobile` (breakpoint: 600px)
+- Source files live under `src/pages/Editor/`
+
+## Mobile-Specific Components
+
+- `MobileHeader` (`src/pages/Editor/components/MobileHeader/`) — condensed gradient header with home, undo/redo, comment, present, share, more icons
+- `MobileActionBar` (`src/pages/Editor/components/MobileActionBar/`) — bottom action bar with Ask Canva, Replace, Magic BG, Color, Duration, Done
+- `MobileContextToolbar` (`src/pages/Editor/components/MobileContextToolbar/`) — floating toolbar shown above selected element (replace + more)
+
+## Behaviour on Mobile
+
+- The primary sidebar (`PrimaryNav`) is hidden on mobile (handled in `App.tsx`).
+- `NavTabs` is hidden when inside the editor on mobile (handled in `App.tsx`).
+- The contextual nav (`ContextualNav`) is also hidden on mobile.
+- The desktop `Header`, `EditorToolbar`, `ObjectPanel`, `EditPanel`, and `EditorFooter` are all hidden on mobile.
+- Instead, the mobile editor renders: `MobileHeader`, full-width canvas, `PageNavigator` (static, not fixed), `MobileActionBar`, and `MobileContextToolbar` (when an element is selected).
+- Each doctype component (`PresentationDoctype`, `DocumentDoctype`, etc.) accepts an `isMobile` prop to hide the `EditorFooter`.
+
+## Guidelines
+
+- Always test editor changes against the mobile viewport (390×844, or any width < 600px).
+- Prefer responsive, touch-friendly controls over desktop-only interactions (e.g. hover menus).
+- Reuse existing editor components from `src/pages/Editor/components/` where possible.
+- The mobile layout is a separate render branch in `Editor/index.tsx` (not CSS-only responsive).

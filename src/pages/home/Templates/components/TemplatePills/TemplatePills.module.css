@@ -1,0 +1,21 @@
+/* Mobile-only override: desktop CategoryPills adds 16px padding-top to sit
+   under its HeroSection; on mobile it follows the Wonderbox directly and
+   needs to snug up — kill the top padding. */
+.wrapper > div {
+  padding-top: 0 !important;
+}
+
+/* Mobile pill order differs from desktop: Social media → Business → Video → Learn Grid.
+   Reorder via flex `order` to avoid forking the CategoryPills data. */
+.wrapper > div > button:nth-child(1) {
+  order: 2;
+}
+.wrapper > div > button:nth-child(2) {
+  order: 1;
+}
+.wrapper > div > button:nth-child(3) {
+  order: 3;
+}
+.wrapper > div > button:nth-child(4) {
+  order: 4;
+}

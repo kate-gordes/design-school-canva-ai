@@ -1,0 +1,106 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorActionPrimaryFg, colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+.docTitle {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  /* Height is driven by JS (scrollHeight); overflow:hidden suppresses the
+     transient scrollbar between keystroke and measure. */
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--colorTypographyPrimary);
+  caret-color: var(--colorTypographyPrimary);
+  background: transparent;
+  padding: 0;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.docTitle::placeholder {
+  color: var(--colorTypographySecondary, #c0c4c8);
+}
+
+.attribution {
+  display: block;
+  margin-top: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: var(--colorTypographySecondary, #c0c4c8);
+}
+
+.docBody {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  min-height: calc(baseUnit * 50);
+  font-size: calc(baseUnit * 2);
+  line-height: 1.6;
+  color: var(--colorTypographyPrimary);
+  background: transparent;
+  white-space: pre-wrap;
+}
+
+.contentRoot {
+  position: relative;
+}
+
+.quickActionButton {
+  position: absolute;
+  left: -56px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: colorSurface;
+  color: colorActionPrimaryFg;
+  border: 1px solid colorActionPrimaryFg;
+  box-shadow:
+    0 10px 24px rgba(64, 87, 109, 0.12),
+    0 2px 8px rgba(64, 87, 109, 0.12);
+  cursor: default;
+}
+
+.quickActionButton :global(svg) {
+  width: 18px;
+  height: 18px;
+}
+
+.canvasArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+}
+
+.canvasScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 48px 0;
+  display: flex;
+  /* Anchor pages to the top of the scroll area so long documents grow
+     downward rather than vertically centering at small content lengths. */
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+/* Mobile: document content fills the viewport directly, no canvas chrome */
+.mobileDocRoot {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  padding: 24px 20px;
+}

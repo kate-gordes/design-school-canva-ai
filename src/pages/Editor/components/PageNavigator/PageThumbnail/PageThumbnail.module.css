@@ -1,0 +1,248 @@
+@value colorPrimary, colorSurface, colorSecondaryHover, colorUiNeutralBg, colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* 9px padding reserves space inside each carousel item for the selection
+   ring AND the inter-thumb gap, so the ring never escapes the carousel's
+   overflow-y clip and selection never shifts neighbouring thumbs. */
+.thumbnailContainer {
+  width: calc(var(--thumbWidth, 113px) + 18px);
+  height: calc(var(--thumbHeight, 64px) + 18px);
+  /* Carousel lays children out in a flex row with default shrink, which
+     was squashing thumbs on narrower viewports. Lock size regardless of
+     available width. */
+  min-width: calc(var(--thumbWidth, 113px) + 18px);
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 9px;
+  position: relative;
+  border: none;
+}
+
+/* Selection ring is a pseudo-element with its own border-radius so the
+   outer corner rounding is independent of the content's corner rounding.
+   Ring sits 2px outside the content (a 2px white gap + 2px colored border). */
+.thumbnailContainer::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  background-clip: padding-box;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.thumbnailContainer.current::before {
+  border-color: #868993;
+}
+
+.thumbnailContainer.selected::before {
+  border-color: colorPrimary;
+}
+
+/* ─── Mobile-only thumbnail (bypasses Easel Card) ─── */
+.mobileThumb {
+  width: 113.8px;
+  height: 64px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  align-self: center !important;
+}
+
+/* Current page on mobile — subtle gray border */
+.mobileThumb.mobileThumbCurrent {
+  width: calc(113.8px + 7px);
+  height: calc(64px + 7px);
+  border: 2px solid #868993;
+  border-radius: 10px;
+  padding: 1.5px;
+  background: white;
+}
+
+/* Selected page on mobile — purple border + white gap */
+.mobileThumb.mobileThumbSelected {
+  width: calc(113.8px + 7px);
+  height: calc(64px + 7px);
+  border: 2.5px solid colorPrimary;
+  border-radius: 10px;
+  padding: 1px;
+  background: white;
+}
+
+.mobileThumbInner {
+  width: 100%;
+  height: 100%;
+  background: colorSurface;
+  border: 1px solid #d9dbe3;
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.mobilePageNumber {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1;
+}
+
+/* Bold page number on selected thumbs */
+.mobileThumbSelected .mobilePageNumber {
+  font-weight: 700;
+}
+
+.mobileThumbCurrent .mobileThumbInner,
+.mobileThumbSelected .mobileThumbInner {
+  /* Keep the same gray border as unselected thumbs */
+  border: 1px solid #d9dbe3;
+  border-radius: 8px;
+}
+
+/* Sheet thumbnails on mobile — dashed selection border */
+.mobileThumb.mobileThumbSheetCurrent {
+  width: calc(113.8px + 7px);
+  height: calc(64px + 7px);
+  border: 2px dashed #868993;
+  border-radius: 10px;
+  padding: 1.5px;
+  background: white;
+}
+
+.mobileThumb.mobileThumbSheetSelected {
+  width: calc(113.8px + 7px);
+  height: calc(64px + 7px);
+  border: 2.5px dashed colorPrimary;
+  border-radius: 10px;
+  padding: 1px;
+  background: white;
+}
+
+/* ─── Grid-view thumbnail (mobile + desktop) ─── */
+.mobileGridWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  width: var(--thumbWidth, 133px);
+}
+
+.mobileGridThumb {
+  width: var(--thumbWidth, 133px);
+  height: var(--thumbHeight, 76px);
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  overflow: visible;
+}
+
+/* Active ring mirrors the normal nav: 2px thick, sitting 2px outside the
+   thumb. Drawn as ::after so the thumb itself stays the same size when
+   selected. */
+.mobileGridThumb::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.mobileGridThumb.mobileGridThumbActive::after {
+  border-color: colorPrimary;
+}
+
+.mobileGridThumbInner {
+  width: 100%;
+  height: 100%;
+  background: colorSurface;
+  border: 1px solid #d9dbe3;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.mobileGridLabel {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding-left: 2px;
+  color: colorTypographyPrimary;
+}
+
+.mobileGridPageNumber {
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: colorTypographyPrimary;
+  line-height: 1;
+}
+
+.mobileGridPageNumberActive {
+  font-weight: 700;
+}
+
+.thumbnailContent {
+  width: var(--thumbWidth, 113px);
+  height: var(--thumbHeight, 64px);
+  min-width: var(--thumbWidth, 113px);
+  min-height: var(--thumbHeight, 64px);
+  flex-shrink: 0;
+  background: colorSurface;
+  border: 1px solid #d9dbe3;
+  border-radius: 8px;
+  position: relative;
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 4px;
+  left: 6px;
+  font-family: 'Canva Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1;
+}
+
+.ellipsisButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 18px;
+  background: rgba(13, 18, 22, 0.65);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease;
+  z-index: 10;
+}
+
+.thumbnailContainer:hover .ellipsisButton {
+  opacity: 1;
+}
+
+.ellipsisButton:hover {
+  background: rgba(13, 18, 22, 0.8);
+}

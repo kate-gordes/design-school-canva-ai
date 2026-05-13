@@ -1,0 +1,227 @@
+@value colorTypographyPrimary, colorSurface, colorBorderStandard, colorSecondaryHover from '@canva/easel/legacy_tokens:ThemeColors';
+
+.toolbarContainer {
+  position: sticky;
+  top: 57px; /* anchor relative to header */
+  z-index: 900;
+  /* allow width changes to be observed correctly */
+  height: 0; /* so it doesn't push layout; floating element handles height */
+  display: flex;
+  justify-content: center;
+  width: calc(100% - var(--leftRailWidth, 0px));
+  margin-left: var(--leftRailWidth, 0px);
+  overflow: visible;
+}
+
+.toolbar {
+  margin: 8px auto 0 auto;
+  background: colorSurface; /* surface token background */
+  border: 1px solid colorBorderStandard;
+  border-radius: 12px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 4px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  width: max-content;
+  /* Let children define width; no clipping here */
+  overflow: visible;
+}
+
+.hiddenItem {
+  display: none !important;
+}
+
+.moreWrap {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.withLeftRailUndocked {
+  --leftRailWidth: 72px;
+}
+
+.withLeftRailDocked {
+  --leftRailWidth: 432px;
+}
+
+.withLeftRailDockedBrand {
+  --leftRailWidth: 636px;
+}
+
+.withLeftRailDockedBrandSidebar {
+  --leftRailWidth: 294px;
+}
+
+.select {
+  min-width: 220px;
+}
+
+.sizeSelect .select {
+  min-width: 88px;
+}
+
+.sizeStepper {
+  background: colorSurface;
+  border: 1px solid colorBorderStandard !important; /* match font button border */
+  box-shadow: 0 0 0 1px colorBorderStandard; /* explicit outline for visibility */
+  border-radius: 8px;
+  height: 32px;
+  width: 108px; /* requested width */
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  background-clip: padding-box;
+}
+
+.sizeValue {
+  width: 56px;
+}
+
+.fontButton {
+  width: 144px;
+  min-width: 144px;
+  height: 32px;
+  border-radius: 8px;
+  background: colorSurface;
+  border: 1px solid colorBorderStandard;
+}
+
+.fontLabelContainer {
+  width: 100%;
+}
+
+.fontLabel {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fontMenuContent {
+  width: 360px;
+  height: 420px;
+  overflow: auto;
+}
+
+.iconRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px; /* 2px gaps between buttons */
+}
+
+.columnDivider {
+  width: 2px;
+  height: 16px;
+  background: rgba(57, 76, 96, 0.15);
+  opacity: 1;
+  margin: 0 2px 0 0; /* 2px space to the right */
+  display: flex;
+}
+
+.iconButton {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+.iconButton:hover {
+}
+
+.labeledAction {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  gap: 8px;
+  border: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Easel Button wraps children in an internal <span> that's display:block
+   with no vertical centering — children sit at the top of the 32px button.
+   Force it to fill and center, so the icon + text line up with the label. */
+.labeledAction > span {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.labeledAction:hover {
+}
+
+/* No custom pressed styling here; rely on Easel's Button pressed styles */
+
+.labeledActionInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.activeAction {
+  background: colorSecondaryHover;
+}
+
+/* Number input (borderless inner field) */
+.sizeInput {
+  width: 108px !important; /* enforce control width */
+  height: 32px !important; /* match toolbar height */
+  border-radius: 8px !important;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 !important;
+  gap: 2px; /* exact spacing between stepper buttons and value */
+}
+
+.sizeInput input {
+  border: none !important; /* borderless inner input */
+  box-shadow: none !important;
+  background: transparent !important;
+  text-align: center;
+  font-weight: bold;
+  padding: 0 4px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+
+.sizeStepperButton {
+  width: 24px !important;
+  min-width: 24px !important;
+  height: 24px !important;
+}
+
+/* Prevent wrapping so overflow logic can hide items into ellipsis menu */
+.toolbarInline {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* New: wrapper for each toolbar item so we can attach data-toolbar-key reliably */
+.itemWrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hidden FlyoutMenu trigger: menu is opened programmatically elsewhere. */
+.hiddenTrigger {
+  display: none;
+}
+
+/* Fill-color swatch (used as inline content of the Fill color IconButton). */
+.fillColorSwatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #0ea5a7;
+}

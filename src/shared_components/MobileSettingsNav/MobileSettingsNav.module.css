@@ -1,0 +1,115 @@
+@value colorPage, colorBorder, colorActionPrimaryBgWeak from '@canva/easel/legacy_tokens:ThemeColors';
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1003;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Partial width overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background: colorPage;
+  z-index: 1004;
+  overflow-y: auto;
+  animation: slideIn 0.2s ease-out;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid colorBorder;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.backButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Content */
+.content {
+  padding: 8px 16px 100px 16px;
+}
+
+/* Section */
+.section {
+  padding: 8px 0;
+}
+
+.sectionTitle {
+  padding: 12px 8px 8px 8px;
+  display: block;
+}
+
+/* Navigation item */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.navItem:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.navItem.selected {
+  background: colorActionPrimaryBgWeak;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

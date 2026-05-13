@@ -1,0 +1,23 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+/* Shared hero title row for mobile home pages (Create New / All projects /
+   Templates / etc.). 32px top + 24px bottom keeps the title the same
+   distance from the top on every page; 16px horizontal matches the page gutter. */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: calc(baseUnit * 4) calc(baseUnit * 2) calc(baseUnit * 3);
+}
+
+/* Extra top space for pages that render content above the title (the avatar
+   on /more, back buttons on sub-routes). 80px clears the 32px avatar plus
+   breathing room. */
+.rowOffset {
+  padding-top: calc(baseUnit * 10);
+}
+
+.title {
+  font-weight: 500;
+}

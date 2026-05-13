@@ -1,0 +1,80 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+# Cancel previous runs if a new push is made
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint (warnings allowed, errors fail)
+        run: npm run lint:check
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      - name: Build project
+        run: npm run build
+        env:
+          NODE_ENV: production
+          CI: true
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build failed: dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ Build failed: index.html not found in dist"
+            exit 1
+          fi
+          echo "✅ Build verification passed"
+
+      - name: Install Playwright (Chromium only)
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests (Chromium only)
+        run: npx playwright test --project=chromium
+        env:
+          CI: true
+
+      - name: Upload test results on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results-${{ github.run_id }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+
+      - name: Success summary
+        if: success()
+        run: |
+          echo "🎉 All checks passed!"
+          echo "✅ Linting completed"
+          echo "✅ Build successful"
+          echo "✅ Playwright tests passed"

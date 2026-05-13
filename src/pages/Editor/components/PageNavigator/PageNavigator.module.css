@@ -1,0 +1,155 @@
+.container {
+  height: calc(64px + 32px);
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  background: rgba(243, 244, 247, 0.7);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  right: 0;
+  bottom: 40px; /* sit above 40px footer */
+  z-index: 9; /* below footer (10) */
+  pointer-events: none;
+}
+.containerStatic {
+  width: 100%;
+  height: calc(64px + 32px);
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  background: rgba(243, 244, 247, 0.7);
+  backdrop-filter: blur(10px);
+  position: relative; /* stacked in layout for Spreadsheet; needs positioning for edge fades */
+}
+
+/* Edge fade-outs signaling more scrollable content. Sit above thumbs but
+   pass clicks through so add buttons / thumbs remain interactive. */
+.container::before,
+.container::after,
+.containerStatic::before,
+.containerStatic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.container::before,
+.containerStatic::before {
+  left: 0;
+  background: linear-gradient(to right, #f3f4f7 0%, rgba(243, 244, 247, 0) 100%);
+}
+
+.container::after,
+.containerStatic::after {
+  right: 0;
+  background: linear-gradient(to left, #f3f4f7 0%, rgba(243, 244, 247, 0) 100%);
+}
+
+@media (max-width: 600px) {
+  .containerStatic {
+    height: auto;
+    padding: 8px 0 8px 12px;
+    background: #f3f4f7;
+    flex-shrink: 0;
+  }
+}
+
+.container > * {
+  pointer-events: auto;
+}
+
+.carouselContainer {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: visible;
+}
+
+.addButtonsWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Horizontal scrollbar is reserved (keeps layout stable) but thumb is
+   invisible until the user hovers the carousel. */
+.carouselContainer div {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.15s ease;
+}
+
+.carouselContainer:hover div,
+.carouselContainer div:focus-within {
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+.carouselContainer div::-webkit-scrollbar {
+  height: 6px;
+  display: block;
+}
+
+.carouselContainer div::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carouselContainer div::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+
+.carouselContainer:hover div::-webkit-scrollbar-thumb,
+.carouselContainer div:focus-within::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.carouselContainer div::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.addButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 2px;
+}
+
+.addButton {
+  width: 74px;
+  height: var(--thumbHeight, 64px);
+  padding: 0;
+  border-radius: 8px 0 0 8px; /* Rounded left corners, square right corners */
+  background: #e5e6ec; /* Normal state background color */
+  min-width: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: #d6d8de; /* Hover background color */
+}
+
+.dropdownButton {
+  width: 40px;
+  height: var(--thumbHeight, 64px);
+  padding: 0;
+  border-radius: 0 8px 8px 0; /* Square left corners, rounded right corners */
+  background: #e5e6ec; /* Normal state background color */
+  min-width: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dropdownButton:hover {
+  background: #d6d8de; /* Hover background color */
+}

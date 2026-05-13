@@ -1,0 +1,55 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.thumbnail {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: rgba(53, 65, 90, 0.08);
+  background-size: cover;
+  background-position: center;
+  box-shadow: rgba(57, 70, 96, 0.1) 0 0 0 1px inset;
+  flex-shrink: 0;
+}
+
+.folderIconSlot {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Trailing ellipsis menu button — flat, no pill/shadow. */
+.menuButton {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.avatarCluster {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avatarCluster > *:nth-child(2) {
+  margin-left: -6px;
+}
+
+.overflowAvatar {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(53, 65, 90, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px #fff;
+  padding: 0 4px;
+  font-size: 11px;
+  color: rgba(15, 16, 21, 0.65);
+}

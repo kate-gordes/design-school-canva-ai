@@ -1,0 +1,15 @@
+.page {
+  /* apps_directory_page root */
+}
+
+/* HomePageLayout.contentWrapper already provides 24px horizontal padding.
+   Keep only the vertical spacing here so the hero sits flush with the
+   container's inner gutter. */
+.bannerWrapper {
+  padding: 8px 0 16px 0;
+}
+
+.toolsContent {
+  padding: 0 0 32px 0;
+  min-height: 224px;
+}

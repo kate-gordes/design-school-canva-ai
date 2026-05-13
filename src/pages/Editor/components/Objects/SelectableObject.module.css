@@ -1,0 +1,136 @@
+.selectable {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Normalize sub-pixel differences between object types */
+.objectTypeText {
+}
+.objectTypeShape {
+}
+
+.selectable.selected::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* Keep border visually constant regardless of canvas zoom */
+  border-style: solid;
+  border-color: #8b3dff; /* selection color */
+  border-width: calc(2px / var(--canvasScale, 1));
+  pointer-events: none;
+  z-index: 5; /* above content wrapper (z-index: 1) */
+}
+
+/* Selection resize handles (visual only) */
+.handles {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* Let clicks pass through to the object's content; handles themselves opt-in */
+  pointer-events: none;
+  z-index: 10; /* above selection border and content */
+}
+
+.handleBase {
+  position: absolute;
+  background: #ffffff; /* solid white */
+  box-sizing: border-box;
+  /* Enable interaction only on the visible handles */
+  pointer-events: auto;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+  /* Shadow to match Easel style: soft outer glow + crisp outline */
+  box-shadow:
+    0 0 calc(4px / var(--canvasScale, 1)) calc(1px / var(--canvasScale, 1)) rgba(57, 76, 96, 0.15),
+    0 0 0 calc(1px / var(--canvasScale, 1)) rgba(43, 59, 74, 0.3);
+}
+
+/* Corner circular handles */
+.cornerHandle {
+  width: calc(12px / var(--canvasScale, 1));
+  height: calc(12px / var(--canvasScale, 1));
+  border-radius: 999px;
+}
+.cornerTopLeft {
+  left: calc(-6px / var(--canvasScale, 1));
+  top: calc(-6px / var(--canvasScale, 1));
+}
+.cornerTopRight {
+  right: calc(-6px / var(--canvasScale, 1));
+  top: calc(-6px / var(--canvasScale, 1));
+}
+.cornerBottomLeft {
+  left: calc(-6px / var(--canvasScale, 1));
+  bottom: calc(-6px / var(--canvasScale, 1));
+}
+.cornerBottomRight {
+  right: calc(-6px / var(--canvasScale, 1));
+  bottom: calc(-6px / var(--canvasScale, 1));
+}
+
+/* Side rounded-rect handles */
+.sideHandle {
+  width: calc(18px / var(--canvasScale, 1));
+  height: calc(6px / var(--canvasScale, 1));
+  border-radius: 3px;
+}
+.sideTop {
+  top: calc(-6px / var(--canvasScale, 1));
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.sideBottom {
+  bottom: calc(-6px / var(--canvasScale, 1));
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sideLeft {
+  left: calc(-17.5px / var(--canvasScale, 1)); /* fine-tuned to align across objects */
+  top: 50%;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+.sideRight {
+  right: calc(-17.5px / var(--canvasScale, 1));
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Cursor affordances */
+.cornerTopLeft,
+.cornerBottomRight {
+  cursor: nwse-resize;
+}
+.cornerTopRight,
+.cornerBottomLeft {
+  cursor: nesw-resize;
+}
+.sideTop,
+.sideBottom {
+  cursor: ns-resize;
+}
+.sideLeft,
+.sideRight {
+  cursor: ew-resize;
+}
+
+/* Hover color using Easel primary with fallback */
+.handleBase:hover {
+  background: var(--colorPrimary, #8b3dff);
+}

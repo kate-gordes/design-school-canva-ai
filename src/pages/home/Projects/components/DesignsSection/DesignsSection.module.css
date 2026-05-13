@@ -1,0 +1,25 @@
+.descriptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  color: #9ca3af;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.cardCheckbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

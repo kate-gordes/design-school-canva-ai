@@ -1,0 +1,451 @@
+/* Source: pages/home/wonder_box/page/page.css, wonder_box_input.css */
+/* @value transforms applied per Rule A: baseUnit=8px, belowSmall=(max-width:599px) */
+/* @value transforms applied per Rule S: themeLight/:global(.light), themeDark/:global(.dark) */
+
+/* ===== searchInputContainer (from page.css) ===== */
+/* Source: pages/home/wonder_box/page/page.css .searchInputContainer */
+.searchInputContainer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile sticky behavior - belowSmall = (max-width: 599px) */
+@media (max-width: 599px) {
+  .searchInputContainer.mobileSticky {
+    position: sticky;
+    top: calc(56px + var(--shellMobileStickyTopHeight, 0px));
+    z-index: 10;
+  }
+
+  .searchInputContainer.mobileSticky::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: calc((56px + var(--shellMobileStickyTopHeight, 0px) + 64px) * -1);
+    left: 0;
+    right: 0;
+    height: calc(100% + 56px + var(--shellMobileStickyTopHeight, 0px) + 64px);
+    background: var(--elevationSurfaceBg, #ffffff);
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .searchInputContainer.mobileSticky.stuck::before {
+    opacity: 1;
+  }
+
+  .searchInputContainer.mobileSticky::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    height: 16px;
+    background: linear-gradient(var(--elevationSurfaceBg, #ffffff), transparent);
+    opacity: 0;
+    transition: opacity 300ms;
+    z-index: -1;
+  }
+
+  .searchInputContainer.mobileSticky.stuck::after {
+    opacity: 1;
+  }
+}
+
+/* ===== page container (from page.css) ===== */
+.pageContainer {
+  transition: opacity 400ms ease-in-out;
+  opacity: 1;
+}
+
+.deferred {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.fixedHeaderContainer {
+  z-index: 1;
+}
+
+.fixedHeader {
+  /* calc(100 * baseUnit) = calc(100 * 8px) = 800px */
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: max-width 0.3s ease-out;
+}
+
+.fixedHeaderExpanded {
+  /* calc(8px * 120) = 960px, matches open searchContainer */
+  max-width: 960px;
+}
+
+/* ===== Filter Pills Container ===== */
+.filterContainer {
+  height: 56px;
+  margin: 0 -16px;
+}
+
+.filterCenterWrapper {
+  box-sizing: border-box;
+  height: 56px;
+  max-width: max-content;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.filterScrollContainer {
+  position: relative;
+  height: 56px;
+  isolation: isolate;
+}
+
+.filterPillsContainer {
+  display: flex;
+  height: 56px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filterPillsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.filterPillWrapper {
+  height: 56px;
+  flex-shrink: 0;
+  min-height: auto;
+  min-width: auto;
+  padding-right: 8px;
+}
+
+.filterPillInner {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 12px 0;
+}
+
+/* ===== Filter Pill Button Styles ===== */
+.filterPill {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(231, 219, 255);
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  outline-offset: 3px;
+  padding: 4px 10px;
+  position: relative;
+  transition:
+    background-color 0.1s linear,
+    border-color 0.1s linear,
+    color 0.1s linear;
+}
+
+.filterPill:hover {
+  background-color: rgb(248, 246, 255);
+}
+
+.filterPillActive {
+  background-image:
+    linear-gradient(rgba(165, 112, 255, 0.2), rgba(165, 112, 255, 0.2)),
+    linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+  border-color: rgb(139, 61, 255);
+}
+
+.filterPillIcon {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 16px;
+  width: 16px;
+  color: currentColor;
+}
+
+.filterPillText {
+  font-size: 14px;
+  line-height: 22px;
+  overflow-wrap: break-word;
+  margin: 0;
+  color: rgb(14, 19, 24);
+}
+
+.filterPillSpacer {
+  display: block;
+  flex-shrink: 0;
+  height: 1px;
+  width: 4px;
+}
+
+/* ===== Search Container - Production Style ===== */
+/* Source: ui/search/wonder_box/private/wonder_box_input.css */
+.searchContainer {
+  --search-height: 64px;
+  --color-teal: #00c4cc;
+  --color-purple: #7d2ae8;
+
+  position: relative;
+  height: var(--search-height);
+  width: 100%;
+  /* 800px = matches fixedHeader container width */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px; /* borderRadius = calc(baseUnit * 2.5) */
+  background: var(--elevationSurfaceBg, #ffffff);
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    height 0.3s ease-out,
+    max-width 0.3s ease-out,
+    border-color 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+
+/* Solid palette — default (non-focused) */
+.containerSolid {
+  border-color: #e7dbff; /* solidBorderColor = colorPurple02 */
+  box-shadow: 0px 6px 20px -4px var(--solidShadowColor, #e7dbff);
+}
+
+/* Solid palette — focused */
+.containerSolid.focusWithin {
+  border-color: #5858e0; /* solidBorderColorActive = colorControlBorderFocused */
+  box-shadow: 0px 6px 20px -4px var(--solidShadowColor, #e7dbff);
+}
+
+/* Gradient palette — closed/default */
+.containerGradient.isClosed {
+  background:
+    linear-gradient(var(--elevationSurfaceBg, #ffffff), var(--elevationSurfaceBg, #ffffff))
+      padding-box,
+    linear-gradient(90deg, rgba(0, 196, 204, 0.6), rgba(125, 42, 232, 0.6)) border-box;
+  border-color: transparent;
+  box-shadow:
+    6px 3px 12px 0 rgba(139, 61, 255, 0.15),
+    -6px -3px 12px 0 rgba(0, 196, 204, 0.15);
+}
+
+/* Gradient palette — closed, hover */
+.containerGradient.isClosed:hover {
+  background:
+    linear-gradient(var(--elevationSurfaceBg, #ffffff), var(--elevationSurfaceBg, #ffffff))
+      padding-box,
+    linear-gradient(90deg, rgba(0, 196, 204, 0.6), rgba(125, 42, 232, 0.6)) border-box;
+  box-shadow:
+    0px 7.56px 17.64px 0px rgba(139, 61, 255, 0.35),
+    0px 1.26px 1.26px 0px rgba(139, 61, 255, 0.35),
+    -1.89px 0.63px 6.3px 0px rgba(0, 196, 204, 0.55);
+}
+
+/* Gradient palette — open (expanded) */
+.containerGradient.isOpen {
+  background:
+    linear-gradient(var(--elevationSurfaceBg, #ffffff), var(--elevationSurfaceBg, #ffffff))
+      padding-box,
+    linear-gradient(90deg, rgba(0, 196, 204, 0.3), rgba(125, 42, 232, 0.3)) border-box;
+  border-color: transparent;
+  box-shadow:
+    6px 3px 12px 0 rgba(139, 61, 255, 0.15),
+    -6px -3px 12px 0 rgba(0, 196, 204, 0.15);
+}
+
+/* Gradient palette — open + focused */
+.containerGradient.isOpen.focusWithin {
+  background:
+    linear-gradient(var(--elevationSurfaceBg, #ffffff), var(--elevationSurfaceBg, #ffffff))
+      padding-box,
+    linear-gradient(90deg, #00c4cc, #7d2ae8) border-box;
+  border-color: transparent;
+}
+
+.searchContainerExpanded {
+  /* 960px = calc(8px * 120), open state */
+  max-width: 960px;
+}
+
+.searchContainerAI {
+  --color-teal: #00c4cc;
+  --color-purple: #00c4cc;
+}
+
+.searchForm {
+  box-sizing: border-box;
+  height: 64px;
+  /* inputPaddingXMedium = space150 = 12px — matches singleLineWrapper padding in base_input.css */
+  padding: 0 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchForm form {
+  width: 100%;
+}
+
+.searchInputWrapper {
+  height: 40px;
+}
+
+.searchInputBox {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(14, 19, 24);
+  cursor: text;
+  display: flex;
+  height: 40px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.searchIconContainer {
+  align-items: center;
+  color: rgb(14, 19, 24);
+  cursor: text;
+  display: flex;
+  /* Column width="content" + Box paddingX="0.5u": 4px+24px+4px = 32px fixed */
+  flex: 0 0 32px;
+  height: 38px;
+  justify-content: center;
+  /* Box paddingX="0.5u" = 4px each side */
+  padding: 0 4px;
+}
+
+.searchIcon {
+  align-items: center;
+  box-sizing: border-box;
+  color: rgb(14, 19, 24);
+  cursor: text;
+  display: flex;
+  height: 24px;
+  width: 24px;
+}
+
+.searchInput {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: rgb(14, 19, 24);
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 22px;
+  min-width: 8px;
+  outline: none;
+  overflow-wrap: break-word;
+  padding: 0 0 0 8px;
+  /* flex: 1 so it fills remaining space between icon and button */
+  flex: 1;
+  font-variant: none;
+  unicode-bidi: plaintext;
+  /* textMedium: antialiased from typography.css */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  /* textMedium body text font-variation-settings */
+  font-variation-settings: 'opsz' 0;
+}
+
+.searchInput::placeholder {
+  color: #13162080;
+  font-weight: 350;
+}
+
+.searchButtonContainer {
+  align-items: center;
+  color: rgb(14, 19, 24);
+  cursor: text;
+  display: flex;
+  flex: 0 0 32px;
+  height: 38px;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.searchButton {
+  background-color: transparent;
+  border: none;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  color: rgb(57, 76, 96);
+  cursor: pointer;
+  height: 32px;
+  padding: 0;
+  width: 32px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton:hover {
+  background-color: rgba(57, 76, 96, 0.1);
+}
+
+.searchButton:active {
+  background-color: rgba(57, 76, 96, 0.15);
+}
+
+.searchButtonIcon {
+  align-items: center;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  height: 16px;
+  width: 16px;
+}
+
+/* Bottom Filters Animation */
+.bottomFilters {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(165, 112, 255, 0.1);
+  border-radius: 0 0 20px 20px;
+  z-index: 2;
+  padding: 10px 16px;
+  animation: slideInUp 0.3s ease-out;
+  display: flex;
+  align-items: center;
+}
+
+/* White background for filter pills */
+.filterPillWhite > * {
+  background-color: white !important;
+}
+
+/* AI-specific background for bottom filters */
+.bottomFiltersAI {
+  background: linear-gradient(90deg, rgba(0, 196, 204, 0.1), rgba(125, 42, 232, 0.1));
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme variables for shadow color */
+:global(.light) {
+  --solidShadowColor: #e7dbff; /* colorPurple02 */
+}
+
+:global(.dark) {
+  --solidShadowColor: #612dae; /* colorPurple08 */
+}

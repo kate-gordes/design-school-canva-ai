@@ -1,0 +1,37 @@
+{
+  "include": ["../../../../declarations/css_modules.d.ts", "./**/*.*"],
+  "compilerOptions": {
+    "types": [],
+    "isolatedDeclarations": true
+  },
+  "references": [
+    { "path": "../../../../../identity/profile/api/profile/ts" },
+    { "path": "../../../base" },
+    { "path": "../../../base/platform_quirks" },
+    { "path": "../../../base/proto" },
+    { "path": "../../../services/telemetry" },
+    { "path": "../../../ui/base/a11y/skip_link" },
+    { "path": "../../../ui/base/box" },
+    { "path": "../../../ui/base/device_capabilities" },
+    { "path": "../../../ui/base/html" },
+    { "path": "../../../ui/base/layer" },
+    { "path": "../../../ui/base/metrics" },
+    { "path": "../../../ui/base/platform_quirks" },
+    { "path": "../../../ui/base/responsive" },
+    { "path": "../../../ui/base/root_container" },
+    { "path": "../../../ui/base/theme" },
+    { "path": "../../../ui/base/tokens/primitive" },
+    { "path": "../../../ui/nav/header2" },
+    { "path": "../ui/metrics" }
+  ],
+  "externalReferences": ["classnames", "mobx", "mobx-react-lite", "react"],
+  "exclude": ["tests"],
+  "extends": "../../../../tsconfig.build.json",
+  "moduleSignatureReferences": [
+    "//identity/profile/api/profile/ts",
+    "//web/src/base/proto",
+    "//web/src/services/telemetry",
+    "//web/src/ui/base/theme",
+    "//web/src/ui/nav/header2"
+  ]
+}

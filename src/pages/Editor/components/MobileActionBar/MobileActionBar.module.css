@@ -1,0 +1,144 @@
+.actionBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 6px 8px;
+  padding-bottom: max(8px, calc(2px + env(safe-area-inset-bottom)));
+  background: transparent;
+  pointer-events: none;
+}
+
+.actionBarInner {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  padding: 4px 4px;
+  /* extra right padding so content doesn't go behind the check button */
+  padding-right: 48px;
+  height: 60px;
+  width: 100%;
+  pointer-events: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.scrollArea {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 0;
+}
+
+.scrollArea::-webkit-scrollbar {
+  display: none;
+}
+
+.actionButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #0d1216;
+  cursor: pointer;
+  padding: 4px 18px;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+
+.actionButton:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.actionButton:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.doneButton {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #d8dadf;
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  color: #0d1216;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.doneButton:active {
+  background: #f0f1f5;
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.actionLabel {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+  color: #0d1216;
+}
+
+.shapeColorSwatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #4a9e9e;
+}
+
+.rainbowSwatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6, #ff6b6b);
+}
+
+.colorIconText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Canva Sans', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0d1216;
+  gap: 1px;
+}
+
+.colorBar {
+  display: block;
+  width: 16px;
+  height: 3px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+}

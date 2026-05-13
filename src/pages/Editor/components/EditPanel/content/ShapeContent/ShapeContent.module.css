@@ -1,0 +1,13 @@
+.scrollArea {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 6px;
+}

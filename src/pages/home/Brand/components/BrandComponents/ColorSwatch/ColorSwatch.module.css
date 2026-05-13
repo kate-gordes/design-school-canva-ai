@@ -1,0 +1,34 @@
+.swatchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 72px;
+  max-width: 72px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+@media (max-width: 600px) {
+  .swatchContainer {
+    width: 72px;
+    max-width: 72px;
+  }
+}
+
+.labelContainer {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.labelText {
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: rgba(15, 18, 26, 0.698);
+}

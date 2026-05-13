@@ -1,0 +1,89 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+/* Theme card styles */
+.themeCards {
+  display: flex;
+  gap: calc(baseUnit * 2);
+  flex-wrap: wrap;
+}
+
+.themeCard {
+  cursor: pointer;
+}
+
+.themePreview {
+  width: 140px;
+  height: 88px;
+  border-radius: calc(baseUnit * 1.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.themeCard.selected .themePreview {
+  border-color: #8b3dff;
+}
+
+/* Gradient bar at top */
+.themeGradientBar {
+  height: 12px;
+  background: linear-gradient(90deg, #00c4cc 0%, #8b3dff 100%);
+  flex-shrink: 0;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Content area below gradient */
+.themeContent {
+  flex: 1;
+  display: flex;
+  padding: 8px;
+  gap: 6px;
+  border-radius: 0 0 6px 6px;
+}
+
+/* System theme - split light/dark */
+.themePreviewSystem {
+  background: transparent;
+}
+
+.themePreviewSystem .themeContent {
+  background: linear-gradient(90deg, #f5f5f5 50%, #1e1e1e 50%);
+}
+
+/* Light theme */
+.themePreviewLight {
+  border: 1px solid #e5e5e5;
+}
+
+.themePreviewLight .themeContent {
+  background: #f5f5f5;
+}
+
+/* Dark theme */
+.themePreviewDark .themeContent {
+  background: #1e1e1e;
+}
+
+/* Window rectangles inside preview */
+.themeWindow {
+  flex: 1;
+  border-radius: 4px;
+  height: 100%;
+}
+
+.themeWindowLight {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.themeWindowDark {
+  background: #2a2a2a;
+}
+
+.selectContainer {
+  width: 380px;
+}

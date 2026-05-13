@@ -1,0 +1,153 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorPage from '@canva/easel/legacy_tokens:ThemeColors';
+
+.container {
+  position: relative;
+  background: colorPage;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content wrapper — hero stack vertically centered on the banner.
+   Matches monorepo mobile banner: flex column, center-justified, 8px gap
+   (1u spacing between rows), 16px horizontal padding (2u). */
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  transform: translateY(calc(-3% - 4px));
+}
+
+/* "Canva ai 2.0" wordmark — same asset as desktop.
+   Height 20px matches monorepo banner.css .logo rule. */
+.brandRow {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 20px;
+  width: auto;
+}
+
+/* Hero title — teal→purple gradient, 40px/44px per monorepo hero_title.css
+   portraitTextSize="large". Note: GradientText component drops mobile title to
+   24px via its own media query, so we style locally to keep the 40px value.
+   Small extra bottom margin gives the chat box a bit more breathing room. */
+.heroTitle {
+  margin: 0 0 12px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: -1px;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #00c4cc, #5a32fa, #7d2ae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-variation-settings: 'opsz' 100;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page-local chat box — single-line input + action row, no shared deps. */
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 128px;
+  box-sizing: border-box;
+  border: 1px solid #e7dbff;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 16px 16px 12px;
+  box-shadow:
+    0 8px 24px -4px rgba(125, 42, 232, 0.18),
+    0 2px 8px rgba(125, 42, 232, 0.08);
+  cursor: text;
+}
+
+.chatBox:focus-within {
+  border-color: #5858e0;
+}
+
+.chatInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgb(14, 19, 24);
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.chatInput::placeholder {
+  color: rgba(14, 19, 24, 0.6);
+}
+
+.chatActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -8px;
+}
+
+/* Give the +/mic tertiary buttons a circular hover state */
+.chatActions :global(button) {
+  border-radius: 50% !important;
+  transition: background-color 0.15s ease;
+}
+
+.chatActions :global(button):hover {
+  background-color: rgba(14, 19, 24, 0.06) !important;
+}
+
+/* Pill rail — Easel Carousel with chevron scroll buttons. Wrapper
+   supplies top/bottom padding. Strip the button surface so only the
+   chevron glyph shows (no circle/background). */
+.pillsRow {
+  padding: 4px 0 12px;
+}
+
+.pillsRow :global(button[aria-label*='Previous']),
+.pillsRow :global(button[aria-label*='Next']) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pillsRow :global(button[aria-label*='Previous']):hover,
+.pillsRow :global(button[aria-label*='Next']):hover {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Top-left panel-toggle button — transparent, no chrome.
+   Negative margins pull the 40×40 hitbox so the inner 24px icon aligns
+   with the 16px/8px content padding at top-left. */
+.panelButton {
+  width: 40px;
+  height: 40px;
+  margin: -8px 0 0 -8px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0e1318;
+}
+
+.panelButton:active {
+  transform: scale(0.95);
+}

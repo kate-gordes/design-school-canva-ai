@@ -1,0 +1,83 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--easel-elevation-surface-bg);
+}
+
+.gridArea {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+/* Column header cells — th elements inside renderColumnHeader override */
+.cornerHeader,
+.colHeader {
+  text-align: center;
+  font-size: var(--easel-font-size12);
+  font-weight: var(--easel-font-weight600);
+  color: var(--easel-color-content-subtle-fg);
+  background: var(--easel-elevation-surface-sunken-bg);
+  border-right: 1px solid var(--easel-color-ui-border);
+  border-bottom: 2px solid var(--easel-color-ui-border);
+  /* 4px top/bottom padding: --easel-space050 = 4px */
+  padding: var(--easel-space050) 0;
+  user-select: none;
+}
+
+.cornerHeader {
+  border-right: 2px solid var(--easel-color-ui-border);
+}
+
+/* Row header cell — td element inside renderCell override */
+.rowHeaderCell {
+  background: var(--easel-elevation-surface-sunken-bg);
+  border-right: 2px solid var(--easel-color-ui-border);
+  border-bottom: 1px solid var(--easel-color-ui-border);
+  /* 4px / 6px padding: --easel-space050 = 4px, closest to 6px is space050 */
+  padding: var(--easel-space050) var(--easel-space100);
+  text-align: center;
+  font-size: var(--easel-font-size11);
+  color: var(--easel-color-content-subtle-fg);
+  user-select: none;
+}
+
+/* Regular data cells — td element inside renderCell override */
+.dataCell {
+  border-right: 1px solid var(--easel-color-ui-border);
+  border-bottom: 1px solid var(--easel-color-ui-border);
+  /* 4px / 8px padding: --easel-space050 = 4px, --easel-space100 = 8px */
+  padding: var(--easel-space050) var(--easel-space100);
+  /* Spreadsheet-specific dimensions: no matching Easel tokens */
+  min-width: 100px;
+  height: 28px;
+  box-sizing: border-box;
+  transition: background-color var(--easel-duration150) cubic-bezier(var(--easel-ease-out));
+}
+
+.dataCell:focus-within {
+  outline: 2px solid var(--easel-color-ui-border-focused);
+  outline-offset: -2px;
+}
+
+/* Magic icon circle — Box `background` prop doesn't include action primary color */
+.aiIconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 40px = 5u: calc with base unit --easel-space100 (8px) */
+  width: calc(5 * var(--easel-space100));
+  height: calc(5 * var(--easel-space100));
+  border-radius: 50%;
+  background: var(--easel-color-action-primary-bg);
+  flex-shrink: 0;
+}
+
+/* AI bar */
+.aiBar {
+  flex-shrink: 0;
+  border-top: 1px solid var(--easel-color-ui-border);
+  background: var(--easel-elevation-surface-raised-bg);
+  box-shadow: var(--easel-elevation-surface-raised-shadow);
+}

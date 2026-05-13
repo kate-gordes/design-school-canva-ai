@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+package web.pages.seo_landing_page.skeleton_bootstrap;
+
+option java_package = "com.canva.seopage.frontend.pages.skeleton";
+
+/**
+ * Information needed by the Skeleton frontend component of the SEO page. This may include:
+ * - Device and resolution values useful to the frontend during SSR render, when client info is
+ *   not available
+ */
+message SkeletonBootstrap {
+  enum DeviceType {
+    MOBILE = 1;
+    TABLET = 2;
+    DESKTOP = 3;
+  }
+
+  // Device type associated with the request. MOBILE, DESKTOP, TABLET.
+  // This is used to suggest the best size breakpoint during SSR. NO OTHER usages are expected.
+  required DeviceType device_type = 1;
+
+  // next: 2
+}

@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+.npmrc
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+bundle-stats.html
+
+# Flying Fox App
+.collab/
+.flyingfox/
+
+# Page porter ephemeral workspace
+.porter-workspace/
+
+# Claude Code worktrees — git tracks these via .git/worktrees metadata, not as
+# committed files. Ignoring the dir keeps them out of `git status` and protects
+# them from `git clean -fd`. Also: if a symlink to the Canva monorepo lands
+# here, Vite/FSEvents watches 70K+ files and stalls the dev server.
+.claude/worktrees/
+
+# Per-user Claude Code permissions — local only, shouldn't be tracked.
+.claude/settings.local.json
+
+# Machine-local config (MCP servers, Flying Fox deploy state).
+.mcp.json
+.fox/config.json
+
+# Local-only visual comparison artifacts.
+validation/

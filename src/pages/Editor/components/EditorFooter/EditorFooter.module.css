@@ -1,0 +1,59 @@
+@value colorSurface, colorUiNeutralBg, colorUiBorder, colorTypographySecondary from '@canva/easel/legacy_tokens:ThemeColors';
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  height: 40px;
+  display: grid;
+  align-items: center; /* vertical centering without flex */
+  padding-left: 8px;
+  padding-right: 8px;
+  background: #f3f4f7;
+  /* colorContentSubtlestFg from Canva monorepo (status bar icon/text color) */
+  color: rgba(15, 18, 26, 0.698);
+}
+
+.footerUndocked {
+}
+.footerDocked {
+}
+.footerNoNav {
+}
+
+/* removed explicit left offset; footer now flows with canvas container */
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+}
+
+.zoomControl {
+  display: inline-flex;
+  align-items: center;
+}
+
+.zoomControl input[type='range'] {
+  width: 160px;
+}
+
+.zoomLabel {
+  margin-left: 8px;
+  color: colorTypographySecondary;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #eaedf1;
+  margin: 0 8px;
+}
+
+.sliderContainer {
+  width: 160px;
+}

@@ -1,0 +1,210 @@
+.container {
+  width: 100%;
+  max-width: 1472px;
+  height: calc(100vh - 100px);
+  max-height: 1000px;
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  padding: 0 32px;
+  column-gap: 24px;
+  margin: 32px auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  /* allow internal scrolling if needed */
+}
+
+.sidebarHeader {
+  padding: 0 0 16px 0;
+}
+
+.leftNav {
+  padding: 8px 0 0 0;
+  overflow-y: auto;
+}
+
+/* Left items similar to ContextualNav */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.navItem:hover {
+  background: #f8f9fa;
+}
+
+.navItemSelected {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.navItem :global(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+.navItemText {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: rgb(14, 19, 24);
+}
+
+/* Right */
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.searchContainer {
+  padding: 0 0 24px 0;
+  flex-shrink: 0;
+}
+
+/* Quick actions section */
+.quickActionsSection {
+  padding: 0 0 16px 0;
+}
+
+.quickActionsGrid {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.quickActionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.quickActionIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgb(211, 214, 219);
+  flex-shrink: 0;
+}
+
+.content {
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.content :global([class*='card']),
+.content :global([class*='Card']),
+.content :global(article),
+.content :global([role='article']) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.content :global([class*='placeholder']),
+.content :global([class*='Placeholder']) {
+  border: none !important;
+}
+
+.createNewItem :global([class*='title']),
+.createNewItem :global(h1),
+.createNewItem :global(h2),
+.createNewItem :global(h3),
+.createNewItem :global(h4),
+.createNewItem :global(span),
+.createNewItem :global(p) {
+  font-weight: 300 !important;
+}
+
+/* Carousel sizing */
+.carouselItemFixed {
+  width: 260px;
+}
+
+.carouselItemFixed :global([class*='card']),
+.carouselItemFixed :global([class*='Card']),
+.carouselItemFixed :global(article),
+.carouselItemFixed :global([role='article']) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.carouselItemFixed :global([class*='placeholder']),
+.carouselItemFixed :global([class*='Placeholder']) {
+  border: none !important;
+}
+
+/* Grid/cards */
+.createNewGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.createNewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 219px;
+}
+
+.createNewIcon {
+  flex: 1 1 auto;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.moreArrow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singleTemplate {
+  height: 219px;
+  max-width: 240px;
+}
+
+.cardThumb {
+  width: 260px;
+  height: 168px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.masonryThumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}

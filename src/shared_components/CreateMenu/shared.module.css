@@ -1,0 +1,56 @@
+/* Icon wrappers for CreateMenu nav items.
+ * Each icon carries a semantic color set by its category — the layout rules
+ * (inline-flex + transform) are shared; the color is encoded per class. */
+
+.iconEmail {
+  color: #5334eb;
+}
+
+.iconScaled {
+  display: inline-flex;
+  transform: scale(1.2);
+}
+
+.iconPresentations {
+  color: rgb(255, 97, 5);
+}
+
+.iconSocial {
+  color: rgb(255, 59, 75);
+}
+
+.iconPhotoEditor {
+  color: rgb(255, 51, 156);
+}
+
+.iconVideos {
+  color: rgb(233, 80, 247);
+}
+
+.iconPrint {
+  color: rgb(153, 43, 255);
+}
+
+.iconDocs {
+  color: rgb(19, 163, 181);
+}
+
+.iconWhiteboards {
+  color: rgb(11, 168, 74);
+}
+
+.iconSheets {
+  color: rgb(19, 142, 255);
+}
+
+.iconWebsites {
+  color: rgb(74, 83, 250);
+}
+
+.iconBlack {
+  color: black;
+}
+
+.iconMore {
+  color: rgb(100, 83, 208);
+}

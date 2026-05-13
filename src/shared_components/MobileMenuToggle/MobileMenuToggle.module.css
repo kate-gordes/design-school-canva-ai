@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 1003; /* default below menu (1005) */
+}
+
+:global(body.overlayActive) .container {
+  z-index: 999; /* drop beneath dialog parentLayer (1006) */
+}
+
+.button {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow:
+    rgba(64, 87, 109, 0.04) 0px 0px 0px 1px,
+    rgba(64, 87, 109, 0.3) 0px 6px 20px -4px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button :global(svg) {
+  color: rgb(13, 18, 22);
+}

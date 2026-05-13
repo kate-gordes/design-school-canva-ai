@@ -1,0 +1,269 @@
+/* Canvas elements */
+.canvas-element {
+  position: absolute;
+  cursor: pointer;
+  transition: border 0.2s;
+  border: var(--border-width, 2px) solid transparent;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+/* Selected elements should be on top */
+.canvas-element.selected {
+  z-index: 100;
+}
+
+.canvas-element img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+.image-element {
+  border: var(--border-width, 2px) solid transparent;
+  overflow: hidden;
+}
+
+/* Ensure image elements have explicit dimensions */
+.image-element > div:not(.ai-editing-badge) {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.shape-element {
+  border: var(--border-width, 2px) solid transparent;
+  width: 151px;
+  height: 151px;
+}
+
+.text-element {
+  border: var(--border-width, 2px) solid transparent;
+}
+
+/* Element hover state */
+.canvas-element.hovering {
+  border: var(--border-width, 2px) solid #8b3dff;
+}
+
+/* While another element is being dragged, siblings must not react to the
+   cursor (no hover border, no text selection) — the drag hook toggles
+   `is-dragging-canvas-element` on <body>. Mouse/touch listeners live on
+   document, so disabling pointer-events here does not break the drag. */
+body.is-dragging-canvas-element .canvas-element {
+  pointer-events: none;
+}
+
+body.is-dragging-canvas-element .canvas-element.hovering {
+  border-color: transparent;
+}
+
+/* Element selected state */
+.canvas-element.selected {
+  border: var(--border-width, 2px) solid #8b3dff !important;
+  outline-offset: -1px;
+  z-index: 100 !important;
+}
+
+/* Multi-selected elements */
+.canvas-element.multi-selected {
+  border: var(--border-width, 2px) solid #6366f1 !important;
+  outline: var(--border-width, 2px) solid rgba(99, 102, 241, 0.3);
+  outline-offset: -1px;
+  box-shadow: 0 0 0 calc(var(--border-width, 2px) * 2) rgba(99, 102, 241, 0.1);
+}
+
+/* Generating overlay - animated gradient sweep over image */
+.element-generating-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* For placeholder (no existing image) - add light background */
+.element-generating-overlay--placeholder {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);
+}
+
+/* Sweeping gradient animation */
+.element-generating-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 61, 255, 0.15) 20%,
+    rgba(139, 61, 255, 0.3) 50%,
+    rgba(139, 61, 255, 0.15) 80%,
+    transparent 100%
+  );
+  animation: sweepGradient 1.5s ease-in-out infinite;
+}
+
+@keyframes sweepGradient {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Error state for failed image generation */
+.element-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fef2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 5;
+  border-radius: inherit;
+  border: 2px dashed #f87171;
+}
+
+.element-error-icon {
+  width: 32px;
+  height: 32px;
+  color: #ef4444;
+}
+
+.element-error-overlay span {
+  font-size: 11px;
+  color: #dc2626;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-align: center;
+  padding: 0 8px;
+  max-width: 90%;
+}
+
+/* Image container for edit/crossfade transitions */
+.element-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.6s ease-out;
+}
+
+.element-image-container.crossfading {
+  animation: crossfadeIn 0.8s ease-out forwards;
+}
+
+@keyframes crossfadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shimmer overlay for image editing */
+.element-edit-shimmer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  animation: shimmerFadeIn 0.3s ease-out;
+}
+
+@keyframes shimmerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.element-edit-shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(245, 240, 255, 0.1) 0%,
+    rgba(245, 240, 255, 0.6) 20%,
+    rgba(232, 223, 248, 0.8) 40%,
+    rgba(245, 240, 255, 0.6) 60%,
+    rgba(245, 240, 255, 0.1) 80%,
+    rgba(245, 240, 255, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: editShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes editShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Subtle pulsing glow effect around the element during edit */
+.canvas-element:has(.element-edit-shimmer-overlay) {
+  animation: editGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+}
+
+@keyframes editGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(139, 92, 246, 0.3),
+      0 0 20px rgba(139, 92, 246, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(139, 92, 246, 0.5),
+      0 0 30px rgba(139, 92, 246, 0.2);
+  }
+}
+
+/* AI editing state — solid purple border, no resize handles */
+.canvas-element.ai-editing {
+  border: var(--border-width, 2px) solid #8b3dff !important;
+  z-index: 100 !important;
+  cursor: default;
+}
+
+/* Text content styling */
+.text-content {
+  width: 100%;
+  height: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile touch targets */
+@media (pointer: coarse) {
+  /* Prevent text selection on touch */
+  .canvas-element {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: none;
+  }
+}

@@ -1,0 +1,326 @@
+/*
+ * Easel escape hatches.
+ *
+ * 1. `.panelVertical` / `.panelHorizontal` — desktop only. Easel `Box` does
+ *    not expose a fixed-pixel `width`/`height` prop, only layout tokens
+ *    / "full". The slot needs a fixed flex-basis so it sits as a sibling to
+ *    the artboard the same way `.objectPanel` does. The inner card's
+ *    surface, padding, radius, and shadow are all driven by Easel `Box`
+ *    props. On mobile we render this panel inside an Easel `<Sheet>` (modal
+ *    bottom sheet with built-in drag-to-dismiss) so no fixed sizing is
+ *    needed.
+ * 2. `.videoIframe` — there is no Easel video / embedded-iframe component, so
+ *    we drop in a raw <iframe> wrapped in an Easel `Thumbnail` and stretch
+ *    it to fill the thumbnail container. Used by both desktop and mobile.
+ * 3. `.snapOverlay` + `.snapZone*` — drag-and-drop snap-zone overlay shown
+ *    while the user is dragging the panel's move handle. There is no Easel
+ *    primitive for a draggable docking surface, so we use raw fixed-position
+ *    divs portaled to #root.
+ * 4. `.miniPlayer` — picture-in-picture floating mini-player shown when the
+ *    panel is minimized. Easel has no fixed-position floating-card primitive,
+ *    so we wrap an Easel `Thumbnail` (video) and Easel typography (`Title`,
+ *    `Text`) and `CircleButton`s in a raw fixed-position div. The card's
+ *    surround uses tokenized colors / shadows from CSS custom properties to
+ *    stay close to Easel surface tokens without re-implementing them.
+ * 5. `.resizeHandle*` — drag handle on the inner edge of the vertical-docked
+ *    slot. Easel has no resizable-panel primitive; the handle is a raw
+ *    absolute-positioned div whose mousedown / mousemove logic lives in the
+ *    `ResizeHandle` React component. Width is plumbed back through the
+ *    `--ds-panel-width` CSS custom property on the slot Box.
+ * 6. Mobile pinned card — built entirely from Easel `Box` + `Inline` +
+ *    `CircleButton` + `Thumbnail` (see `MobilePinnedCard` in `index.tsx`).
+ *    No bespoke styles needed for the full card; the card is portaled into
+ *    the editor's `#design-school-mobile-pinned-slot` Box, which is
+ *    itself a zero-style sibling in the editor's flex column.
+ * 7. `.mobileCompactStripVideo` — fixed-pixel-width column for the 16:9
+ *    video thumbnail in the mobile compact strip variant. Easel `Box`'s
+ *    `width` prop only accepts `'unset' | 'full'`, so a CSS module class
+ *    with `flex-basis` is the smallest escape hatch that keeps the strip
+ *    layout consistent across mobile widths. Mirrors the desktop
+ *    `.miniPlayerVideo` pattern.
+ * 8. `.mobilePinnedCardBody` — internal scroll surface for the full
+ *    pinned card. The pinned slot is sized to span the full bottom of
+ *    the screen (so the card chrome anchors visually to the bottom edge
+ *    rather than floating mid-screen), so when the transcript is open
+ *    the body needs to scroll *inside* the card while the title +
+ *    close/minimize affordances stay anchored at the top. Easel `Box`
+ *    doesn't expose `overflow`, so the scroll treatment lives here.
+ * 9. `.stickyVideo` — pins the 16:9 video player to the top of the
+ *    surrounding scroll container while the user scrolls down to read
+ *    the transcript. Easel `Box` doesn't expose `position: sticky`,
+ *    so the wrapper is a small CSS module class with the sticky
+ *    treatment. Used by both the desktop expanded panel and the
+ *    mobile sheet / pinned-card surfaces.
+ */
+
+.panelVertical {
+  /*
+   * Default panel width. Overridden by `--ds-panel-width` set on the slot
+   * Box's `customProperties` when the user has dragged the resize handle —
+   * see `setDesignSchoolVideoPanelWidth` in the panel store.
+   */
+  --ds-panel-width: 420px;
+  width: var(--ds-panel-width);
+  flex: 0 0 var(--ds-panel-width);
+  height: 100%;
+  /*
+   * `position: relative` so the absolutely-positioned `.resizeHandle` child
+   * anchors to the slot's edges.
+   *
+   * `overflow: hidden` clips the slot at the artboard area boundary so the
+   * inner card (which is a `height="full"` flex column with a flex-grow
+   * transcript list) never bleeds behind the editor footer or sibling
+   * slots. The card fills this height exactly: header / video / toggle stay
+   * static, the transcript list flex-grows into the remaining space and
+   * scrolls internally — see `Transcript.module.css`.
+   */
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/*
+ * Top/bottom dock. Panel slot spans the full canvas width but auto-sizes its
+ * height to its inner card. The card itself is capped at 420px wide and
+ * centered so the 16:9 video doesn't blow up to fill the entire viewport.
+ *
+ * Cap the slot at a fraction of the viewport so the transcript drawer can't
+ * grow the card tall enough to squeeze the artboard out of view. Anything
+ * past the cap scrolls inside the slot.
+ */
+.panelHorizontal {
+  width: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  max-height: 60vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panelHorizontalCard {
+  width: 100%;
+  max-width: 420px;
+}
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.snapOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.snapZone {
+  position: absolute;
+  border: 2px dashed rgba(124, 58, 237, 0.45);
+  background: rgba(124, 58, 237, 0.08);
+  border-radius: 12px;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.snapZoneActive {
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(124, 58, 237, 0.9);
+  border-style: solid;
+}
+
+.snapZone--left {
+  top: 80px;
+  left: 16px;
+  bottom: 16px;
+  width: 96px;
+}
+
+.snapZone--right {
+  top: 80px;
+  right: 16px;
+  bottom: 16px;
+  width: 96px;
+}
+
+.snapZone--top {
+  top: 80px;
+  left: 16px;
+  right: 16px;
+  height: 96px;
+}
+
+.snapZone--bottom {
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  height: 96px;
+}
+
+/*
+ * Mini-player: fixed-position floating card. Top/left are driven by CSS
+ * custom properties set on `style` from the React component (this is the
+ * documented escape hatch for inline-styles per the Easel rule set), so the
+ * card can be freely repositioned by drag without re-styling.
+ */
+.miniPlayer {
+  position: fixed;
+  top: var(--mini-player-top, 16px);
+  left: var(--mini-player-left, 16px);
+  width: 380px;
+  z-index: 1100;
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  background: var(--ui-kit-color-background-elevation-surface-floating, #ffffff);
+  border-radius: 12px;
+  box-shadow:
+    0 12px 32px rgba(15, 23, 42, 0.18),
+    0 4px 8px rgba(15, 23, 42, 0.08);
+  cursor: grab;
+  user-select: none;
+}
+
+.miniPlayer:active {
+  cursor: grabbing;
+}
+
+.miniPlayerVideo {
+  flex: 0 0 160px;
+  width: 160px;
+}
+
+.miniPlayerInfo {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/*
+ * Drag handle on the inner edge of the vertical-docked slot. Sits flush
+ * against the artboard edge so dragging away from the screen edge widens
+ * the panel. The hit area is intentionally wider than the visible grip
+ * (12px hit area, 4px grip) so the handle is easy to grab without making
+ * the visible chrome heavy. The grip is invisible until hover/drag.
+ */
+.resizeHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  /* Above the inner card and `padding="2u"` whitespace so it remains grabbable. */
+  z-index: 5;
+  /* Don't allow the handle to interfere with text selection in the card. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.resizeHandle--left {
+  left: 0;
+}
+
+.resizeHandle--right {
+  right: 0;
+}
+
+.resizeHandleGrip {
+  width: 4px;
+  height: 48px;
+  border-radius: 2px;
+  background: transparent;
+  transition:
+    background 120ms ease,
+    height 120ms ease;
+}
+
+.resizeHandle:hover .resizeHandleGrip,
+.resizeHandleActive .resizeHandleGrip {
+  /*
+   * Use a tokenized neutral border color so the grip blends with editor
+   * chrome on hover instead of looking like an accent control.
+   */
+  background: var(--ui-kit-color-border-low-emphasis, #b5b9c0);
+}
+
+.resizeHandleActive .resizeHandleGrip {
+  height: 64px;
+  background: var(--ui-kit-color-border-medium-emphasis, #8a8f99);
+}
+
+/*
+ * Mobile pinned card — shown when the user taps "pin below artboard" on
+ * the mobile sheet. Renders inline in the editor's flex column (between
+ * the canvas area and the bottom nav) via a portal into
+ * `#design-school-mobile-pinned-slot` — see `MobilePinnedCard` for the
+ * portal wiring. Spacing around the card (between artboard and nav) is
+ * applied via an outer Easel Box's padding props rather than CSS margin
+ * to stay within the Easel `no-css-margin` rule.
+ *
+ * `.mobileCompactStripVideo` is the only bespoke class in this section:
+ * it pins the 16:9 thumbnail column to a fixed width (~120px) so the
+ * compact strip always has a comfortable column for the title + buttons
+ * on the right, matching the desktop `.miniPlayerVideo` pattern.
+ */
+.mobileCompactStripVideo {
+  flex: 0 0 120px;
+  width: 120px;
+}
+
+.mobilePinnedCardBody {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*
+ * Scrollable body for the desktop expanded panel card. Sits below the
+ * pinned header (close + drag + minimize buttons) and contains the
+ * title, description, video, practice card, transcript toggle, and the
+ * transcript drawer itself.
+ *
+ * Easel `Box` doesn't expose an `overflow` prop, so this CSS module
+ * class is the documented escape hatch. The container is a flex item
+ * (`flex: auto; min-height: 0`) inside the card's flex column, which
+ * gives it a definite height (the slot height minus the header) — a
+ * prerequisite for `overflow-y: auto` to actually engage. Without
+ * `min-height: 0` the flex item would refuse to shrink below its
+ * content size and the scroll would never trigger.
+ */
+.scrollableBody {
+  overflow-y: auto;
+  /* Reserve scrollbar gutter so the content width doesn't jump when the
+   * scrollbar appears mid-session (e.g. when the user opens the
+   * transcript drawer). Falls back gracefully on browsers that don't
+   * support `scrollbar-gutter`. */
+  scrollbar-gutter: stable;
+}
+
+/*
+ * Sticky video wrapper. When the user scrolls down to read the
+ * transcript (which can be much taller than the panel), the video
+ * pins to the top of the surrounding scroll container so it stays
+ * in view — users keep watching while they read along.
+ *
+ * Easel `Box` doesn't expose `position: sticky`, so a tiny CSS module
+ * wrapper is the smallest escape hatch. The wrapper is opaque
+ * (matches the card's `elevationSurfaceFloating` background) so the
+ * practice card and transcript rows scroll cleanly behind it without
+ * any bleed-through. `z-index: 1` ensures the sticky video stacks
+ * above siblings that come later in document order — sticky elements
+ * default to z-index `auto`, which would let later positioned-stacked
+ * descendants (like the transcript rows' active-row highlight
+ * background) paint over the video at scroll positions where they
+ * overlap.
+ */
+.stickyVideo {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--ui-kit-color-background-elevation-surface-floating, #ffffff);
+}

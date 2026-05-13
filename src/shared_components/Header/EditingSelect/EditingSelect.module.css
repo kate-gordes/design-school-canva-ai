@@ -1,0 +1,32 @@
+.select button {
+  background: transparent;
+  border: none;
+}
+
+.select button:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+.select button:focus {
+  outline: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+.select button span {
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
+
+/* Make sure text and icons are white */
+.select span,
+.select svg {
+  color: white;
+  fill: white;
+}
+
+.select:hover span,
+.select:hover svg {
+  color: white;
+  fill: white;
+}

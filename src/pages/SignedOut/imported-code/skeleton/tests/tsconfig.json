@@ -1,0 +1,19 @@
+{
+  "include": ["../../../../../declarations/matchers.d.ts", "./**/*.*"],
+  "compilerOptions": {
+    "types": ["jest"],
+    "isolatedDeclarations": true
+  },
+  "references": [
+    { "path": ".." },
+    { "path": "../../../../services/telemetry" },
+    { "path": "../../../../services/telemetry/tracing_implementation/tests" },
+    { "path": "../../../../ui/base/device_capabilities" },
+    { "path": "../../../../ui/base/error_boundary" },
+    { "path": "../../../../ui/base/testing" }
+  ],
+  "externalReferences": ["@testing-library/jest-dom", "react"],
+  "exclude": [],
+  "extends": "../../../../../tsconfig.build.json",
+  "moduleSignatureReferences": []
+}

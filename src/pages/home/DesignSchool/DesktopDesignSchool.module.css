@@ -1,0 +1,73 @@
+/*
+ * Easel escape hatches for the desktop Design School landing page.
+ *
+ * 1. `.heroTitle` / `.heroSubtitle` — center the hero block and cap
+ *    its width. Easel `Box` doesn't expose `max-width` or
+ *    `text-align` so the centering+wrapping treatment lives here. The
+ *    title font-size is intentionally larger than any Easel `Title`
+ *    size token (Easel tops out at ~32px for `xlarge`); the page hero
+ *    needs the bigger display treatment to mirror the mobile hero.
+ * 2. `.searchField` / `.pillsRow` — cap the width of the search input
+ *    and the pills row so they don't span the full content width on
+ *    very wide displays. Easel form / layout primitives don't expose a
+ *    `max-width` prop so this is a justified escape hatch.
+ * 3. `.courseCardWrapper` — fixes the per-card column width inside the
+ *    Carousel. Easel `Box` only exposes `width="unset" | "full"`; the
+ *    Carousel needs a fixed-pixel basis per slide to render the
+ *    peek/scroll layout, so a CSS module class is the smallest escape.
+ *    Mirrors the same pattern in `MobileDesignSchool.module.css`.
+ * 4. `.courseType` / `.lessonType` — tinted eyebrow colours per content
+ *    type. No Easel typography token paints text in these brand
+ *    accents, so we use raw colours here. Same values as the mobile
+ *    variant for visual parity.
+ */
+
+.heroTitle {
+  max-width: 920px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.heroSubtitle {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.searchField {
+  width: 100%;
+  max-width: 560px;
+}
+
+.pillsRow {
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  justify-content: center;
+}
+
+.courseCardWrapper {
+  width: 320px;
+  flex: 0 0 320px;
+}
+
+.courseType {
+  color: #7d2ae8;
+}
+
+.lessonType {
+  color: #1a73e8;
+}
+
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 44px;
+  }
+  .courseCardWrapper {
+    width: 280px;
+    flex: 0 0 280px;
+  }
+}

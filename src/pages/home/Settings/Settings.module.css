@@ -1,0 +1,68 @@
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+@value colorSurface, colorPage from "@canva/easel/legacy_tokens:ThemeColors";
+
+.settingsContainer {
+  height: 100%;
+  width: 100%;
+  background: colorSurface;
+  overflow-y: auto;
+  position: relative;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.mobileContainer {
+  width: 100%;
+  height: 100%;
+  background: colorPage;
+  overflow-y: auto;
+  position: relative;
+}
+
+.mobileHeaderBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: colorPage;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.mobileHeaderBackground.visible {
+  opacity: 1;
+}
+
+.mobileContent {
+  position: relative;
+  z-index: 1;
+  padding: 78px 24px 24px 24px;
+}
+
+.hamburgerButton {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 101;
+  background: colorPage;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hamburgerButton:hover {
+  background: rgba(255, 255, 255, 0.9);
+}

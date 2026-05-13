@@ -1,0 +1,35 @@
+@value colorTypographySecondary from "@canva/easel/legacy_tokens:ThemeColors";
+
+.cardWrapper {
+  width: 100%;
+}
+
+.singleLineTitle {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.thumbnailContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fileIconWrapper {
+  color: colorTypographySecondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

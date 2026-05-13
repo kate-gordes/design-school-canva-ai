@@ -1,0 +1,20 @@
+/* @value colorUiBorder from '@canva/easel/legacy_tokens:ThemeColors'; */
+
+@value lineWidth: 1px;
+
+.divider {
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  border-bottom: lineWidth solid #d4d8df;
+  height: lineWidth;
+}
+
+.divider.vertical {
+  border-bottom: unset;
+  border-right: lineWidth solid #d4d8df;
+  display: inline-block;
+  height: 24px;
+  width: lineWidth;
+  min-height: 24px;
+}

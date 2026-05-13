@@ -1,0 +1,40 @@
+/* Source: pages/home/wonder_box/page/ui/content_container/content_container.css,
+          pages/home/wonder_box/page/page.css */
+
+/* Page container - scrollable content area.
+   Horizontal padding is moved onto .contentWrapper so the scrollbar sits
+   flush against the container's right edge (not overlapping the padding). */
+.pageContainer {
+  position: relative;
+  background: var(--elevationSurfaceBg, #ffffff);
+  height: 100%;
+  padding: 16px 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* Content wrapper - sits above gradient, carries the horizontal gutter
+   so the scrollbar stays outside it (flush right). */
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+}
+
+/* Content container - fills available width so grid stretches edge-to-edge.
+   Previous max-width: 1760px removed so content fills the wide prototype
+   viewport. */
+.contentContainer {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .pageContainer {
+    padding: 0;
+  }
+  .contentWrapper {
+    padding: 0;
+  }
+}

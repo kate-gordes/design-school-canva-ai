@@ -1,0 +1,156 @@
+.container {
+  width: 100%;
+  max-width: 1472px;
+  height: calc(100vh - 32px);
+  max-height: calc(100vh - 32px);
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  padding: 32px;
+  column-gap: 24px;
+  margin: 26px auto;
+  /* 26px top/bottom margin */
+  box-sizing: border-box;
+  overflow: hidden;
+  /* prevent modal scroll */
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  /* allow internal scrolling if needed */
+}
+
+.sidebarHeader {
+  padding: 0 0 24px 0;
+}
+
+.sidebarTitle {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  font-feature-settings: 'ss02', 'ss03';
+  font-variation-settings: 'opsz' 100;
+  line-height: normal;
+  color: rgb(14, 19, 24);
+}
+
+.leftNav {
+  padding: 8px 0 0 0;
+  overflow-y: auto;
+}
+
+/* Left items similar to ContextualNav */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.navItem:hover {
+  background: #f8f9fa;
+}
+
+.navItemSelected {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.navItem :global(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+.navItemText {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: rgb(14, 19, 24);
+}
+
+/* Right */
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+}
+
+.searchContainer {
+  padding: 0 0 16px 0;
+  flex-shrink: 0;
+}
+
+.content {
+  padding: 0;
+  overflow-y: auto;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* Section titles inside content */
+h4.sectionTitle {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-feature-settings: 'ss02', 'ss03';
+  font-variation-settings: 'opsz' 100;
+  line-height: normal;
+  color: rgb(14, 19, 24);
+  font-size: 18px;
+}
+
+/* Carousel sizing */
+.carouselItemFixed {
+  width: 260px;
+}
+
+/* Grid/cards */
+.createNewGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.createNewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 219px;
+}
+
+.createNewIcon {
+  flex: 1 1 auto;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.moreArrow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singleTemplate {
+  height: 219px;
+  max-width: 240px;
+}

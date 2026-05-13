@@ -1,0 +1,246 @@
+.tabItem {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 72px;
+  width: 72px;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Hover when panel is closed (not docked) - white bg, shadow, colored icon */
+.tabItem:not(.docked):hover:not(.active) .iconContainer {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(19, 163, 181);
+  box-shadow:
+    rgba(64, 79, 109, 0.06) 0px 0px 0px 0.5px,
+    rgba(24, 44, 89, 0.137) 0px 2px 4px 0px,
+    rgba(24, 44, 89, 0.07) 0px 5px 12px 0px;
+}
+
+.tabItem:not(.docked):hover:not(.active) .iconWrapper {
+  color: rgb(19, 163, 181);
+}
+
+/* Hover when panel is open (docked) - gray background with same shadow */
+.tabItem.docked:hover:not(.active) .iconContainer {
+  background-color: #f4f5f6;
+  border-radius: 12px;
+  box-shadow:
+    rgba(64, 79, 109, 0.06) 0px 0px 0px 0.5px,
+    rgba(24, 44, 89, 0.137) 0px 2px 4px 0px,
+    rgba(24, 44, 89, 0.07) 0px 5px 12px 0px;
+}
+
+.tabItem.docked:hover:not(.active) .iconWrapper {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Tab-specific hover colors (not docked only) */
+.tabItem:not(.docked):hover:not(.active).elements .iconContainer {
+  color: rgb(74, 83, 250);
+}
+
+.tabItem:not(.docked):hover:not(.active).elements .iconWrapper {
+  color: rgb(74, 83, 250);
+}
+
+.tabItem:not(.docked):hover:not(.active).text .iconContainer {
+  color: rgb(153, 43, 255);
+}
+
+.tabItem:not(.docked):hover:not(.active).text .iconWrapper {
+  color: rgb(153, 43, 255);
+}
+
+.tabItem:not(.docked):hover:not(.active).brand .iconContainer {
+  color: rgb(255, 59, 75);
+}
+
+.tabItem:not(.docked):hover:not(.active).brand .iconWrapper {
+  color: rgb(255, 59, 75);
+}
+
+.tabItem:not(.docked):hover:not(.active).uploads .iconContainer {
+  color: rgb(255, 97, 5);
+}
+
+.tabItem:not(.docked):hover:not(.active).uploads .iconWrapper {
+  color: rgb(255, 97, 5);
+}
+
+.tabItem:not(.docked):hover:not(.active).tools .iconContainer {
+  color: rgb(11, 168, 74);
+}
+
+.tabItem:not(.docked):hover:not(.active).tools .iconWrapper {
+  color: rgb(11, 168, 74);
+}
+
+.tabItem:not(.docked):hover:not(.active).projects .iconContainer {
+  color: rgb(19, 142, 255);
+}
+
+.tabItem:not(.docked):hover:not(.active).projects .iconWrapper {
+  color: rgb(19, 142, 255);
+}
+
+.tabItem:not(.docked):hover:not(.active).apps .iconContainer {
+  color: rgb(19, 163, 181);
+}
+
+.tabItem:not(.docked):hover:not(.active).apps .iconWrapper {
+  color: rgb(19, 163, 181);
+}
+
+.iconContainer {
+  height: 32px;
+  width: 32px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.iconWrapper {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  color: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  transition: color 0.2s ease;
+}
+
+.iconWrapper svg {
+  display: block;
+  fill: currentColor;
+}
+
+.label {
+  color: rgba(0, 0, 0, 0.6) !important;
+  transition: color 0.2s ease;
+}
+
+.label * {
+  color: inherit !important;
+}
+
+.active .label {
+  color: rgba(0, 0, 0, 1) !important;
+}
+
+.canvaAiTab {
+  height: 56px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.canvaAiContainer {
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.canvaAiContainer .iconWrapper {
+  height: 28px;
+  width: 28px;
+}
+
+.tabItem:hover:not(.active) .canvaAiContainer {
+  border-radius: 50% !important;
+}
+
+.tabItem.docked:hover:not(.active) .canvaAiContainer {
+  border-radius: 50% !important;
+}
+
+.active .iconContainer {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(19, 163, 181);
+  border-color: rgb(19, 163, 181);
+  box-shadow:
+    rgba(64, 79, 109, 0.06) 0px 0px 0px 0.5px,
+    rgba(24, 44, 89, 0.137) 0px 2px 4px 0px,
+    rgba(24, 44, 89, 0.07) 0px 5px 12px 0px;
+}
+
+.active .iconWrapper {
+  color: rgb(19, 163, 181);
+}
+
+/* Tab-specific colors */
+.active.elements .iconContainer {
+  color: rgb(74, 83, 250);
+  border-color: rgb(74, 83, 250);
+}
+
+.active.elements .iconWrapper {
+  color: rgb(74, 83, 250);
+}
+
+.active.text .iconContainer {
+  color: rgb(153, 43, 255);
+  border-color: rgb(153, 43, 255);
+}
+
+.active.text .iconWrapper {
+  color: rgb(153, 43, 255);
+}
+
+.active.brand .iconContainer {
+  color: rgb(255, 59, 75);
+  border-color: rgb(255, 59, 75);
+}
+
+.active.brand .iconWrapper {
+  color: rgb(255, 59, 75);
+}
+
+.active.uploads .iconContainer {
+  color: rgb(255, 97, 5);
+  border-color: rgb(255, 97, 5);
+}
+
+.active.uploads .iconWrapper {
+  color: rgb(255, 97, 5);
+}
+
+.active.tools .iconContainer {
+  color: rgb(11, 168, 74);
+  border-color: rgb(11, 168, 74);
+}
+
+.active.tools .iconWrapper {
+  color: rgb(11, 168, 74);
+}
+
+.active.projects .iconContainer {
+  color: rgb(19, 142, 255);
+  border-color: rgb(19, 142, 255);
+}
+
+.active.projects .iconWrapper {
+  color: rgb(19, 142, 255);
+}
+
+.active.apps .iconContainer {
+  color: rgb(19, 163, 181);
+  border-color: rgb(19, 163, 181);
+}
+
+.active.apps .iconWrapper {
+  color: rgb(19, 163, 181);
+}
+
+.active .canvaAiContainer {
+  border-radius: 50% !important;
+}

@@ -1,0 +1,17 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+/* Source: /web/src/pages/home/ui/borderless_banner/banner.css .centeredHero
+   Applied when heroPlacement === 'centered' (e.g. /ai).
+   Pushes the hero title + Wonderbox down the viewport responsively.
+   Monorepo uses calc(0.2 * shellViewportHeight) (= 20vh) below small,
+   and 25vh + calc(2 * baseUnit) margin above small. */
+.centeredHero {
+  padding-top: 20vh;
+}
+
+@media (min-width: 600px) {
+  .centeredHero {
+    padding-top: 25vh;
+    margin-bottom: calc(2 * baseUnit);
+  }
+}

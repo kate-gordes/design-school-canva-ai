@@ -1,0 +1,30 @@
+/* AppsContent specific styles */
+
+/* Add drop shadow to Featured apps and Trending sections */
+.shadowedSection {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  background: white;
+}
+
+/* Outer scroll panel: viewport height minus editor chrome */
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 57px - 32px);
+  max-height: calc(100vh - 57px - 32px);
+  min-height: 0;
+}
+
+.searchHeader {
+  flex-shrink: 0;
+  padding-bottom: 14px;
+}
+
+.scrollBody {
+  height: auto;
+  margin-right: -16px;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+}

@@ -1,0 +1,64 @@
+@value colorSurface, colorTypographyPrimary, colorUiBorder from "@canva/easel/legacy_tokens:ThemeColors";
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background-color: colorSurface;
+  border: 1px solid rgba(53, 71, 90, 0.2);
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
+  max-width: 464px;
+  padding-right: 12px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: colorTypographyPrimary;
+}
+
+.input::placeholder {
+  color: rgba(53, 71, 90, 0.6);
+}
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 38px;
+  padding: 3px 4px;
+  color: colorTypographyPrimary;
+}
+
+.popoverContent {
+  background: colorSurface;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestionItem {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.1s ease;
+}
+
+.suggestionItem:hover {
+  background-color: rgba(53, 71, 90, 0.05);
+}
+
+.suggestionIcon {
+  color: rgba(53, 71, 90, 0.6);
+  flex-shrink: 0;
+}

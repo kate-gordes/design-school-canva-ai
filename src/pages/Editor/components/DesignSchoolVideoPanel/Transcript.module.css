@@ -1,0 +1,114 @@
+/*
+ * Easel escape hatches for the Transcript drawer.
+ *
+ * 1. `.list` — vertical scroll container. Easel `Box` doesn't expose
+ *    `max-height` / `overflow`, so we use a raw `<div>`.
+ * 2. `.row` — applied to an Easel `BaseButton` via its `className` prop. We
+ *    need a 2-column grid layout (fixed-width time pill + flex text) plus
+ *    bespoke hover/active treatment that no `Button` / `Tile` /
+ *    `WrapperButton` variant matches. BaseButton handles all the a11y +
+ *    click semantics; the layout / surface styling lives here.
+ * 3. `.time` — the YouTube-style time pill (light blue background, blue
+ *    text). No Easel pill component fits; matches the reference screenshot.
+ */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/*
+ * `fill` mode (desktop expanded card): the drawer's parent is a constrained
+ * flex column, so we let the list grow into the remaining space and scroll
+ * internally. `min-height: 0` lets it shrink below intrinsic content height
+ * (otherwise the list would push the card past the panel slot's bottom).
+ * The mask creates a soft scroll-shadow at top/bottom edges.
+ */
+.listFill {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 12px,
+    black calc(100% - 12px),
+    transparent 100%
+  );
+}
+
+/*
+ * `flow` mode (mobile sheet, mobile pinned card): the drawer's parent is a
+ * `Rows` with no fixed height, so `flex: 1; height: 100%` collapse to 0.
+ * Render the full transcript at intrinsic height instead and let the
+ * surrounding scroll container (sheet body or pinned slot's
+ * `overflow-y: auto`) handle scrolling.
+ */
+.listFlow {
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.row {
+  display: grid !important;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 12px;
+  padding: 8px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.row:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--ui-kit-color-border-focused, #7c3aed);
+  outline-offset: 2px;
+}
+
+.rowActive {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.rowActive:hover {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.time {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 2px 8px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  border-radius: 999px;
+  line-height: 18px;
+}
+
+.timeActive {
+  background: #1a73e8;
+  color: #ffffff;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ui-kit-color-text-primary, #0f172a);
+  word-break: break-word;
+}
+
+.rowActive .text {
+  font-weight: 600;
+}

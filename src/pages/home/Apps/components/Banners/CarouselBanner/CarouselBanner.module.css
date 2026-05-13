@@ -1,0 +1,34 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+@value colorSurface from '@canva/easel/legacy_tokens:ThemeColors';
+
+.bannerContainer {
+  /* stylelint-disable-next-line canva/color-variables -- gradient without easel colors is required by a design */
+  background: linear-gradient(
+    to bottom right,
+    rgba(162, 77, 244, 1),
+    rgba(183, 107, 255, 1),
+    rgba(214, 171, 255, 1)
+  );
+  border-radius: calc(baseUnit * 1.5);
+}
+
+.bannerContainer.trending {
+  /* stylelint-disable-next-line canva/color-variables -- gradient without easel colors is required by a design */
+  background: linear-gradient(
+    to bottom right,
+    rgba(222, 167, 255, 1),
+    rgba(233, 197, 255, 1),
+    rgba(244, 231, 255, 1)
+  );
+}
+
+.bannerTitle {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.bannerSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Carousel banner no longer needs card-specific styles - handled by AppVisualCard */

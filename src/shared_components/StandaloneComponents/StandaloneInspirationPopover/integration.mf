@@ -1,0 +1,231 @@
+# Standalone Inspiration Popover Integration Manifest
+# Version: 1.0.0
+# Created: 2024
+# Description: Instructions for integrating the standalone inspiration popover into any React project
+
+## OVERVIEW
+This manifest provides step-by-step instructions for integrating the Standalone Inspiration Popover component into your React project. The component is completely self-contained with zero external dependencies.
+
+## REQUIREMENTS
+- React 16.8+ (hooks support)
+- TypeScript 4.0+ (optional but recommended)
+- Modern browser with CSS Grid support
+
+## FILES TO COPY
+Copy these 2 files to your project:
+
+```
+src/components/StandaloneInspirationPopover/
+├── index.tsx          # Main component (REQUIRED)
+└── styles.css         # Styling (REQUIRED)
+```
+
+Optional files for reference:
+```
+├── demo.tsx          # Usage example
+├── README.md         # Documentation
+└── integration.mf    # This file
+```
+
+## INSTALLATION STEPS
+
+### Step 1: Create Directory
+Create the component directory in your project:
+```bash
+mkdir -p src/components/StandaloneInspirationPopover
+```
+
+### Step 2: Copy Files
+Copy the required files:
+- `index.tsx` → `src/components/StandaloneInspirationPopover/index.tsx`
+- `styles.css` → `src/components/StandaloneInspirationPopover/styles.css`
+
+### Step 3: Verify File Structure
+Your project should now have:
+```
+your-project/
+├── src/
+│   └── components/
+│       └── StandaloneInspirationPopover/
+│           ├── index.tsx
+│           └── styles.css
+└── package.json
+```
+
+## USAGE
+
+### Basic Implementation
+```tsx
+// 1. Import the component
+import StandaloneInspirationPopover from './components/StandaloneInspirationPopover';
+
+// 2. Add state management
+const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+// 3. Use the component
+<StandaloneInspirationPopover
+  isOpen={isPopoverOpen}
+  onClose={() => setIsPopoverOpen(false)}
+  inspirationTitle="Your inspiration title here"
+  inspirationCategory="POSTER"
+/>
+```
+
+### Complete Example
+```tsx
+import React, { useState } from 'react';
+import StandaloneInspirationPopover from './components/StandaloneInspirationPopover';
+
+function MyComponent() {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  const handleOpenPopover = (title: string, category: string) => {
+    setIsPopoverOpen(true);
+  };
+
+  return (
+    <div>
+      <button onClick={() => handleOpenPopover('My Design', 'POSTER')}>
+        Open Inspiration
+      </button>
+      
+      <StandaloneInspirationPopover
+        isOpen={isPopoverOpen}
+        onClose={() => setIsPopoverOpen(false)}
+        inspirationTitle="Retro-themed pub poster for young adults"
+        inspirationCategory="POSTER"
+      />
+    </div>
+  );
+}
+
+export default MyComponent;
+```
+
+## PROPS REFERENCE
+
+| Prop                  | Type         | Required | Default | Description                              |
+| --------------------- | ------------ | -------- | ------- | ---------------------------------------- |
+| `isOpen`              | `boolean`    | Yes      | -       | Controls if the popover is visible       |
+| `onClose`             | `() => void` | Yes      | -       | Called when the popover should be closed |
+| `inspirationTitle`    | `string`     | No       | Default | The title to display in the header       |
+| `inspirationCategory` | `string`     | No       | -       | The category type (for future use)       |
+
+## CUSTOMIZATION
+
+### Colors
+Override CSS custom properties in your global CSS:
+```css
+.popover-container {
+  --primary-color: #your-brand-color;
+  --text-primary: #your-text-color;
+  --background-primary: #your-bg-color;
+}
+```
+
+### Dimensions
+Modify modal size:
+```css
+.popover-container {
+  width: 1200px;  /* Adjust width */
+  height: 700px;  /* Adjust height */
+}
+```
+
+### Content
+Edit the JSX in `index.tsx` to customize:
+- About section text
+- Design tips list
+- Key details sidebar
+- Button text and actions
+
+## TESTING
+
+### Quick Test
+1. Add a button that sets `isOpen` to `true`
+2. Click the button - popover should appear
+3. Click backdrop or close button - popover should disappear
+4. Check responsive behavior on mobile
+
+### Integration Checklist
+- [ ] Files copied correctly
+- [ ] Component imports without errors
+- [ ] Popover opens when `isOpen` is true
+- [ ] Popover closes when backdrop is clicked
+- [ ] Responsive design works on mobile
+- [ ] Styling matches expected design
+- [ ] No console errors
+
+## TROUBLESHOOTING
+
+### Common Issues
+
+**Import Error:**
+```
+Module not found: Can't resolve './components/StandaloneInspirationPopover'
+```
+- Solution: Check file paths and ensure `index.tsx` exists
+
+**Styling Issues:**
+```
+Component appears but styling is broken
+```
+- Solution: Ensure `styles.css` is properly imported in `index.tsx`
+
+**TypeScript Errors:**
+```
+Property 'isOpen' does not exist on type...
+```
+- Solution: Check prop names match the interface exactly
+
+**Z-index Issues:**
+```
+Popover appears behind other elements
+```
+- Solution: Increase z-index values in `styles.css` (backdrop: 1000, modal: 1001)
+
+## BROWSER SUPPORT
+- Chrome/Edge 88+
+- Firefox 78+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## PERFORMANCE NOTES
+- Component only renders when `isOpen` is true
+- CSS animations are GPU-accelerated
+- No external dependencies to load
+- Total bundle size: ~7KB (gzipped: ~2KB)
+
+## MIGRATION FROM EASEL
+If replacing an Easel-based component:
+
+1. Remove Easel imports:
+   ```tsx
+   // Remove these
+   import { Dialog, DialogContent } from '@canva/easel/dialog';
+   import { Box, Text, Button } from '@canva/easel';
+   ```
+
+2. Update prop names:
+   ```tsx
+   // Old (Easel)
+   <Dialog open={isOpen} onRequestClose={onClose}>
+   
+   // New (Standalone)
+   <StandaloneInspirationPopover isOpen={isOpen} onClose={onClose}>
+   ```
+
+3. Remove Easel-specific styling props
+
+## SUPPORT
+For issues or questions:
+1. Check the README.md file
+2. Review the demo.tsx example
+3. Verify file paths and imports
+4. Test in a clean React project first
+
+## VERSION HISTORY
+- v1.0.0: Initial release with full feature parity to Easel version
+
+---
+END OF MANIFEST

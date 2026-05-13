@@ -1,0 +1,62 @@
+.foundationTitle {
+  margin-bottom: 16px;
+  font-family:
+    'Canva Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+.brandAssetCardLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Content area styling - matches Projects page */
+.contentArea {
+  padding: 36px 0 0;
+  margin-bottom: -12px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section title styling */
+.sectionTitle {
+  color: #000;
+  font-weight: 500;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.filterIconButton {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.filterIconButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.filterIconButton:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.emojiCardLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

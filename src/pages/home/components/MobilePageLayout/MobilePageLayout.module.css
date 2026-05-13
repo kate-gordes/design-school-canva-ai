@@ -1,0 +1,17 @@
+@value colorPage from '@canva/easel/legacy_tokens:ThemeColors';
+
+.container {
+  position: relative;
+  background: colorPage;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  display: block;
+}
+
+/* Content wrapper - sits above gradient */
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+}

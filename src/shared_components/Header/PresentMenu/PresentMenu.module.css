@@ -1,0 +1,113 @@
+.presentSplit {
+  display: inline-flex;
+  align-items: stretch;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.presentMain,
+.presentChevron {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  padding: 0;
+  transition: background-color 0.15s ease;
+}
+
+.presentMain {
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.presentChevron {
+  padding: 0 7px;
+}
+
+.presentMain:hover,
+.presentChevron:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.presentDivider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+}
+
+.presentChevron svg {
+  color: white;
+}
+
+.presentMenuContent {
+  width: 360px;
+  z-index: 1001;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.presentOption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.15s ease;
+}
+
+.presentOption:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.optionIcon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.optionText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.optionTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 1.3;
+}
+
+.optionDescription {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.3;
+}
+
+.optionChevron {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.55);
+}

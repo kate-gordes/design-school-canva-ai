@@ -1,0 +1,127 @@
+@value colorPage, colorActionPrimaryFg from '@canva/easel/legacy_tokens:ThemeColors';
+@value space100, space200, baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+/* White header background that appears on scroll */
+.headerBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(32px + 32px); /* 32px content + 16px padding top + 16px padding bottom */
+  background: colorPage;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.headerBackground.visible {
+  opacity: 1;
+}
+
+/* Profile icon - always visible at the same position */
+.profileIcon {
+  position: fixed;
+  top: 0;
+  left: 16px;
+  height: calc(32px + 32px); /* Match header height for vertical centering */
+  z-index: 101;
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar button wrapper */
+.avatarButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarButton:hover {
+  opacity: 0.9;
+}
+
+.avatarButton:active {
+  opacity: 0.8;
+}
+
+/* Header title - only visible when scrolled */
+.headerTitle {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  right: 60px;
+  height: calc(32px + 32px); /* Match header height for vertical centering */
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.headerTitle.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Action button - visible when not scrolled at top right */
+.actionButton {
+  position: fixed;
+  top: 0;
+  right: 0; /* Start at edge, use padding for spacing */
+  height: calc(32px + 32px); /* Match header height for vertical centering */
+  padding-right: 32px; /* Double the spacing from the right edge */
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
+}
+
+.actionButton.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Search button - only visible when scrolled */
+.searchButton {
+  position: fixed;
+  top: 0;
+  right: 0; /* Start at edge, use padding for spacing */
+  height: calc(32px + 32px); /* Match header height for vertical centering */
+  padding-right: 32px; /* Match action button spacing */
+  z-index: 101;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colorActionPrimaryFg;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.searchButton.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.searchButton:hover {
+  opacity: 0.8 !important;
+}
+
+.searchButton:active {
+  opacity: 0.6 !important;
+}

@@ -1,0 +1,15 @@
+/**
+ * Match canva.com's section heading weight.
+ *
+ * The npm-published @canva/easel ships a compiled styles.css that sets
+ * font-weight: 700 on Title sizes large/medium/small. The Canva monorepo
+ * (which renders canva.com) uses typographyTitle{Large,Medium,Small}FontWeight,
+ * all of which resolve to fontWeight600. That makes the prototype's section
+ * titles render a full weight step heavier than the real thing.
+ *
+ * !important is needed because the Easel-applied class (e.g. _7ATl0g) has
+ * the same specificity as this one; load order can't be relied on.
+ */
+.weight {
+  font-weight: 600 !important;
+}

@@ -1,0 +1,191 @@
+@value baseUnit from '@canva/easel/legacy_tokens:Metrics';
+
+.banner {
+  position: relative;
+  z-index: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.banner.hasSearch.default,
+.banner.hasSearch.small,
+.banner.hasSearch.medium,
+.banner.hasSearch.large {
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 calc(baseUnit * 2);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay.alignStart {
+  width: 50%;
+  padding-left: calc(baseUnit * 3);
+  align-items: flex-start;
+}
+
+.overlay.alignBottomStart {
+  padding-left: calc(baseUnit * 2);
+  padding-bottom: calc(baseUnit * 2);
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.title,
+.subtitle {
+  color: white;
+  max-width: 100%;
+}
+
+.subtitle {
+  margin-top: calc(baseUnit * 2);
+}
+
+.badge {
+  margin-bottom: calc(baseUnit * 0.5);
+}
+
+.searchBar {
+  width: calc(baseUnit * 75);
+  max-width: 100%;
+}
+
+.credit {
+  position: absolute;
+  width: 100%;
+  bottom: calc(baseUnit * 2);
+  color: white;
+}
+
+.actions {
+  position: absolute;
+  top: calc(baseUnit * 2);
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.actionItem {
+  height: calc(baseUnit * 6);
+  margin-right: baseUnit;
+}
+
+.actionItem:last-child {
+  margin-right: calc(baseUnit * 2);
+}
+
+/* SPLIT BANNER */
+.split.banner.default {
+  height: calc(baseUnit * 20);
+}
+
+.split.banner.small,
+.split.banner.medium,
+.split.banner.large {
+  height: calc(baseUnit * 24);
+}
+
+.split.banner .title,
+.split.banner .subtitle {
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.split.banner .subtitle {
+  max-width: 50%;
+  display: inline-block;
+}
+
+/* TABS SELECTOR BANNER */
+.tabsSelector {
+  composes: split;
+}
+
+.tabsSelector.banner .overlay {
+  justify-content: start;
+}
+
+.tabsSelector.banner.default {
+  height: calc(baseUnit * 13);
+}
+
+.tabsSelector.banner.small.hasSearch,
+.tabsSelector.banner.medium.hasSearch,
+.tabsSelector.banner.large.hasSearch {
+  height: calc(baseUnit * 31);
+}
+
+.tabsSelector.banner .title,
+.tabsSelector.banner .searchBar {
+  margin-top: calc(baseUnit * 3);
+}
+
+/* HERO BANNER */
+.hero.banner.default {
+  height: auto;
+}
+
+.hero.banner.small {
+  height: calc(baseUnit * 40);
+}
+
+.hero.banner.medium {
+  height: calc(baseUnit * 43);
+}
+
+.hero.banner.large {
+  height: calc(baseUnit * 50);
+}
+
+.hero.banner .subtitle {
+  max-width: calc(baseUnit * 75);
+}
+
+.hero.banner .title {
+  margin-bottom: calc(baseUnit * 4);
+}
+
+.hero.banner.default .overlay {
+  height: auto;
+  padding: calc(baseUnit * 4) calc(baseUnit * 2);
+}
+
+.hero.banner.default .title {
+  margin-bottom: 0;
+}
+
+.hero.banner.default .subtitle.withCredit {
+  margin-bottom: calc(baseUnit * 2);
+}
+
+.hero.banner.small .overlay {
+  height: calc(baseUnit * 40);
+}
+
+.hero.banner.medium .overlay {
+  height: calc(baseUnit * 43);
+}
+
+.hero.banner.large .overlay {
+  height: calc(baseUnit * 50);
+}

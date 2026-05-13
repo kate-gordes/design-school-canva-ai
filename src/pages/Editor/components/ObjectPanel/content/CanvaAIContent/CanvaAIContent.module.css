@@ -1,0 +1,30 @@
+@value colorPage from '@canva/easel/legacy_tokens:ThemeColors';
+
+.container {
+  justify-content: space-between;
+  height: calc(100vh - 57px - 32px);
+}
+
+.titleArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.gradientTitle {
+  background-image: linear-gradient(to bottom right in srgb, #00c4cc, #5a32fa, #7d2ae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0px 0px 4px colorPage);
+  font-weight: 500;
+  letter-spacing: -1px;
+  font-size: 24px;
+}
+
+.wonderboxArea {
+  flex-shrink: 0;
+  padding-bottom: 8px;
+}

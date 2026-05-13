@@ -1,0 +1,20 @@
+/*
+ * Easel escape hatch.
+ *
+ * Easel `Box` only accepts layout tokens / "full" for width/height — it has
+ * no fixed-pixel `height` prop. The Easel `Placeholder` primitive (which
+ * provides the gradient + shimmer) measures its parent box, so we wrap each
+ * one in a raw <div> sized to the same height as the real Design School
+ * compact list cards (~72px, matching the Figma reference card size). The
+ * skeleton stack therefore reserves the same vertical space the rendered
+ * cards will occupy, so the loading → loaded swap doesn't reflow content.
+ *
+ * Same wrapping pattern as `src/shared_components/SkeletonCards/index.tsx`.
+ */
+
+.skeleton {
+  width: 100%;
+  height: 72px;
+  border-radius: 12px;
+  overflow: hidden;
+}

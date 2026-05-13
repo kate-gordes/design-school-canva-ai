@@ -1,0 +1,71 @@
+.placeholderContainer {
+  width: 100%;
+}
+
+.templateImage {
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.templateImageContain {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  background-color: #f3f4f6;
+  border: none;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.cardWrapper {
+  position: relative;
+}
+
+.proBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+}
+
+.itemWithLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.itemLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(15, 16, 21);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.carouselArrowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border-low-emphasis, #d0d5dd);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--color-text-default, #0f1015);
+  transition: background 0.15s ease;
+  align-self: center;
+}
+
+.carouselArrowButton:hover {
+  background: var(--color-bg-neutral-hover, rgba(0, 0, 0, 0.06));
+}

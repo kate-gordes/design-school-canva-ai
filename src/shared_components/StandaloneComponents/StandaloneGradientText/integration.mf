@@ -1,0 +1,297 @@
+# Standalone Gradient Text Integration Manifest
+# Version: 1.0.0
+# Created: 2024
+# Description: Instructions for integrating the standalone gradient text component into any React project
+
+## OVERVIEW
+This manifest provides step-by-step instructions for integrating the Standalone Gradient Text component into your React project. The component creates beautiful gradient text effects with zero external dependencies.
+
+## REQUIREMENTS
+- React 16.8+ (hooks support)
+- TypeScript 4.0+ (optional but recommended)
+- Modern browser with CSS background-clip support (fallbacks included)
+
+## FILES TO COPY
+Copy these 2 files to your project:
+
+```
+src/components/StandaloneGradientText/
+├── index.tsx          # Main component (REQUIRED)
+└── styles.css         # Styling (REQUIRED)
+```
+
+Optional files for reference:
+```
+├── demo.tsx          # Usage example
+├── README.md         # Documentation
+└── integration.mf    # This file
+```
+
+## INSTALLATION STEPS
+
+### Step 1: Create Directory
+Create the component directory in your project:
+```bash
+mkdir -p src/components/StandaloneGradientText
+```
+
+### Step 2: Copy Files
+Copy the required files:
+- `index.tsx` → `src/components/StandaloneGradientText/index.tsx`
+- `styles.css` → `src/components/StandaloneGradientText/styles.css`
+
+### Step 3: Verify File Structure
+Your project should now have:
+```
+your-project/
+├── src/
+│   └── components/
+│       └── StandaloneGradientText/
+│           ├── index.tsx
+│           └── styles.css
+└── package.json
+```
+
+## USAGE
+
+### Basic Implementation
+```tsx
+// 1. Import the component
+import StandaloneGradientText from './components/StandaloneGradientText';
+
+// 2. Use the component
+<StandaloneGradientText size="xlarge" alignment="center">
+  Beautiful Gradient Text
+</StandaloneGradientText>
+```
+
+### Complete Example
+```tsx
+import React from 'react';
+import StandaloneGradientText from './components/StandaloneGradientText';
+
+function MyComponent() {
+  return (
+    <div>
+      <StandaloneGradientText 
+        size="xlarge"
+        alignment="center"
+        tagName="h1"
+        variant="default"
+      >
+        Welcome to Our Platform
+      </StandaloneGradientText>
+      
+      <StandaloneGradientText 
+        size="large"
+        alignment="left"
+        tagName="h2"
+      >
+        Subheading Text
+      </StandaloneGradientText>
+    </div>
+  );
+}
+
+export default MyComponent;
+```
+
+## PROPS REFERENCE
+
+| Prop        | Type                                           | Required | Default     | Description                    |
+| ----------- | ---------------------------------------------- | -------- | ----------- | ------------------------------ |
+| `children`  | `React.ReactNode`                              | Yes      | -           | The text content to display    |
+| `size`      | `'small' \| 'medium' \| 'large' \| 'xlarge'`   | No       | `'xlarge'`  | Text size variant             |
+| `variant`   | `'default' \| 'mobile'`                        | No       | `'default'` | Layout variant                |
+| `tagName`   | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6' \| 'span' \| 'div'` | No | `'h1'` | HTML tag to render |
+| `alignment` | `'left' \| 'center' \| 'right'`                | No       | `'center'`  | Text alignment                |
+| `className` | `string`                                       | No       | `''`        | Additional CSS classes        |
+
+## CUSTOMIZATION
+
+### Gradient Colors
+Override the gradient in your global CSS:
+```css
+.gradient-text {
+  background-image: linear-gradient(to bottom right, #ff6b6b, #4ecdc4, #45b7d1);
+}
+```
+
+### Typography
+Customize font properties:
+```css
+.gradient-text {
+  font-family: 'Your Font', sans-serif;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+```
+
+### Size Variants
+Override specific sizes:
+```css
+.gradient-text--xlarge {
+  font-size: 48px;
+  line-height: 52px;
+}
+
+.gradient-text--large {
+  font-size: 36px;
+  line-height: 40px;
+}
+```
+
+### Drop Shadow
+Modify the shadow effect:
+```css
+.gradient-text {
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3));
+}
+```
+
+## TESTING
+
+### Quick Test
+1. Add the component to a page
+2. Verify gradient appears correctly
+3. Test different size variants
+4. Check responsive behavior on mobile
+5. Test in different browsers
+
+### Integration Checklist
+- [ ] Files copied correctly
+- [ ] Component imports without errors
+- [ ] Gradient text displays properly
+- [ ] All size variants work
+- [ ] Alignment options work
+- [ ] Responsive design works on mobile
+- [ ] Fallback works in older browsers
+- [ ] No console errors
+
+## TROUBLESHOOTING
+
+### Common Issues
+
+**Import Error:**
+```
+Module not found: Can't resolve './components/StandaloneGradientText'
+```
+- Solution: Check file paths and ensure `index.tsx` exists
+
+**No Gradient Visible:**
+```
+Text appears as normal text without gradient
+```
+- Solution: Ensure `styles.css` is imported in `index.tsx`
+- Check browser support for `background-clip: text`
+
+**TypeScript Errors:**
+```
+Property 'size' does not exist on type...
+```
+- Solution: Check prop names match the interface exactly
+
+**Gradient Not Showing in Safari:**
+```
+Gradient works in Chrome but not Safari
+```
+- Solution: Ensure `-webkit-background-clip: text` is included (it is by default)
+
+**Text Too Large on Mobile:**
+```
+Text doesn't scale properly on mobile devices
+```
+- Solution: Use the `variant="mobile"` prop or check responsive CSS
+
+## BROWSER SUPPORT
+- Chrome/Edge 88+ (full gradient support)
+- Firefox 78+ (full gradient support)  
+- Safari 14+ (full gradient support)
+- Older browsers (automatic fallback to solid color)
+
+## PERFORMANCE NOTES
+- Component uses CSS gradients (GPU accelerated)
+- No JavaScript animations or runtime calculations
+- Total bundle size: ~2KB (gzipped: ~800B)
+- Automatic browser fallbacks included
+
+## MIGRATION FROM EASEL
+If replacing an Easel-based GradientText:
+
+1. Remove Easel imports:
+   ```tsx
+   // Remove this
+   import { Title } from '@canva/easel';
+   ```
+
+2. Update component usage:
+   ```tsx
+   // Old (Easel)
+   <Title size="xlarge" className={styles.gradientText}>
+     Text
+   </Title>
+   
+   // New (Standalone)
+   <StandaloneGradientText size="xlarge">
+     Text
+   </StandaloneGradientText>
+   ```
+
+3. Remove Easel token imports from CSS files:
+   ```css
+   /* Remove this */
+   @value colorPage from '@canva/easel/tokens:ThemeColors';
+   ```
+
+4. Update CSS references:
+   ```css
+   /* Old */
+   filter: drop-shadow(0px 0px 4px colorPage);
+   
+   /* New */
+   filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.1));
+   ```
+
+## EXAMPLES
+
+### Hero Section
+```tsx
+<StandaloneGradientText size="xlarge" tagName="h1">
+  Transform Your Ideas Into Reality
+</StandaloneGradientText>
+```
+
+### Feature Highlight
+```tsx
+<StandaloneGradientText size="large" alignment="left" tagName="h2">
+  Powerful Features
+</StandaloneGradientText>
+```
+
+### Call to Action
+```tsx
+<StandaloneGradientText size="medium" tagName="span">
+  Get Started Today
+</StandaloneGradientText>
+```
+
+### Mobile Optimized
+```tsx
+<StandaloneGradientText variant="mobile" size="xlarge">
+  Mobile-First Design
+</StandaloneGradientText>
+```
+
+## SUPPORT
+For issues or questions:
+1. Check the README.md file
+2. Review the demo.tsx example
+3. Verify browser compatibility
+4. Test in a clean React project first
+
+## VERSION HISTORY
+- v1.0.0: Initial release with full feature parity to Easel version
+
+---
+END OF MANIFEST
+

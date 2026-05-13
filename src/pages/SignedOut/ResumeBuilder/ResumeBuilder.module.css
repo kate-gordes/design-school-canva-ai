@@ -1,0 +1,30 @@
+@value space800 from "@canva/easel/legacy_tokens:ThemeColors";
+@value baseUnit from "@canva/easel/legacy_tokens:Metrics";
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.content {
+  max-width: calc(baseUnit * 200);
+  width: 100%;
+  padding: space800;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(baseUnit * 40);
+  margin: 0 auto;
+}

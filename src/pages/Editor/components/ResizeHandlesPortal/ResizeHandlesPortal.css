@@ -1,0 +1,108 @@
+/* Resize handles portal - rendered outside canvas to prevent clipping */
+/* z-index: 50 keeps handles on canvas but behind mobile AI panel (200) and navbar (300) */
+.resize-handles-portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50 !important;
+  pointer-events: none;
+}
+
+/* Corner resize handles */
+.resize-handle-portal {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow:
+    0 0 4px 1px rgba(57, 76, 96, 0.15),
+    0 0 0 1px rgba(43, 59, 74, 0.3);
+  user-select: none;
+  transition:
+    background-color 120ms ease,
+    box-shadow 120ms ease;
+  z-index: 51 !important;
+}
+
+.resize-handle-portal:hover {
+  background-color: #8b3dff;
+}
+
+.resize-handle-portal.corner {
+  border-radius: 50%;
+}
+
+.resize-handle-portal.side {
+  border-radius: 3px;
+}
+
+/* Rotation handle */
+.rotate-handle-portal {
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  z-index: 51 !important;
+  user-select: none;
+}
+
+.rotate-handle-portal::after {
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 2v6h-6'%3E%3C/path%3E%3Cpath d='M3 12a9 9 0 0 1 15-6.7L21 8'%3E%3C/path%3E%3Cpath d='M3 22v-6h6'%3E%3C/path%3E%3Cpath d='M21 12a9 9 0 0 1-15 6.7L3 16'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rotate-handle-portal:hover {
+  background-color: #8b3dff;
+  border-color: #8b3dff;
+  transform: scale(1.05);
+}
+
+.rotate-handle-portal:hover::after {
+  filter: brightness(0) invert(1);
+}
+
+/* Mobile touch targets - larger hit areas for touch devices */
+@media (pointer: coarse) {
+  .resize-handle-portal {
+    /* Disable hover effects on touch */
+    transition: none;
+  }
+
+  .resize-handle-portal:hover {
+    background-color: white;
+  }
+
+  /* Larger touch targets using ::before pseudo-element */
+  .resize-handle-portal::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    /* Transparent but captures touch events */
+    background: transparent;
+  }
+
+  .resize-handle-portal.corner::before {
+    border-radius: 50%;
+  }
+
+  .resize-handle-portal.side::before {
+    /* Extend touch target for side handles */
+    width: 60px;
+    height: 44px;
+  }
+}

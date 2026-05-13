@@ -1,0 +1,76 @@
+/* Standard Easel border color */
+
+.startIcon {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.searchInputMenu {
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  /* Remove any purple/focus borders from the entire container */
+  outline: none !important;
+}
+
+/* Remove focus styling from TextInput within searchInputMenu */
+.searchInputMenu input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus styling from all child elements */
+.searchInputMenu *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Specifically target Easel TextInput focus states */
+.searchInputMenu div:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.inputContainerWithContent {
+  background-color: transparent;
+  z-index: 2;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  /* Remove ALL borders when popover is active */
+  border: none !important;
+  /* Remove any focus styling that creates purple border */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Remove border from container - only TextInput should have border */
+}
+
+.attached {
+  top: 0;
+  padding-top: 40px;
+  /* Height of input */
+}
+
+.content {
+  /* iOS safari requires child elements of absolutely positioned parents to be explicitly
+   * relatively positioned in order to avoid problems with z-index.
+   */
+  position: relative;
+  border-top: none;
+  /* Remove border-top since input will have border-bottom */
+}
+
+.keyboardHints {
+  background-color: rgba(53, 71, 90, 0.02);
+}

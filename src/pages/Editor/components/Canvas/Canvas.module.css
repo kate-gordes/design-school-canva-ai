@@ -1,0 +1,191 @@
+@value colorSurface, colorPrimary, colorTypographyPrimary from '@canva/easel/legacy_tokens:ThemeColors';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+}
+
+/* Measured from canva.com editor canvas — a single soft layer.
+   Applied to the outer wrapper because the direct parent has
+   overflow:hidden and is sized exactly to the scaled canvas. */
+:global([data-canvas-wrapper]) {
+  box-shadow: 0 4px 32px -14px rgba(64, 87, 109, 0.3);
+}
+
+.wrapperShrink {
+  width: auto;
+  height: auto;
+  background: transparent;
+  display: flex;
+}
+
+.centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.topLeft {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.canvas {
+  /* Size is controlled by inline width/height and scaled via transform */
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  flex: 0 0 auto; /* prevent flexbox from shrinking the canvas */
+  aspect-ratio: 16 / 9; /* keep intrinsic proportion even if something tries to size it */
+  position: relative;
+  overflow: hidden;
+  background: colorSurface;
+  /* border: 2px solid transparent; */
+  border-radius: 0; /* default for presentations */
+  cursor: pointer;
+  transition: none;
+  will-change: transform;
+  /* No z-index - let Easel's layer system handle stacking naturally */
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+/* Selection border is rendered via .selectionRing overlay to avoid scaling */
+.canvas.hovered {
+}
+.canvas.active {
+}
+
+.canvas[data-theme='dark'] {
+  background: colorSurface;
+}
+
+.pageText {
+  font-size: 150px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+.pageControls {
+  color: colorTypographyPrimary;
+}
+
+.contentArea {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.draggableText {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
+}
+.draggableText.selected {
+  outline: 2px solid #7b61ff;
+  outline-offset: 6px;
+}
+.dragHandle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border: 2px solid #c9c9ce;
+  border-radius: 50%;
+}
+.dragHandle.tl {
+  top: -12px;
+  left: -12px;
+}
+.dragHandle.tr {
+  top: -12px;
+  right: -12px;
+}
+.dragHandle.bl {
+  bottom: -12px;
+  left: -12px;
+}
+.dragHandle.br {
+  bottom: -12px;
+  right: -12px;
+}
+.draggableText {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  transform: translate(-50%, -50%);
+}
+
+/* Unscaled selection ring overlay */
+.selectionRing {
+  position: absolute;
+  inset: 0;
+  /* keep constant thickness by compensating for scale via CSS var */
+  border-width: calc(2px / var(--canvasScale, 1));
+  border-style: solid;
+  border-color: transparent;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.selectionRing.hovered,
+.selectionRing.active {
+  border-color: #8b3dff;
+}
+.selectionRing.aiEditing {
+  border-color: #8b3dff;
+}
+
+/* Continuous mode: outer page frame (scales to content; dynamic width/height inline). */
+.continuousPageFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Thumbnail mode: outer wrapper frame (centered by default; dynamic width/height inline). */
+.thumbFrameCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Thumbnail mode: outer wrapper frame (top-left variant; dynamic width/height inline). */
+.thumbFrameTopLeft {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Elements layer - contains all signal-based elements */
+.elementsLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.elementsLayer > * {
+  pointer-events: auto;
+}
+
+/* Ensure nested elements inherit desired color */
+.pageControls :global(button) {
+  color: colorTypographyPrimary !important;
+}
+.pageControls :global(svg) {
+  color: colorTypographyPrimary !important;
+  fill: colorTypographyPrimary !important;
+}

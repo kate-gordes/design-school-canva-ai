@@ -1,0 +1,11 @@
+/* Styles for LogoAssetsSection component */
+
+.alertContainer {
+  margin-bottom: 16px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to bottom right, #00c4cc, #8b3dff) 1;
+}
+
+.alert {
+  background-color: #f6f7f8;
+}

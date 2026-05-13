@@ -1,0 +1,42 @@
+/* Local scroll container so only content below search scrolls */
+.scrollArea {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0; /* allow flex child to shrink and scroll */
+  scrollbar-width: none; /* Firefox: hide by default */
+}
+
+/* Hide scrollbar by default (WebKit) */
+.scrollArea::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Show scrollbar when hovering over scrollable area */
+.scrollArea:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollArea:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.scrollDivider {
+  position: sticky;
+  top: 0;
+  height: 1px;
+  background: rgba(57, 76, 96, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}

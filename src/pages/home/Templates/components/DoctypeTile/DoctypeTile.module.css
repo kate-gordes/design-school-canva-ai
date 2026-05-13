@@ -1,0 +1,65 @@
+.tile {
+  width: 225px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.tileContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.arrowCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tileImage {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.portraitContainer {
+  right: 8px;
+  top: 0;
+  width: 112px;
+}
+
+.landscapeContainer {
+  right: -34px;
+  top: 0;
+  width: 135px;
+}
+
+.image {
+  transition: transform 0.3s ease;
+  width: 100%;
+  transform: rotate(5deg);
+}
+
+.tile:hover .image {
+  transform: rotate(0deg) scale(1.1);
+}
